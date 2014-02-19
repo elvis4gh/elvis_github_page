@@ -47,6 +47,9 @@
 </tbody>
 </table>
 <p>{{ page.title }}</p>
+<p>{% for post in site.posts %}</p>
+<p>{{ post.date|date_to_string }} <a href='{ site.baseurl }{ post.url }'>{{ post.title }}</a></p>
+<p>{% endfor %}</p>
 
 <!--Baidu tongji-->
 <script>

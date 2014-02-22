@@ -11,7 +11,7 @@ all:$(HTML)
 
 # 每个html的编译规则
 %.html:%.html.mkd  pageframe/header.html pageframe/footer.html pageframe/footer_statistic.html makefile utils/pandoctpl.html utils/mkdtohtml.sh
-	@echo "\033[32mMaking $@\033[0m"
+	@echo "-- Making $@ --"
 	@utils/mkdtohtml.sh $< $@ utils/pandoctpl.html
 
 # 检查无效链接

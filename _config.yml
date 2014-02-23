@@ -1,6 +1,6 @@
 markdown: rdiscount
 permalink: /:title/
-url: "http://elvis4gh.github.com/elvis_github_page"
+baseurl: "http://elvis4gh.github.com/elvis_github_page"
 name: Elvis Chen
 author: Elvis 
 qq: 84880143 

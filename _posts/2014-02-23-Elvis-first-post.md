@@ -2,7 +2,7 @@
 date: 2014-02-20 20:30:17+00:00
 layout: post
 title: 'Elvis Jekyll博客搭建成功，值得庆祝！'
-baseurl: site.baseurl
+baseurl: "http://elvis4gh.github.com/elvis_github_page"
 categories: 文档
 tags: water 
 ---

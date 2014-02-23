@@ -1,6 +1,7 @@
 markdown: rdiscount
 permalink: /:title/
-url: http://yonsm.net
+#url: http://yonsm.net
+baseurl: /elvis_github_page
 name: Elvis Chen
 author: Elvis 
 qq: 84880143 

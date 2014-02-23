@@ -1,3 +1,3 @@
 #/bin/bash
-jekyll serve --watch --baseurl=http://localhost:4000
+jekyll server baseurl=http://localhost:4000
 

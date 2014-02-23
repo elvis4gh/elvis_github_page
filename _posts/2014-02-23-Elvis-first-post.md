@@ -1,7 +1,8 @@
 ---
-date: 2014-02-12 20:30:17+00:00
+date: 2014-02-20 20:30:17+00:00
 layout: post
 title: 'Elvis Jekyll博客搭建成功，值得庆祝！'
+baseurl: site.baseurl
 categories: 文档
 tags: water 
 ---

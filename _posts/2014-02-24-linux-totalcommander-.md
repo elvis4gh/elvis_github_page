@@ -1,8 +1,10 @@
 ---
+date: 2014-02-20 20:30:17+00:00
+baseurl: "http://elvis4gh.github.com/elvis_github_page"
 layout: post
 title: "寻找 Linux 的TotalCommander 替代品 "
-categories:
-tags: sde 
+categories: 文档
+tags: centos sde 
 - 
 - 
 ---

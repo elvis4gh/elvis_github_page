@@ -7,6 +7,8 @@ categories: 文档
 tags: water 
 ---
 
+这里不谈时政，不谈风月，不谈人事，只谈技术。
+
 建blog心路历程：
 
 - 参照 markdown + Jekyll + Github + vimwiki  的思路见好了一个github page

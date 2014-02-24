@@ -4,7 +4,7 @@ baseurl: "http://elvis4gh.github.com/elvis_github_page"
 layout: post
 title: '寻找 Linux 的TotalCommander 替代品'
 categories: 文档
-tags: centos sde 
+tags: centos sde gnome-commander
 ---
 
 

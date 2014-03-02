@@ -2,6 +2,12 @@
 title: Hello, Welcome to Elvis's Blog
 ---
 
+#Elvis's Wiki
+
+纵向 - 个人素质模型： [AbilityList](AbilityList.html)
+
+横向 - Elvis's life style  
+
 ## 目录 list：
 + [第一部分 GitHub 讲堂](#partI)
 	+ [为什么在GitHub上托管个人博客](#001)

@@ -1,0 +1,887 @@
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="../style.css" />
+<title>WeeklyReport</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<p>
+Elvis Chen's Weekly Report
+</p>
+
+<p>
+Hi all, 
+   Here are my weekly report.  Thanks for reading.    
+</p>
+
+<h1 id="toc_1">Summary</h1>
+
+<h1 id="toc_2">Urgent</h1>
+<p>
+   RLT server setup
+   Licensing - 
+   虚拟机 mediawiki ---- Thomas
+</p>
+
+<h2 id="toc_2.1">AEC project</h2>
+<p>
+Please make sure you send me your work summary by end of this week. It can be any format you like but I expect the content is:
+</p>
+
+<p>
+Project # 
+   EEGS1.1, 2.0, 3.0
+</p>
+   
+<p>
+CR # (fixed or raised) Raised 23 CR: 
+   Q04020107	EEGS 2.0 AEC CPR: AEC has alarm "One or more logical interfaces are locked" during CPR signaling capacity testing
+	Q04020109	EEGS 2.0 AEC CPR: PDS calls seemed not be released timely during CPR signaling capacity testing in the release phase
+	Q04020112	EEGS 2.0 AEC CPR: Connection OM can not reduce to zero after all calls dropped in CMUST during CPR signaling capacity testing after the release phase complete
+	Q04020311	2.0 G: A00029366: CMUST: enhance CMUST tools for EEGS2.0 support CSSHO (Connection Setup with SHO)
+	Q04020310	2.0 G: A00029366: CMUST: enhance CMUST tools for EEGS2.0 A13 Dormant Handoff
+	Q04020312	2.0 G: A00029366: CMUST: enhance CMUST tools for EEGS2.0 NLB (Network Load Balancing)
+	Q04016407	EEGS 1.1 AEC CPR: Some CMUST homed DOM drop when RSPB swact multiple times
+	Q04020101	2.0G: EEGS 2.0 AEC CPR: AEC has alarm "Memory usage Report" during CPR signaling capacity testing
+	Q04021194	2.0G: A00029366: R: all the connection dropped during 1-shelf 48 hours soak when SMP-RCP/RCP-SMP Keep-Alive Alarm happened
+	Q04021195	2.0G: A00029366: V: RSPB blade failed at 07-16T09:58 during 1-shelf 48h soak
+	Q04016780	Patch 1.1 AEC - EEGS 1.1 AEC CPR: OM in CMUST is less than AEC, SMP may still show some locked MPU's OM by command caldiscpptbl in Lock, unlock CPPB repeatedly Scenario
+	Q04016064	EEGS 1.1 AEC CPR: AMF issue when Swact DM multiple times with traffic
+	Q04020944	2.0G: A00029366: CMUST: RLP naked issue is still exists (for 1-shelf)
+	Q04021197	2.0G: A00029366: CMUST: the BHCA amount overloaded at 2 times (like 07/15 11:30, 13:45) during 1-shelf full soak 48hours
+	Q04021130	EEGS 2.0 AEC CPR: Exceed 100% CPU utilization due to OM (SM block) calculation error in error special cases (over 100% traffic offered)
+	Q04020948	2.0G: A00029366: R: callp related alarm "S-Connection Setup Failed Ratio" and "Revision A C-Connection Setup Failed Ratio"
+	Q04021976	2.0G: A00029366: R: the active OM was out-of-sync between cmust and AEC after 1-Shelf AEC lock active RSPB and reset NGW with active ctrl unit
+	Q04021977	2.0G: A00029366: R: Active PDS can not reach the target value after 1-Shelf AEC reset multiple CPPBs and lock active RSPB
+	Q04020577	EEGS 2.0 AEC CPR: Observed the specific CPPs (0-0-9-2 &amp; 0-0-10-1) CPU max
+	Q04020956	2.0G: A00029366: R: <a href="SHOAddFailureAEC.html">SHOAddFailureAEC</a> pegged during soak test
+	Q04020006	EEGS 2.0 AEC CPR: AEC has alarm "Active Connection Availability Alarm" during CPR signaling capacity testing
+	Q04020578	EEGS 2.0 AEC CPR: 100% CPU utilization of Core 0 in CPPs/RCP during signaling capacity test in CPR
+	Q04020582	EEGS 2.0 AEC CPR: Delete the duplicated % in the CSL debug command.
+</p>
+
+<p>
+TC # 
+   EEGS1.1 AEC CPR / S&amp;D test case - About half the CPR test case
+   EEGS2.0 AEC CPR test - About half the CPR test case
+   EEGS2.0 AEC PV 1-shelf full test support - ~20 cases run
+   EEGS2.0 NCB feature PT test support - Finished all the CMUST test case in the PT test. 
+   EEGS3.0 AEC CPR test 
+</p>
+   
+<p>
+SLOC #
+</p>
+<ul>
+<li>
+1000+ A12 bypass CM part.
+</li>
+</ul>
+<p>
+Detail of work 
+Proof of the good performance. 
+</p>
+   
+<h3 id="toc_2.1.1" class="justcenter">CPR test</h3>
+<h4 id="toc_2.1.1.1" class="justcenter">EEGS3.0 AEC CPR test</h4>
+   
+<h4 id="toc_2.1.1.2" class="justcenter">EEGS1.1 AEC CPR / S&amp;D test</h4>
+<h4 id="toc_2.1.1.3" class="justcenter">EEGS2.0 AEC CPR test</h4>
+<ul>
+<li>
+Play the role as 1.1 CPR Prime to organize the labshift, HC, review meeting etc.
+</li>
+<li>
+Setup the CPR environment 
+</li>
+<ul>
+<li>
+write the CPR test plan
+</li>
+<li>
+write the test case (test step, CMUST test script)
+</li>
+</ul>
+<li>
+Setup the CPR environment to run automatically 
+</li>
+<ul>
+<li>
+Enhance JSystem to test some CPR case automatically. (like: Jsystem enhance plan and implementation)
+</li>
+<li>
+Manage the AEC EEGS CPR Test Result Analyzer (like: OM files analyzer, KPI script, top/memory result analyzer)
+</li>
+</ul>
+<li>
+Run the CPR test case  
+      - 20+ cases run in 1.1, 40+ cases run in 2.0
+   - CR raised/followd-up/verified
+</li>
+</ul>
+         
+<h3 id="toc_2.1.2" class="justcenter">AEC feature</h3>
+<p>
+   EEGS3.0 ICIC feature
+</p>
+<ul>
+<li>
+write the CI test case 
+   EEGS3.0 IRAT feature
+</li>
+<li>
+write the CI test case 
+   EEGS2.0 A12 Bypass 200+ KLOC
+</li>
+<li>
+write the CM part code (to support ambiguous ANAAA server match)
+</li>
+</ul>
+    
+<h3 id="toc_2.1.3" class="justcenter">CMUST support</h3>
+   
+<h3 id="toc_2.1.4" class="justcenter">Genesis Project (CMUST team)</h3>
+<p>
+   enhance CMUST to meet the EEGS1.1 One-shelf level testing requirement. 
+</p>
+<ul>
+<li>
+to fix the ANAAA issue EEGS1.1 meet.
+</li>
+</ul>
+    
+ 
+<h3 id="toc_2.1.5" class="justcenter">support PV</h3>
+<h4 id="toc_2.1.5.1" class="justcenter">EEGS2.0 NCB feature PT test support</h4>
+<blockquote>
+Finished all the CMUST test case in the PT test. 
+</blockquote>
+         
+<h4 id="toc_2.1.5.2" class="justcenter">EEGS2.0 AEC PV 1-shelf full test support</h4>
+<ul>
+<li>
+~20 cases run
+</li>
+<li>
+8 CR raised/ followd-up/verified
+</li>
+</ul>
+   
+<p>
+   wk24 ~ wk29
+   Test 
+</p>
+<ul>
+<li>
+script generate
+</li>
+</ul>
+       
+<p>
+   Test Plan - Done
+</p>
+<ul>
+<li>
+follow up script ready plan ------ 
+</li>
+</ul>
+       
+<p>
+   Test Result - 
+</p>
+<ul>
+<li>
+result analyze
+</li>
+<ul>
+<li>
+upgrade the alarm log analyze script 
+</li>
+</ul>
+<li>
+send Report ( report template )
+</li>
+<li>
+upload QC status  --------- done
+</li>
+<li>
+upload log to ericoll 
+         a Ericoll site for EEGS2.0 AEC Soak. 
+         <a href="https://ericoll.internal.ericsson.com/SITES/EEGS2_SOAK_PV/default.aspx">https://ericoll.internal.ericsson.com/SITES/EEGS2_SOAK_PV/default.aspx</a>
+         please upload your KCI/soak test result to the Ericoll.
+</li>
+</ul>
+<blockquote>
+Documents -&gt; EEGS2.0 AEC KCI Soak test report -&gt; 1-shelf
+Documents -&gt; EEGS2.0 AEC KCI Soak test report -&gt; 3-shelf
+</blockquote>
+<blockquote>
+Make sure you'll use the naming rule as the following:
+&lt;AEC type&gt; &lt;KCI/Soak type&gt; &lt;Test Type&gt; report_&lt;Time&gt;.doc
+</blockquote>
+<blockquote>
+Example:
+1-shelf Session KCI report 20120715.doc
+3-shelf 8-hour Soak report 20120606.doc
+</blockquote>
+         
+
+   
+<h3 id="toc_2.1.6" class="justcenter">AEM WIS weekly host invitation.</h3>
+<p>
+   2012wk29 AEC overview(AEC operation, log collecting(like callp log))
+   Elvis: AEC session on "AEC operation and log collection".    
+</p>
+<blockquote>
+Draft the ppt [wk21]
+</blockquote>
+
+<h3 id="toc_2.1.7" class="justcenter">CPR</h3>
+<p>
+   Enhance the Jsystem keep-alive mechanism.     Done. [wk20.4]
+   Arrange a demo for log analysis tool.               [wk20.4]
+   Upload the 3 cases’ log for S&amp;D.              Done. [wk20.4]
+   Lab status detection and recovery.  --   this function will NOT cover change patch from 1.1 to 2.0 
+   Get the CPU/ memory log in the Jsystem
+   Keep dry run the 3 cases. Issue: Find Jsystem will be dead when there is a lot of logs. 
+   R1.1 CR verification. 
+   CPPB card level signaling test to explore the bottle neck: test higher call model. 
+</p>
+   
+
+<p>
+   Jsystem plan and implement [wk19]
+   Anny's PPT review - [wk12] 
+   labshift's detail report - [wk12]     
+   Jsystem's investigation report - [wk12]   
+   Draft the CPR test report!! - [wk11]
+   Draft the CPR test Plan     - [wk11]   
+</p>
+       
+<h3 id="toc_2.1.8" class="justcenter">CM</h3>
+<p>
+   code-go-through output and PPT precentation
+</p>
+<blockquote>
+path:
+Data Persistence and Abstraction—Elvis 
+/vob/siren/oam/config/dataservice/src
+Configuration CM Processes - DBASYNC
+/vob/siren/oam/config/gaps/dbasyncs
+code-go-through output:      
+</blockquote>
+<p>
+   Aec Configuration Management - c:\Users\eknoqry\Documents\<a href="MyWiki.html">MyWiki</a>\AEC\.<a href="AecConfigurationManagement.html">AecConfigurationManagement</a>.wiki.swp
+<h3 id="toc_2.1.9" class="justcenter">CR</h3>
+</p>
+   
+<p>
+   <a href="CrProcess.html">CrProcess</a> - Q04012486 (IDCE1009778) - Investigation - [wk08]    
+</p>
+   
+
+<h3 id="toc_2.1.10" class="justcenter">CMUST support</h3>
+<p>
+   Jimmy's request - collect the log? ask PV to grep some previous log.  - [wk12]
+   Auth issue during setup 902 dormant call- [wk12]
+</p>
+   
+<p>
+   help Cherry to setup a call -
+   help Aloe to setup a call -
+</p>
+   
+<h3 id="toc_2.1.11" class="justcenter">Training</h3>
+<ul>
+<li>
+Self-learning share session PM, CM session [wk01]
+</li>
+<li>
+Self-learning share session [wk51]
+</li>
+<li>
+kick off meeting [wk50]
+</li>
+</ul>
+
+<h2 id="toc_2.2"><a href="GenesisProject.html">GenesisProject</a></h2>
+<p>
+   CMUST receives Release_B2TC after Release_b2TC, CMUST sends out <a href="RelCmpl.html">RelCmpl</a>.
+<h3 id="toc_2.2.1" class="justcenter">test case configure</h3>
+</p>
+     
+<h3 id="toc_2.2.2" class="justcenter">xls file Issue checklist</h3>
+<p>
+   No.26 - OM peg not right for HRPD - Done. [wk51]
+   No.38 - Draw the OM big picutre - Done. [wk51]
+   No.28 - HRPD Call attempt did not stop based on our CMUST config, need use tsstop to stop the traffic. This issue only happened once.  
+</p>
+<blockquote>
+Can not reproduce. [pending]
+</blockquote>
+<p>
+   No.31 - [CMUST] - If first PDS setup failed, AT enter PDS_IDLE state, and will try PDS setup later, will keep retrying. Forecast: wk51.5 COB.
+</p>
+<blockquote>
+Finished the long-term solution coding and submitted. 
+Tested the solution and found the AEC's behavior is not expected. Transfer to Francis to continue investigating [wk51]
+</blockquote>
+<p>
+   No.35 - Do we need to peg OM DOMBTS_OM_HRPDSession_Setup_Fail in case if( pThreadInfo-&gt;m_chResendUatireqTimerReset == MAX_UAITREQ_RESEND ), in function determine_resendUATIReq
+</p>
+<blockquote>
+Fixed [wk51] 
+</blockquote>
+           
+<p>
+   No.45 - ?? Pending
+   No.30 - refer to no.26
+   No.41 - refer to no.26
+</p>
+   
+<h4 id="toc_2.2.2.1" class="justcenter">RTV:</h4>
+<p>
+   No.34 - If during connection is active (that is, within 16 sec call holding time during soaking), if CMUST receives release_b2tc, CMUST should enter dormant state and try D2A/A2D based on predefined timer. 
+</p>
+<blockquote>
+If CMUST receives release_b2tc, AT enter dormant state, and will try D2A as predefined timer.
+root cause: When AT received abnormal Release_B2TC message in active state, AEC would enter Dormant state by itself, 
+but CMUST would keep this state and generate AT/AN A2D, the AEC/CMUST state was not sync
+coding complete and 
+Find the <a href="RelCmpl.html">RelCmpl</a> message encode issue and fixed. [wk52]
+</blockquote>
+      
+   
+
+<h3 id="toc_2.2.3" class="justcenter">Knowledge Transfer</h3>
+<ul>
+<li>
+Draft the plan --------------------------- [wk52]
+</li>
+<li>
+Transfer the Genesis Work Items to Sunlit [wk50] 
+</li>
+</ul>
+    
+<h3 id="toc_2.2.4" class="justcenter">OM</h3>
+<ul>
+<li>
+Coordinate with peers about all the churn in OM. [wk52]
+</li>
+<li>
+
+</li>
+<li>
+Fixed the HRPD Session Attempt OM can not equal to the Success plus Failure issue [wk49]
+</li>
+<li>
+Refine the OM and submit with Abnormal code [wk47-48]
+</li>
+<li>
+Discuss the DOM packets OM implementation in the meeting [wk46]
+</li>
+<li>
+Refine the OM sheet and mail to Luke [wk44]
+</li>
+<li>
+Test the added OM. [wk44]
+</li>
+<li>
+Prepared the OM sheet. [wk44]
+</li>
+<li>
+Add/Modify the OM according to the logic, coding is finished, testing is on going [wk43]
+</li>
+<li>
+Review with the team by Email/on call and refine the OM logic according to the comment [wk43]
+</li>
+<li>
+Re-Summarize the OM information according to the review meeting comment [wk43]
+</li>
+<li>
+Have a meeting for OM review [wk42]
+</li>
+<li>
+Draft the OM group information spreadsheet for review [wk42]
+</li>
+<li>
+Fixed the Dormant OM issue. [wk42]
+</li>
+<li>
+Investigate the OM group implementation in DOMBTS. [wk42]
+</li>
+</ul>
+   
+<h3 id="toc_2.2.5" class="justcenter">Abnormal Scenario</h3>
+<ul>
+<li>
+to generate Logs for abnormal scenarios for it's not easy to observer the issues without Bad event tracking. (done) [wk49]
+</li>
+<li>
+Submit the code after review [wk47-48]
+</li>
+<li>
+Test the sanity case HRPD session with the abnormal code [wk46]
+</li>
+<li>
+Fix the OM issue caused by the latest abnormal design change [wk46]
+</li>
+<li>
+Change the design that after mobile change to PDS idle state, set a timer and tell do_manager to return PDS active or dormant after time out. [wk46]
+</li>
+<li>
+Hold the review meeting and modify the code accoding to the comment [wk46]
+</li>
+<li>
+Refine code by simplifying the abnormal SM to decrease 3 middle-checked state.  [wk44]
+</li>
+<li>
+Regenerate the abnormal code review package but I notice it missing some new version files.  [wk44]
+</li>
+<li>
+Retest the abnormal SM in other abnormal Scenario beside's sending <a href="ConnectionClose.html">ConnectionClose</a> after RNC received <a href="LocationComplete.html">LocationComplete</a> and work fine.  [wk44]
+</li>
+<li>
+Change the abnormal SM to handle the <a href="ConnectionClose.html">ConnectionClose</a> triggered abnormal scenarion which mobile switch to PDS idle and send <a href="SessionClose.html">SessionClose</a> and go idle finally.  [wk44]
+</li>
+<li>
+Handle the DOM_BHE_SEND_PACKET_DATA_COMPLETE bad event in above scenario. Retest and the bad-event disappeared. [wk44]
+</li>
+<li>
+Confrim with RNC team that the abnormal scenario's mobile final state and add <a href="SessionClose.html">SessionClose</a> callp accordingly[wk43]
+</li>
+<li>
+Refine the abnornal design and find the mobile final state is still needed to change when it goes to <a href="ConnectionClose.html">ConnectionClose</a> triggered scenario. [wk43]
+</li>
+<li>
+Generate the changed-code diff for review and send for review  [wk42]
+</li>
+<li>
+Add 2 more internal event to change the SM. [wk41] 
+</li>
+<li>
+Find the abnormal scenario design's side effect (which DOM always closes Session no matter the abnormal is triggered by <a href="ConnectionClose.html">ConnectionClose</a> or not ) and nail down the design solution [wk41]
+</li>
+<li>
+Add 4 OM for the abnormal scenario. [wk41]
+</li>
+<li>
+Find 1 other do_manager's BAD_EVENT and fixed with Phillip. [wk41] 
+</li>
+<li>
+Test and passed all the remain TC, including <a href="SessionClose.html">SessionClose</a> (TC) testcases and timeout test case in plan. [wk41]
+     For more in-depth information, please refer to xls file "TC " sheet. 
+</li>
+<li>
+Fixed all the 5 issues which generated during testing. [wk41]
+      1	BAD EVENT of <a href="SessionClose.html">SessionClose</a> after DOM sending <a href="SessionClose.html">SessionClose</a>; Can not go to cleanupresource state
+      2	BAD EVENT of <a href="DisconnectAck.html">DisconnectAck</a> after the callp is all done.
+      3	DOM can not received the <a href="SessionClose.html">SessionClose</a> (TC).
+      4	"RNC can not send the connectionClose after <a href="SessionClose.html">SessionClose</a>.  after sending <a href="SessionClose.html">SessionClose</a> (TC), rnc need to send <a href="ConnectionClose.html">ConnectionClose</a> ,  but the rnc do not ."
+      5	"RNC can not send the Release_B2TC after ConnectionClose_TC2S.  After rnc received ConnectionClose_TC2S and send to the state machine, it does not send the release_b2tc"
+</li>
+<li>
+Add scenario trigger code in RNC, Tested 10 scenarios, which callp is all trigger but run into other 3 issues (2 are bad event, 1 is <a href="SessionClose.html">SessionClose</a> (TC) decoding ). Tracing in the xls file. [wk39]
+</li>
+<li>
+Fixed the Release_B2TC issue, and retest the related Release_B2TC scenario [wk39]
+</li>
+<li>
+Consult the RNC team to confirm the <a href="SessionClose.html">SessionClose</a>(CC) callp and canceled some test case  [wk39]
+</li>
+<li>
+Review and Update the TC List with the latest ppt offer by RNC team [wk39]
+</li>
+<li>
+Make a TC List for the Scenarios [wk39]
+</li>
+<li>
+Scenario: received <a href="SessionClose.html">SessionClose</a> CC after RNC received Connreq [wk38]
+</li>
+<ul>
+<li>
+Modify the <a href="SessionClose.html">SessionClose</a> encode in RNC and DOM can received <a href="SessionClose.html">SessionClose</a> and hit the abnormal scenario handler process now [wk38]
+</li>
+</ul>
+<li>
+Scenario: Resend UATIRequest [wk38]
+</li>
+<ul>
+<li>
+Create a timer for resend UATIRequest and stop it prior to start timer DOMBTS_SETUP_HRPD_SESSION_TIMER [wk38]
+</li>
+<li>
+Create determine_resendUATIReq, dombts_rnc_resendUATIReq to handle resend UATIReq scenario. [wk38]
+</li>
+</ul>
+<li>
+Refine and submit the abnormal sm related handler, and commented the dombts.sm abnormal part to avoid impacting base functional testing [wk38]
+</li>
+<li>
+Refine the sm and submited [wk38]
+</li>
+<li>
+Rnc send <a href="SessionClose.html">SessionClose</a> (TC) Message function [wk37]
+</li>
+<li>
+Develop decoder to decode <a href="SessionClose.html">SessionClose</a> (FTC) Message [wk37]
+</li>
+<li>
+Neil down the dombts.sm abnormal part and submitted the event handler roughly. [wk37]
+</li>
+<li>
+the Abnormal Scenario DE [wk37]
+</li>
+<ul>
+<li>
+give the plan for the development (consider 70% efforts) [wk37]
+</li>
+<li>
+discuss with Francis for the testing and align the RNC function ready time [wk37]
+</li>
+<li>
+Draft the Abnormal Scenario DE [wk37]
+</li>
+</ul>
+<li>
+the Abnormal Scenario Investigate - Done
+</li>
+<ul>
+<li>
+Prepare for and hold the Abnormal Scenario design review meeting [wk37]
+</li>
+<li>
+Draft the State Machine and intergrate the design with Phillip' [wk36]
+</li>
+<li>
+Investigate the abnormal scenario, discussed with Phillip [wk34] 
+</li>
+</ul>
+</ul>
+      
+<h3 id="toc_2.2.6" class="justcenter">CMUST User Guide</h3>
+<ul>
+<li>
+Update the AAA part [wk49]
+</li>
+<li>
+Draft the userguide OM part [wk45.1]
+</li>
+<li>
+Review the user guide and comment [wk39]
+</li>
+<li>
+Merge the user guide with AAA part. [wk38]
+</li>
+</ul>
+
+<h3 id="toc_2.2.7" class="justcenter">Drop2 Testing support</h3>
+<ul>
+<li>
+Benchmark data for SUT test (Primes : Willy &amp; Elvis)
+</li>
+<ul>
+<li>
+Signal (met some issues and need a further investigation)
+</li>
+<li>
+Tput ( passed the 500M/14K PDS TC)
+</li>
+<li>
+Soaking (wrote the TC but haven’t tested it)
+</li>
+</ul>
+<li>
+Support Stephen to fix the Authentication issue about AAA server [wk45.1]
+</li>
+<li>
+Support Kamark to setup a AAA-server in LG CMUST Server. [wk44]
+</li>
+</ul>
+    
+<h3 id="toc_2.2.8" class="justcenter">Drop2 merge record review</h3>
+<ul>
+<li>
+Check my Drop1 changed code. 
+</li>
+<ul>
+<li>
+Check Kamark's chap issue, find the merge diff and going to test in rnc18. [wk37]
+</li>
+<li>
+submit the missing A12 switch code. [wk37]
+</li>
+</ul>
+<li>
+Create the merge record file [wk37]
+</li>
+</ul>
+    
+<h3 id="toc_2.2.9" class="justcenter">SHO / cell switch scenario</h3>
+<ul>
+<li>
+Review the SHO code [wk45]
+</li>
+<li>
+join the review meeting. [wk37]
+</li>
+</ul>
+    
+<h3 id="toc_2.2.10" class="justcenter">Drop2 interface's change</h3>
+<ul>
+<li>
+DOM homing testing: - [Kamark]
+</li>
+<ul>
+<li>
+Configure the CMUST-2 to test dom homing but block by the labshift. [wk35]
+</li>
+</ul>
+</ul>
+      
+<h3 id="toc_2.2.11" class="justcenter"><a href="SoftHandoff.html">SoftHandoff</a> and cell switch Design</h3>
+<ul>
+<li>
+join the review meeting [wk37]
+</li>
+</ul>
+   
+
+   
+<h3 id="toc_2.2.12" class="justcenter">PPP LCP CHAP</h3>
+<ul>
+<li>
+Drop2 single call testing:
+</li>
+<ul>
+<li>
+Handle the 2 ppp message in 1 FTC rlp payload's pppclient scenario in Drop2.  [wk35]
+        Modify the pppclient to no state.
+        Status: Passed the 2 ppp message handle procedure and blocked at the CHAP failure.
+           ( AAA does not receive the A12 sent from RNC. Dom received the CHAP failure after sending CHAP Rsp to RNC)
+</li>
+</ul>
+<li>
+Drop1 traffic testing:
+</li>
+<ul>
+<li>
+Fix the pppclient's CPU 100% occupation issue  [wk35] 
+        Fix the infinite loop issue and enhance pppclient to handle multiple ppp message in 1 RTC message.
+</li>
+<li>
+Handle the 3 ppp message in 1 FTC rlp payload's core dump scenario in Drop1.  [wk35]
+        Propagate the Drop2's no state pppclient code to Drop1 and pass the Drop1 loopback testing
+</li>
+</ul>
+<li>
+PPP server and roll back testing - Done
+        PPP server and RNC authentication code is tested and submited. 
+</li>
+<li>
+ppp server's state machine coding is finished. 
+</li>
+<li>
+submitted the PPP LCP, CHAP encode/decoder
+</li>
+<li>
+submitted the PPP client, PPP server part.
+     Implemented the PPP LCP resequence buffer.  Implemented the PPP Negotiation and CHAP Authentication state machine
+     I am working on the PPP client state machine to handle the FTC message reach in wrong sequence 
+     and gen the Nak message to DOM. The PPP client's state machine should be able to handle the NAK status too.      
+</li>
+</ul>
+           
+<h3 id="toc_2.2.13" class="justcenter">AN-AAA (<a href="FreeRADIUS.html">FreeRADIUS</a>)</h3>
+<ul>
+<li>
+AN-AAA issue impact Tput test – can’t read the configuration which caused the calls can’t be balanced distributed among multiple PDSNs. [wk49] 
+</li>
+<li>
+AAA submited in SVN discussion and submitted  [wk35]
+</li>
+<li>
+A12 implementation [wk34] - done
+</li>
+<li>
+Investigate and deal with the core dump issue cause by "7e 00 00 ..." LCP message with Kamark and Stephen - Done
+</li>
+<li>
+Test and measure the AN-AAA benchmark value of single AN-AAA APP. 
+</li>
+<ul>
+<li>
+Test the 100/s case and going to datafill more AT for another try.
+</li>
+<li>
+Install the <a href="MySQL.html">MySQL</a> in MTXRES with ANAAA database for <a href="FreeRADIUS.html">FreeRADIUS</a>-<a href="MySQL.html">MySQL</a> solution.
+        Insert the anaaa table into the <a href="MySQL.html">MySQL</a>. AAA server do not pre-install mysql package
+        which causes <a href="FreeRADIUS.html">FreeRADIUS</a> can run <a href="MySQL.html">MySQL</a> interface.  - Setup <a href="AaaServer.html">AaaServer</a>: <a href="FreeRADIUS.html">FreeRADIUS</a> 
+</li>
+</ul>
+<li>
+AAA to support User's datafill for PDSN number and IMSI first 6 digits. - Done.
+</li>
+<li>
+AAA Deployment - Done
+      ====Lab Depolyment====
+      Another AAA server's <a href="FreeRADIUS.html">FreeRADIUS</a> configuration run into trouble that perl module do not make rlm_perl.so . I am still following this issue.
+      Now, AAA configured in CMUST1 for PV testing.
+      2 AAA server deploy for PV - Done 
+           Fix the perl module and firewall issue and deploy another AAA server at 10.179.229.14 this week. 
+      AAA server tips for RNC team - Done 
+           Update the <a href="FreeRADIUS.html">FreeRADIUS</a> tips for RNC team to deploy AAA. And it seems their deploy seamless.
+</li>
+<li>
+AAA authentication failure sometimes when AAA server start-up for a long time. AN-AAA not stable issue fixing - Done
+        Exchanged the DOM's MD5 with AAA's. And now the failure phenomenon is varnished.
+</li>
+<li>
+Test to deploy multiple AN-AAA APP (per CMUST server and multiple CMUST servers) - Done
+        Test the multiple AN-AAA IP in RNC15 with eth0 / eth1's binding IP and the ANAAA
+        can handle the multiple IP listening.
+</li>
+</ul>
+        
+<h2 id="toc_2.3">BSC tools</h2>
+<h3 id="toc_2.3.1" class="justcenter">Finding an technical area to develop for each person in 2012</h3>
+<ul>
+<li>
+Raymond kick off[wk50] 
+</li>
+</ul>
+   
+<h3 id="toc_2.3.2" class="justcenter">BSC tools support</h3>
+<h4 id="toc_2.3.2.1" class="justcenter">1xAdvanced Testing support</h4>
+<ul>
+<li>
+Support Neaol on MAHHO 1xAdv regression testing, we discuss face-to-face for the regression test cases in detail. [wk43]
+</li>
+<li>
+Support Cyanpine's MCTA testing [wk43]
+</li>
+<li>
+Support Kriss for the MBE's MAHHO implementation enhance requirement [wk43]
+</li>
+<li>
+Support Neaol to setup the ebsc12 MBE mobile to mobile call. [wk41]
+</li>
+</ul>
+    
+<h4 id="toc_2.3.2.2" class="justcenter">Odlprs support</h4>
+<ul>
+<li>
+One Rel19 odlprs CR need to double-check the ECC component's log doesn't need odlprs to parse.  [wk45.1]
+     After investigation, it is in BTS domain and mail to confirm with BTS team. 
+     Odlprs CR <a href="http://flex.mo.ca.am.ericsson.se/quickcr?m=html&amp;id=Q02194802">http://flex.mo.ca.am.ericsson.se/quickcr?m=html&amp;id=Q02194802</a>    
+</li>
+</ul>
+     
+<ul>
+<li>
+Support Kelvin for the Odlprs CR's investigation [wk42]
+</li>
+</ul>
+
+<h1 id="toc_3">Important</h1>
+<h3 id="toc_3.0.1" class="justcenter">Creating my own IPM record</h3>
+<ul>
+<li>
+take about 1h [on-going] 
+   ===QMS Training ===
+</li>
+<li>
+Done
+   ===Communicate stuff - meeting===
+</li>
+</ul>
+   
+   
+<h1 id="toc_4">Next Step</h1>
+
+<hr />
+<p>
+Achievement record:
+<h1 id="toc_5">Urgent</h1>
+<h2 id="toc_5.1"><a href="GenesisProject.html">GenesisProject</a></h2>
+<h3 id="toc_5.1.1" class="justcenter">OM related investigation</h3>
+</p>
+
+<p>
+<a href="ReriskList.html">ReriskList</a>
+<a href="CrList.html">CrList</a> 
+<a href="SupportList.html">SupportList</a>
+<a href="FeatureList.html">FeatureList</a>
+</p>
+
+
+<p>
+GOALS - DESCRIPTION
+INDICATORS OF ACHIEVEMENT
+FINAL EVALUATION 
+</p>
+
+<hr />
+<p>
+<a href="OtherTmpNote.html">OtherTmpNote</a>
+</p>
+
+<h2 id="toc_5.2" class="justcenter">Project</h2>
+<blockquote>
+CMUST - <a href="GenesisProject.html">GenesisProject</a>
+AEC - c:\Users\eknoqry\Documents\<a href="MyWiki.html">MyWiki</a>\RNC.lnk
+</blockquote>
+<h2 id="toc_5.3" class="justcenter">Feature</h2>
+<ul>
+<li>
+<a href="FeatureList.html">FeatureList</a>
+   ==CR ==
+</li>
+<li>
+<a href="CrList.html">CrList</a> <a href="CrProcess.html">CrProcess</a> <a href="SubmissionAndSanityProcedure.html">SubmissionAndSanityProcedure</a>
+      ===Release ===
+      <a href="ReleaseManagement.html">ReleaseManagement</a> 
+</li>
+</ul>
+      
+<h2 id="toc_5.4" class="justcenter">Report</h2>
+<ul>
+<li>
+<a href="TextTemplate.html">TextTemplate</a> 
+   ==Support==
+</li>
+<li>
+<a href="SupportItems.html">SupportItems</a> 
+   ==Domain ==
+</li>
+<li>
+<a href="DomainList.html">DomainList</a>
+   == Test ==
+</li>
+<li>
+<a href="TestTips.html">TestTips</a> tips for different kinds of tests
+      ===CPR Test===
+      <a href="KpiKci.html">KpiKci</a>
+   ==Document ==
+</li>
+<li>
+<a href="DocumentRepository.html">DocumentRepository</a>
+</li>
+</ul>
+
+<p>
+   <a href="FAQ.html">FAQ</a> - <a href="FavoriteFileList.html">FavoriteFileList</a> 
+   <a href="ElvisDeltaLog.html">ElvisDeltaLog</a>
+</p>
+
+
+<p>
+Talent Management - a new concept within Ericsson and officially launched in January 2011. 
+   IPM (Individual Performance Management) Discussion
+   Talent Management is Ericsson’s way of working with performance and development from a people perspective. The concept is built upon two adjusted and updated existing processes: 
+   the Individual Performance Management process (IPM) 
+   the Leadership Talent Planning (LTP)  (previously known as Management Planning).
+</p>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+Top 10 Topic:
+   1. 软硬装备 - MyEquipment - [[labtop]] [[Mobile]] [[Car]]
+   2. 办公环境 - [[SDE]] 
+   3. 程序人生 - ProgrammingAbility - Expertise in more than one programming language
+   4. 商业运作 - BusinessAcumen 
+   5. 我的生活 - MyLife
+   6. 素质学堂 - AbilityList [[EQ]]
+   7. 省钱秘笈 - MoneyTips
+   8. 口语点滴 - EnglishOralSentences 
+   9. 行业新知 - BusinessAcumen
+   10 革命万岁 - 
+   ==ISP营运商==
+      [[中国电信]] [[网通]] [[铁通]] [[长城宽带]]
+      
+   ==电信设备商==
+   根据2010年各大电信设备商财报数据，华为以280亿美元的销售额坐实了全球“老二”之位
+      [[HuaWei]] [[ZTE]] [[Nortel]] [[Ericsson]] [[NSN]] [[Motorola]]
+      [[Nokia]]
+      [[Intel]]
+
+10 革命万岁 - 
+   DOSBox - DOSBox软件是当前在 Windows 系统运行 DOS 游戏的较为完美的解决方案，该软件不仅能支持相当多的游戏实现正常运行，而且能将声音完美表现出来。
+   开源 Win32/64 API 实现 Wine 发布 1.3.12 版本

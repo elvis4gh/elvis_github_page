@@ -1,0 +1,19 @@
+besides MyDailyRoutine
+
+action 
+- To Read Book 读书计划 - ToReadBookList 
+- 读周刊 - IT时代周刊；programmer；理财周刊；时尚健康等
+- video - 郎咸平、Obama 演讲、易中天、TED、american series!!
+- 运动 - 可操作的：跳绳
+   
+   社会活动 - 上面“宅”的都是为了目标的准备工作而已，下面要在生活中执行或是追求，或是享受。（budget有了，resource最好有一辆车）
+      找朋友 - 
+         options：
+            安排业内人士的午餐或活动
+      找亲戚
+            安排林俊、增雄的午餐或活动
+     
+
+- weekly report
+- weekly plan:
+ 

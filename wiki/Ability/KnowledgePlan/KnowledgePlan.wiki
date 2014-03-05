@@ -1,0 +1,47 @@
+了解 互联网领域 新知识: 4G / 3G / 云计算 / 物联网 / 动漫 / 大数据的各种应用 hadoop / 模式识别
+      
+NEW Ericsson Training List :
+   Hadoop Training 
+   Virtualization and Cloud
+   
+   移动互联网
+      终端软件开发
+         Advanced Android Development
+         iOS Development
+         Android Development
+         Mobile Game Development
+
+   CT
+      Ericsson User Data Consolidation (UDC) 12A Overview
+      Ericsson User Profile Gateway (UPG) 12A Overview
+      IMS Signalling
+      LTE
+         CDMA-LTE Interworking and Coexistence
+         LTE L13 Protocols and Procedures
+         LTE L13 Radio Network Functionality
+         LTE/SAE System Overview
+         EPG-M 2012A Operation and Configuration
+
+   软件工程管理
+      GIT Advanced Training
+      Kanban
+      Management 3.0
+      SW Leadership
+
+   前端开发
+      HTML5 Programming
+      
+   基础学科
+      IP Networking
+      Java Advanced
+      Java Basic
+      Linux Kernel Development
+      WTEAL
+      MySQL
+      Statistics
+      Oracle
+      ECP / ECE
+      JavaScript / Jquery
+      Erlang
+
+设计+软件生态系统+普及，这绝对是一个浩大的工程

@@ -1,0 +1,70 @@
+找问题，分析问题，总结问题，提出建议，发掘创新的能力
+
+如何丰富分析观察的角度 Are you a Vertical Thinker, Lateral Thinker
+
+涉及到设计思路的问题，就是说如何设计可以避免问题，如何健壮一点，
+
+如何设计容易跟踪、找出问题（root cause）：OM，log，alert、assert，二分法 加状态
+
+Beginner’s mind - We can't solve problems by using the same kind of thinking we used when we created them.
+
+只要找出问题的root cause，问题就解决了一半
+   找出root cause了，问题是effort太大了比如test的effort，比如模块间的coupling太强了，修改太多了，怎么办？
+   找work around。work around如何找？
+   找不出work around？
+
+看如何解决不了的问题：比如，房价如何降下来、癌症
+
+总结AEC的各种机制要解决的问题是：
+- keep alive ----> 健壮性 
+- redundent  ----> 健壮性 
+- overload   ----> NO/exhausted resource issue 
+- TCA        ----> NO/exhausted resource issue 
+- load-balance --> NO/exhausted resource issue 
+- OM         ----> 问题跟踪机制
+- log        ----> 问题跟踪机制
+   - callp log, csl, designlog, slgtrace, ucli-log
+
+
+ProblemSolvingProcess
+Are you a Vertical Thinker, Lateral Thinker
+
+1.Assess problem scenarios and formulate comprehensive action plans
+   A process that helps us clarify and assess the concerns/situations we face and break the complex situation into manageable portions
+   
+      Identify and clarify concerns: break complex concerns into manageable portions
+      Set priority: seriousness, urgency and growth
+      Plan next steps: determine analysis needed
+      Plan involvement: who does what and when
+
+2.Use QuestioningSkill to secure the right information
+   Collect data to enable an in-depth analysis for causes and solutions
+  DataCollection 
+  
+3.Identify and apply the critical steps in problem solving
+   Problem Solving Process
+      Step 1: Specify the problem
+         -	What are the clues of the problem DataCollection 
+         -	Identify the problem & specify with a clear statement of purpose – “Should” vs. “Is”
+      Step 2: Set the change objective
+      Step 3: Analyse the problem
+         Identify causes  - CauseEffectDiagram + BrainStorm 
+         Evaluate & confirm causes - ForceFieldAnalysis 
+      Step 4: Develop change strategy
+         •	Evaluate relative impact of driving forces and restraining forces
+         •	Select the 3 most significant forces from each side
+         •	Go to drivers or restraints easiest to change with the greatest pay-off
+         •	Decide on the strategy for implementation: resources vs. feasibility
+
+4.Evaluate risk factors in decision making
+
+==Barriers to Effective PSDM (Problem Solving & Decision Making)==
+Insufficient analysis and data support
+Distorted facts brought about by self-interest, interdepartmental conflict or a biased perspective
+Jumping to conclusion too early
+Thinking not broad enough
+Not used to follow logical and methodical thought process….
+
+
+e.g
+ProgrammingDebugAbility

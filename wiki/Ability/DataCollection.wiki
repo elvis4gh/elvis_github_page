@@ -1,0 +1,92 @@
+=信息爆炸？=
+   实际上，有效信息从来没爆炸过，天天爆炸的基本上都是垃圾信息。
+   有效信息的更新是很缓慢的，因为获得真相太难，需要太多的时间，需要太多的人从太多的角度反复求索
+   
+==搜集原则==
+   要区分信息和知识 要搜集知识、智慧，不单单信息·              <-----------------智慧，权威：选一本好书，郎咸平
+   newspaper - 权威/官方/翔实-简明/多角度 NewspaperList
+   对于记笔记，我的打算很简单，一个目录用来装所有的笔记 一个目录用来存放publish成HTML格式的笔记。
+   并且能够自动生成索引文件。这样就可以在索引文件里直接查找并跳转到所有的笔记里。
+   
+==信息搜集方法 ==
+   我的线人在哪里？？
+   交换法!!!!      <---------------------------讨论的学习方法最有效！！
+   实践            <---------------------------实践，练习！！
+   阅读法 
+   捕捉法
+   调查法
+   $法
+   
+== Inbox 信息搜集工具 ==
+   纸和笔
+   wiki
+
+=信息搜集&输入渠道=
+   不用管理一下的渠道，他们只是在你找不到相关信息的时候给予启发的途径，必要时可参考间谍的搜集方法
+   ------------
+   Email - gmail
+   radio station - BBC VOA
+   TV - CNN 
+      资讯节目 - 经济与法
+   newspaper - 权威/官方/翔实-简明/多角度 NewspaperList
+   magazine - MagazineList MagazineSubscribing 
+      http://internal.ericsson.com/page/hub_inside/sales/sales_marketing/newsletters_subscriptions/index.jsp
+   book - 豆瓣读书 - http://book.douban.com/
+         Ericsson Ebook https://ericoll.internal.ericsson.com/sites/MUNA_BILS/Pages/ebooks.aspx
+   web信息库 - 翻墙WebResource MyEtunnel+SSH+AutoProxy了
+      wiki - http://vim.wikia.com/wiki/ http://wiki.chinaunix.net/
+      维基解密
+   course - http://www.cicistudy.com/ 找适合自己水平的课程
+   群众的力量 
+      SNS 
+      forum 
+         Vim forum 水木清华 水区
+         mscbsc 
+         
+         天涯 http://blog.tianya.cn/
+      新闻组 
+      豆瓣小组 
+      [[QQ群]]- 
+   权威 名家 - 
+      blog 
+      The Champions' One Page Monthly Summary - 
+         https://ericoll.internal.ericsson.com/sites/Champions_blog/default.aspx
+      twitter 
+      访谈节目 - 对话 锵锵三人行 财经郎眼 口述历史 百家讲坛 
+      
+      interviews -
+   调查
+      questionnaires - use web2.0 Use QuestioningSkill to secure the right information
+      observation - ObservationAbility
+      study report, etc.
+   Meeting
+   Phone Call
+   
+=分类消息=
+   使用恰当的手段筛选信息 data gathering techniques
+   refer to DataStructure
+
+    txt - vimwiki （缺一个手机的软件 boogunote）
+    网摘 - 有道云笔记（Evernote）
+    gtd - emacs （doit.im）
+    mybase
+    teracopy
+
+
+
+   ==工作系统化==
+   系统化我的工具
+      笔墨纸砚
+   资料档项目清单 - List
+   
+   Folder 		e_Learning and other delivery methodologies Functions
+   
+		Folder 		Facilitation_Activities_Exercises Functions
+		Folder 		Facilitation_Basic Functions
+		Folder 		Facilitation_Centra Functions
+		Folder 		Facilitation_General T3 Functions
+		Folder 		Facilitation_Intermediate Functions
+		Folder 		Facilitation_Research Functions
+		Folder 		Facilitation_Tips and Tricks Functions
+   
+   Folder 		Lean 6 Sigma Functions

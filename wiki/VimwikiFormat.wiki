@@ -1,0 +1,40 @@
+%title 文章标题-VimWiki插件
+%toc 文章目录
+
+
+
+
+
+转： [http://www.berlinix.com/vim/VimWiki.php 波黎克斯vimwiki总结 ]
+
+
+
+
+
+
+==链接（内链和外链）==
+
+[http://elvis4gh.github.com/elvis_github_page Elvis Page]
+
+
+==格式化文字段==
+
+有几种常见方法：
+
+在一行的开始缩进4个字符（所有文字必须在一行）。生成HTML代码<pre>。
+用{{{ sed -i "adfa/ags" gasdg* }}} 把代码段扩起来（可以有多行）。生成HTML代码<pre>。
+用"`"（数字键1）前面那个键把文字扩起来（所有文字必须在一行）。生成HTML代码<code>。
+
+
+==修饰文字显示效果==
+
+有几种常用方法：
+
+用*将文字扩起来（*和前后的文字间要有空格），以加粗方式显示， *加粗* <br />
+
+文字上标，如x平方 x^2^<br />
+
+文字下标，如A,,1,,<br />
+
+
+

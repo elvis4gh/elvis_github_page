@@ -1,0 +1,33 @@
+=风险管理：=
+软件开发中大部分的缺陷，都可以归因为未完全、全面理解代码可能运行的状态。那生活呢？
+
+==风险发生的情绪管理能力==
+  [[AQ]]  
+  
+==明确我的风险和对应措施：==
+   健康出现问题？
+      老婆没有保险 - 公司的商业保险
+      老妈/老爸的身体欠恙 - 
+         练车 ---------- 
+         急救，保健常识
+         医生帮手
+   财务出现问题？
+      对于所谓萧条，他认为商业经营者实在没有必要感到悲观，有萧条的时期，必然就有往上走的时候，在不景气的时候，最重要的大事就是要为未来做好准备，一定要有远见，不要慌张，要忍耐
+   权力出现问题？
+      e.g 公司裁员
+         找工作
+         找机会
+         清晰自己的职业规划
+
+   信息出现问题
+      [[InformationHandleAbility]]
+   
+
+==制定可持续发展规划 ==
+[[SustainableDevelopmentAbility]]
+
+
+==好建议：开会找出可能出现的问题，和以后最可能的enhancement 的地方==
+•	Hot Area/Bug Density Map – which area has the most issue
+•	Potential Enhancement/Future Requirements” session 
+

@@ -1,0 +1,8 @@
+==我有多少时间？==
+365天
+52 wk  weekend 
+5 * 52 = 260 work days
+
+TimeSavingTips 
+
+[[GTD]]

@@ -1,61 +1,69 @@
 =Ability Model - 一个提高综合素质的能力模型 ---- 能力就是能做别人不能做的事=
 我最值得骄傲的能力是什么？怎么能扬长避短？<br>
 <br>
+=Elvis 能力评估=
+尊者之智，就是了解自身之愚<br>
+
+   Score(1~5)   Ability<br>
+   ------------------------------------------------<br>
+      1         [[AdaptAbility]] - 适应能力     三十六计                   <------------------ HOT!!<br>
+      1         [[CommunicateAbility]] - 沟通能力 -> [[ExpressionAbility]] - 表达能力 <--- 重点培养能力 <br>
+      1         [[FinancingAbility]] - 理财能力 - 早日财务自由<br>
+      1         [[InfluenceAbility]] - 影响力 [[MyWebStyle|Elvis的网络形象]] Elvis的职业形象 [[Topic]] [[InterpersonalAffinity]] <br>
+      1         [[PlanAbility]] - 策划能力，活动组织能力<br>
+      1         [[RelationshipHandleAbility]] - 人际关系处理能力<br>
+      2         [[CreativityTips]] - 创造力 带上勇气棒<br>
+      2         [[DecisionMakingAbility]] - 决策力 <br>
+      2         [[LeadershipAbility]] - 领导能力       <--- 重点培养能力<br>
+      2         [[ManageAbility]] - 管理能力 (including: 风险管理能力)<br>
+      3         [[CoachingAbility]] - 培训能力<br>
+      3         [[CooperateAbility]] - 协作能力 [[CollaborationAbility]] 亲和力<br>
+      3         [[CoreValue]] [[MyAdvantageAndDisadvantage]] [[Motivation]] [[空杯心态]]- 内省 - 使命感 社会责任感，价值观澄清，自知之明<br>
+      3         [[InsightAbility]] - 观察力、洞察力 [[ObservationAbility]]<br>
+      3         [[ProblemSolvingAbility]] - 解决问题能力                          <--- 重点培养能力<br>
+      3         [[SeftControlAbility]] Self-discipline 自制力  如何抵御诱惑<br>
+      4         [[TeamBuilding]] - 团队精神<br>
+      4         [[LearningAbility]] - 再学习能力                                  <--- 重点培养能力<br>
+      4         [[TimeSavingAbility]] - 时间管理能力<br>
+      4         [[InformationHandleAbility]] - 信息处理能力 <--- 重点培养能力<br>
+      
+
 ==高明人看远 - 进士 ==
 ===从长远来看，我们需要以下能力===
    前瞻性能力 - 在对业务逻辑，工作流程充分熟悉之后，就可以有预见性<br>
-      - 可持续发展制定规划 （政府） [[SustainableDevelopmentAbility]]<br>
-      - 风险管理能力 [[DeriskAbility]] 有没有保险？有没有option2？有没有buffer？有没有预留资源？对容易产生意外的清楚？将风险控制在可接受的范围<br>
-      <br>
-   [[AdaptAbility]] - 适应能力 / 岗位变化的承受能力  压力管理  三十六计  <------------------ HOT!!<br>
-   [[CreativityTips]] - 创造力 带上勇气棒 <br>
+      - [[DeriskAbility|风险管理能力]] 有没有保险？有没有option2？有没有buffer？有没有预留资源？对容易产生意外的清楚？将风险控制在可接受的范围<br>
+      - [[SustainableDevelopmentAbility|可持续发展能力]]<br> 可持续发展制定规划 （政府） <br />
+
+   [[AdaptAbility|适应能力]] or 岗位变化的承受能力 - ( 压力管理  三十六计!!) <br>
+   [[CreativityTips|创造力]] - 带上勇气棒 <br>
    <br>
-===从长远来看 “务虚”，综合质素：===
-   个人魅力 [[InterpersonalAffinity]] refer [[SelfDevelopment]]<br>
-      [[CollaborationAbility]] 亲和力<br>
-      [[InfluenceAbility]] - 影响力 / 感召力 --> 凝聚力<br>
-   [[DecisionMakingAbility]] - 决策力<br>
+   “务虚”，综合质素：
+   [[InterpersonalAffinity|个人魅力 ]] refer [[SelfDevelopment|自我更新]]<br>
+      [[CollaborationAbility|亲和力]] <br>
+      [[InfluenceAbility|影响力]] - / 感召力 --> 凝聚力<br>
+   [[DecisionMakingAbility|决策力]] - <br>
    （核心）竞争力<br>
    有一个机制，权责分明，职能清晰，要有这样的系统<br>
    <br>
-==精明人看准 - 举人 ==
-如何看准？就是抓主要矛盾，<br>
-   健康 - 找我最不健康的是？鼻炎，亚健康。                        解决方案：锻炼<br /><br>
-   时间 - 花我最多时间的是？工作，孩子。 浪费我最多时间的是？连续玩游戏。 解决方案：看书以内省<br /><br>
-   资产 - <br>
-          花我最多资产的是？房子，孩子。                                  解决方案：购房供房换房计划。教育基金<br>
-          能带给我最多增值的是？投资机会，工作机会。如何把握？<br>
-          <br>
-   资讯 - 我最想知道的资讯是什么？通信业，程序员资讯；想知道机会在哪里；<br>
-          最全面最有深度的资讯是？专业媒体，讨论组<br>
-<br>
-   权力 - 我最想得到的权力是？我自己决定自己可以做什么<br>
-   名誉<br>
-   人脉 - 我的伯乐是？各个上级。我的知己是？禤少威，黄历等。我的目标或者偶像是？<br>
-   心态 - 我最缺乏的心态是？没有一往无前的勇气和自信<br>
-   心智 - 我最需要的心智是？英语，编程经验<br>
-<br>
 ==聪明人看懂 - 秀才 ==
-尊者之智，就是了解自身之愚<br>
 ===个人资源管理===
-[[ManageAbility]] - 管理能力 (including: 风险管理能力) 管理的艺术            ------------- 资源最大化（个人自我价值的终极体现），能力提升<br>
-   健康（生活，生理健康，精神状态） - [[SelfManagingAbility]] 自理能力 健康 生活品质 体育锻炼，营养<br>
-   时间 - [[TimeSavingAbility]] - 时间管理能力 青春 <br>
-   资产 - [[FinancingAbility]] - 理财能力 #创业，早日财务自由<br>
+[[ManageAbility|管理能力]] - (including: 风险管理能力) 管理的艺术   ------------- 资源最大化（个人自我价值的终极体现），能力提升<br>
+   健康（生活，生理健康，精神状态） - [[SelfManagingAbility|自理能力]] 健康 生活品质 体育锻炼，营养<br>
+   时间 - [[TimeSavingAbility|时间管理能力]] - 青春 <br>
+   资产 - [[FinancingAbility|理财能力]] - #创业，早日财务自由<br>
       金钱 <br>
       固定资产 物资<br>
-   资讯 - [[InformationHandleAbility]] - 信息处理能力  / 信息资料收集能力 <br>
-      知识积累<br>
-      经验积累<br>
+   资讯 - [[InformationHandleAbility|信息资料收集处理能力]] <br> 知识积累<br> 经验积累<br>
    权力 - 厚黑学 职称考核 职效考核 奉承 拍马 曝光率 发言权<br>
-      权力 - 三权分立 [[PowerAbility]]<br>
+      [[PowerAbility|权力]] - 三权分立 <br />
    名誉<br>
-   人脉(社交/情感) - [[TeamBuilding]] - 团队精神 [[BuildingTrust]]   <br>
-          [[CommunicateAbility]] - 沟通能力 ( 包括: [[ExpressionAbility]] - 表达能力   [[LanguageAbility]] 英文表达要很好!!!! )<br>
-          [[RelationshipHandleAbility]] - 人际关系处理能力<br>
+   人脉(社交/情感) - 
+      [[TeamBuilding]] - 团队精神 [[BuildingTrust]]   <br>
+      [[CommunicateAbility|沟通能力]] - ( 包括: [[ExpressionAbility|表达能力]] [[LanguageAbility|语言能力]] 英文表达要很好!!!! )<br>
+      [[RelationshipHandleAbility|人际关系处理能力]] - <br>
       对上级/前辈 - <br>
-      对平级/同辈 - [[CooperateAbility]] - 协作能力 <br>
-      对下级/后辈 - [[LeadershipAbility]] - 领导能力 [[CoachingAbility]] - 指导能力 / 培训能力 [[CoachingChildren]] <--------- HOT!!<br>
+      对平级/同辈 - [[CooperateAbility|协作能力]] - <br>
+      对下级/后辈 - [[LeadershipAbility|领导能力]] - [[CoachingAbility|指导能力/培训能力]] [[CoachingChildren]] <--------- HOT!!<br>
           培养人才 <br>
      <br>
    心态（智慧） - 俗称：心理素质 <br>
@@ -114,9 +122,9 @@
       语言 - [[CommunicateAbility]] - 沟通能力 ( 包括: [[ExpressionAbility]] - 表达能力   [[LanguageAbility]] 英文表达要很好!!!! )<br>
       写 - 贪婪地写作 - 写周记 <br>
       读 - 贪婪地读书 - [[ToReadBookList]] 每天看一些有意义的书，包括技术，思维<br>
-      急才 - ResilienceAbility 应变能力 <br>
+      急才 - [[ResilienceAbility]] 应变能力 <br>
       思考能力 / 思维能力 / 理解能力 - [[ThinkingAbility]]<br>
-      KnowledgeModel - 知识盲点：QuestionList<br>
+      [[KnowledgeModel]] - 知识盲点：QuestionList<br>
       培养一种兴趣。我将找到一件自己热爱的事情。 参考 resource 中的 My Interesting<br>
    <br>
 <br>
@@ -131,37 +139,30 @@
       编程能力 - [[ProgrammingAbility]] - Expertise in more than one programming language      <--- 重点培养能力<br>
    <br>
    <br>
+   
+==精明人看准 - 举人 ==
+如何看准？就是抓主要矛盾，<br>
+   健康 - 找我最不健康的是？鼻炎，亚健康。                        解决方案：锻炼<br /><br>
+   时间 - 花我最多时间的是？工作，孩子。 浪费我最多时间的是？连续玩游戏。 解决方案：看书以内省<br /><br>
+   资产 - <br>
+          花我最多资产的是？房子，孩子。                                  解决方案：购房供房换房计划。教育基金<br>
+          能带给我最多增值的是？投资机会，工作机会。如何把握？<br>
+          <br>
+   资讯 - 我最想知道的资讯是什么？通信业，程序员资讯；想知道机会在哪里；<br>
+          最全面最有深度的资讯是？专业媒体，讨论组<br>
+<br>
+   权力 - 我最想得到的权力是？我自己决定自己可以做什么<br>
+   名誉<br>
+   人脉 - 我的伯乐是？各个上级。我的知己是？我的目标或者偶像是？<br>
+   心态 - 我最缺乏的心态是？没有一往无前的勇气和自信<br>
+   心智 - 我最需要的心智是？英语，编程经验<br>
+<br>
 =职场通用职业能力模型?? soft skill set =
    7 Habits Courses Graduate (The 7 Habits of Highly Effective People) HabitList<br>
    <br>
    TrainingCourses<br>
       <br>
-=Elvis 能力评估=
-   Score(1~5)   Ability<br>
-   ----------   -------------------------------------------<br>
-      2         [[LeadershipAbility]] - 领导能力       <--- 重点培养能力<br>
-      1         [[CommunicateAbility]] - 沟通能力 -> ExpressionAbility - 表达能力 <--- 重点培养能力 <br>
-      1         [[FinancingAbility]] - 理财能力 　                                                  #创业，早日财务自由<br>
-      1         [[PlanAbility]] - 策划能力，活动组织能力<br>
-      1         [[RelationshipHandleAbility]] - 人际关系处理能力<br>
-      1         [[AdaptAbility]] - 适应能力     三十六计                   <------------------ HOT!!<br>
-      3         [[ProblemSolvingAbility]] - 解决问题能力                          <--- 重点培养能力<br>
-   ------------------------------------------------<br>
-      3         [[CoreValue]] [[MyAdvantageAndDisadvantage]] [[Motivation]] [[空杯心态]]- 内省 - 使命感 社会责任感，价值观澄清，自知之明<br>
-      1         [[InfluenceAbility]] - 影响力 MyBlog [[Topic]] InterpersonalAffinity <br>
-      3         [[CooperateAbility]] - 协作能力 [[CollaborationAbility]] 亲和力<br>
-      2         [[ManageAbility]] - 管理能力 (including: 风险管理能力)<br>
-      3         [[CoachingAbility]] - 培训能力<br>
-      4         [[TeamBuilding]] - 团队精神<br>
-      3         [[InsightAbility]] - 观察力、洞察力 [[ObservationAbility]]<br>
-      2         [[CreativityTips]] - 创造力 带上勇气棒<br>
-      2         [[DecisionMakingAbility]] - 决策力 <br>
-                [[SeftControlAbility]] Self-discipline 自制力  如何抵御诱惑<br>
-                <br>
-   ------------------------------------------------<br>
-      4         [[LearningAbility]] - 再学习能力                                  <--- 重点培养能力<br>
-      4         [[TimeSavingAbility]] - 时间管理能力<br>
-      4         [[InformationHandleAbility]] - 信息处理能力 <--- 重点培养能力<br>
+      
 =其他角度的能力模型=
 <br>
    ==Qualify==

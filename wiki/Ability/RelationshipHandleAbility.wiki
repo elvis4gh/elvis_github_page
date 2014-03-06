@@ -10,7 +10,7 @@ RelationshipMaintaining
 
 
 ==巧妙的聆听==
-   ActiveListening
+  [[ActiveListening]] 
 5． 在回答他们的话之前，请稍加停顿 
 因为一小会儿的停顿，会使他们感觉到你认真地聆听和思索了他们所说的话，肯定了他们所说的话是值得思索的。
 

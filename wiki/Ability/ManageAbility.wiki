@@ -1,7 +1,7 @@
 =what's a manager?=
 Assessment_360 Survey Process
 
-DeriskAbility
+[[DeriskAbility]]
 
 
 ReleaseManagement
@@ -19,18 +19,18 @@ DiversityManagement
    提升有效授权的能力，让员工和管理者一起动起来，共同完成任务
    提升个人的领导力，拥有权力之外的影响力，激发团队，支持公司整体目标的实现
 =应具备的能力=
-决策力 - DecisionMakingAbility
-创新力 - CreativityTips
-指导力 - CoachingAbility
-组织力 - OrganizeAbility 
-凝聚力 - InterpersonalAffinity个人魅力 
-沟通力 - CommunicateAbility
-应变力 - ResilienceAbility 应变能力 
-合作力 - CooperateAbility 
+决策力 - [[DecisionMakingAbility]] 
+创新力 - [[CreativityTips]] 
+指导力 - [[CoachingAbility]] 
+组织力 - [[OrganizeAbility]] 
+凝聚力 - [[InterpersonalAffinity]]个人魅力 
+沟通力 - [[CommunicateAbility]] 
+应变力 - [[ResilienceAbility]] 应变能力 
+合作力 - [[CooperateAbility]] 
 
 业务素质 
-   系统思维 ThinkingAbility 
-   收集消化信息 InformationHandleAbility
+   系统思维 [[ThinkingAbility]] 
+   收集消化信息[[InformationHandleAbility]] 
 =第一部分 管理的实质和管理者的角色认知－－帮你实现管理者的心理定位=
 1. 管理的实质
 

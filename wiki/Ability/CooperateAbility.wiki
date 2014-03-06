@@ -21,7 +21,7 @@
 
 
 =Adapt Conflict=
-   ConflictManagement
+  [[ConflictManagement]] 
 
 CAO - Corporate Affairs Office
 

@@ -2,12 +2,12 @@
 21世纪时代是大数据的时代
 
 =获取 - 消息搜集  =
-   DataCollection
+  [[DataCollection]] 
    文本管理 store, modify,   - vim
    示意图管理 - xmind
    
 =学习、思考 - 消息消化=
-   DataDiagnosis
+  [[DataDiagnosis]] 
    
 =输出 - 应用=
 

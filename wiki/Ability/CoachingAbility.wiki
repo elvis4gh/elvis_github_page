@@ -21,7 +21,7 @@ Coaching is most effective when relationships are built on trust - RelationshipB
    去做更应该做的事（开拓）；
    让他也学会并实践1-7步骤（复制）！
    
-   refer to DelegateSkill
+   refer to[[DelegateSkill]] 
 
    ===problem solve===
    ===relationship or behavior issues,===

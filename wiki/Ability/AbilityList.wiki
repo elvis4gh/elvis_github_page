@@ -24,7 +24,7 @@
       3         [[SeftControlAbility]] Self-discipline 自制力  如何抵御诱惑<br>
       4         [[TeamBuilding]] - 团队精神<br>
       4         [[LearningAbility]] - 再学习能力                                  <--- 重点培养能力<br>
-      4         [[TimeSavingAbility]] - 时间管理能力<br>
+      4         [[TimeSavingAbility]] - 时间管理能力, [[SevenHabits|7 个习惯]]<br>
       4         [[InformationHandleAbility]] - 信息处理能力 <--- 重点培养能力<br>
       
 

@@ -3,6 +3,6 @@
 52 wk  weekend 
 5 * 52 = 260 work days
 
-TimeSavingTips 
-
+[[TimeSavingTips]] 
+[[SevenHabits|7 个习惯]]
 [[GTD]]

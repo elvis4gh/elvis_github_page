@@ -1,15 +1,15 @@
 Hello, Welcome to Elvis's WIKI
 
-纵向 - 个人素质模型： [[Ability/AbilityList|AbilityList]] 
 
-   学习能力 之 [[十大学习习惯]] 
+纵向 - 个人素质模型： [[Ability/AbilityList|AbilityList]] 
+   e.g [[十大学习习惯]] , [[Ability/SevenHabits|7个习惯]]
    
-横向 - 
-   Elvis's life style asdf<br />
+横向 - Elvis's life style <br />
       程序员喜欢系列 - [[ProgrammerStyle]]
       程序员喜欢的OS - [[Linux/Linux|Linux]] 
       程序员的wiki工具 - 标记语言 markdown，textile；vimwiki，mediawiki 
       
+[[QuestionList|有奖问答]]
 
 
 
@@ -21,5 +21,4 @@ Hello, Welcome to Elvis's WIKI
 
 
 
-
-VimwikiFormat
+bak: [[VimwikiFormat]]

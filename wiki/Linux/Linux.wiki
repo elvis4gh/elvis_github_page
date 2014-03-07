@@ -1,13 +1,14 @@
 
+[[LinuxSoftware]]
 ==Service ==
 LinuxService
 
 ==Shell and Kernel==
-Shell - 
+[[Shell]] - 
 Kernel - LinuxKernel 
 
 ==Distribution==
-RedHat - CentOS
+RedHat - [[CentOS]]
 Debian
 Ubuntu
 Android

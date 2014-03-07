@@ -3,7 +3,7 @@
    有效信息的更新是很缓慢的，因为获得真相太难，需要太多的时间，需要太多的人从太多的角度反复求索
    
 ==搜集原则==
-   要区分信息和知识 要搜集知识、智慧，不单单信息·              <-----------------智慧，权威：选一本好书，郎咸平
+   要区分信息和知识 要搜集知识、智慧，不单单信息·  <-----------------智慧，权威：选一本好书，郎咸平
    newspaper - 权威/官方/翔实-简明/多角度 NewspaperList
    对于记笔记，我的打算很简单，一个目录用来装所有的笔记 一个目录用来存放publish成HTML格式的笔记。
    并且能够自动生成索引文件。这样就可以在索引文件里直接查找并跳转到所有的笔记里。
@@ -32,7 +32,7 @@
    magazine - MagazineList MagazineSubscribing 
       http://internal.ericsson.com/page/hub_inside/sales/sales_marketing/newsletters_subscriptions/index.jsp
    book - 豆瓣读书 - http://book.douban.com/
-         Ericsson Ebook https://ericoll.internal.ericsson.com/sites/MUNA_BILS/Pages/ebooks.aspx
+      Ericsson Ebook https://ericoll.internal.ericsson.com/sites/MUNA_BILS/Pages/ebooks.aspx
    web信息库 - 翻墙WebResource MyEtunnel+SSH+AutoProxy了
       wiki - http://vim.wikia.com/wiki/ http://wiki.chinaunix.net/
       维基解密
@@ -80,13 +80,11 @@
    资料档项目清单 - List
    
    Folder 		e_Learning and other delivery methodologies Functions
-   
-		Folder 		Facilitation_Activities_Exercises Functions
-		Folder 		Facilitation_Basic Functions
-		Folder 		Facilitation_Centra Functions
-		Folder 		Facilitation_General T3 Functions
-		Folder 		Facilitation_Intermediate Functions
-		Folder 		Facilitation_Research Functions
-		Folder 		Facilitation_Tips and Tricks Functions
-   
+   Folder 		Facilitation_Activities_Exercises Functions
+   Folder 		Facilitation_Basic Functions
+   Folder 		Facilitation_Centra Functions
+   Folder 		Facilitation_General T3 Functions
+   Folder 		Facilitation_Intermediate Functions
+   Folder 		Facilitation_Research Functions
+   Folder 		Facilitation_Tips and Tricks Functions
    Folder 		Lean 6 Sigma Functions

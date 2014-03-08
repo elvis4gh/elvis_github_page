@@ -1,0 +1,25 @@
+%title Welcome to Elvis's WIKI - 永恒的生命、爱、责任
+
+
+
+纵向 - 奋斗/追求： [[Ability/AbilityList|Elvis 个人素质模型]] 
+
+   e.g [[十大学习习惯]] , [[Ability/SevenHabits|7个习惯]]
+   
+横向 - 生活、艺术等：Elvis's life style <br />
+      程序员喜欢的OS - [[Linux/Linux|Linux]] 
+      程序员的wiki工具 - 标记语言 markdown，textile；vimwiki，mediawiki 
+      
+[[QuestionList|有奖问答]]
+
+
+
+
+
+
+
+
+
+
+
+bak: [[VimwikiFormat]]

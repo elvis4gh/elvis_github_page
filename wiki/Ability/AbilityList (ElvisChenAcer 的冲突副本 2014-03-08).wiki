@@ -1,5 +1,32 @@
 =Ability Model - 一个提高综合素质的能力模型 ---- 能力就是能做别人不能做的事=
-[[ElvisAbilityScore| Elvis 能力评估 ]]
+我最值得骄傲的能力是什么？怎么能扬长避短？<br>
+<br>
+=Elvis 能力评估=
+尊者之智，就是了解自身之愚<br>
+
+   Score(1~5)   Ability<br>
+   ------------------------------------------------<br>
+      1         [[AdaptAbility]] - 适应能力     三十六计                   <------------------ HOT!!<br>
+      1         [[CommunicateAbility]] - 沟通能力 -> [[ExpressionAbility]] - 表达能力 <--- 重点培养能力 <br>
+      1         [[FinancingAbility]] - 理财能力 - 早日财务自由<br>
+      1         [[InfluenceAbility]] - 影响力 [[MyWebStyle|Elvis的网络形象]] Elvis的职业形象 [[Topic]] [[InterpersonalAffinity]] <br>
+      1         [[PlanAbility]] - 策划能力，活动组织能力<br>
+      1         [[RelationshipHandleAbility]] - 人际关系处理能力<br>
+      2         [[CreativityTips]] - 创造力 带上勇气棒<br>
+      2         [[DecisionMakingAbility]] - 决策力 <br>
+      2         [[LeadershipAbility]] - 领导能力       <--- 重点培养能力<br>
+      2         [[ManageAbility]] - 管理能力 (including: 风险管理能力)<br>
+      3         [[CoachingAbility]] - 培训能力<br>
+      3         [[CooperateAbility]] - 协作能力 [[CollaborationAbility]] 亲和力<br>
+      3         [[CoreValue]] [[MyAdvantageAndDisadvantage]] [[Motivation]] [[空杯心态]]- 内省 - 使命感 社会责任感，价值观澄清，自知之明<br>
+      3         [[InsightAbility]] - 观察力、洞察力 [[ObservationAbility]]<br>
+      3         [[ProblemSolvingAbility]] - 解决问题能力                          <--- 重点培养能力<br>
+      3         [[SeftControlAbility]] Self-discipline 自制力  如何抵御诱惑<br>
+      4         [[TeamBuilding]] - 团队精神<br>
+      4         [[LearningAbility]] - 再学习能力                                  <--- 重点培养能力<br>
+      4         [[TimeSavingAbility]] - 时间管理能力, [[SevenHabits|7 个习惯]]<br>
+      4         [[InformationHandleAbility]] - 信息处理能力 <--- 重点培养能力<br>
+      
 
 ==高明人看远 - 进士 ==
 ===从长远来看，我们需要以下能力===

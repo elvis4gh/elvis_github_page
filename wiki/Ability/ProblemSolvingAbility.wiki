@@ -1,4 +1,4 @@
-
+[http://blog.sina.com.cn/s/blog_4ca720af0102edq7.html|问题是什么]
 
 找问题，分析问题，总结问题，提出建议，发掘创新的能力
 
@@ -28,7 +28,7 @@ Beginner’s mind - We can't solve problems by using the same kind of thinking w
    - callp log, csl, designlog, slgtrace, ucli-log
 
 
-ProblemSolvingProcess
+[[ProblemSolvingProcess]]
 Are you a Vertical Thinker, Lateral Thinker
 
 1.Assess problem scenarios and formulate comprehensive action plans

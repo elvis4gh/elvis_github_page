@@ -9,7 +9,7 @@ comments: no
 ----
 
 
-我本人：[自我介绍]({{ site.url }}/wiki/Elvis)
+我本人：[自我介绍]({{ site.baseurl }}/wiki/Elvis)
 
 ###联系方式：
 

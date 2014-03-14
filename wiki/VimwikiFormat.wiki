@@ -5,7 +5,8 @@
 
 
 
-转： [http://www.berlinix.com/vim/VimWiki.php 波黎克斯vimwiki总结 ]
+转： [http://www.berlinix.com/vim/VimWiki.php 波黎克斯vimwiki总结]
+
 
 
 
@@ -14,7 +15,9 @@
 
 ==链接（内链和外链）==
 
-[http://elvis4gh.github.com/elvis_github_page Elvis Page]
+
+外链：
+[[http://elvis4gh.github.com/elvis_github_page | Elvis Page]]
 
 
 ==格式化文字段==

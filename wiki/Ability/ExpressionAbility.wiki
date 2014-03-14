@@ -48,6 +48,16 @@
 ==学习展示产品、 Steve Jobs在历届Macworld会议的演讲==
 ==学习制造媒体热门话题==
 
+==About motivation==
+<br>
+positive motivation:<br>
+simple feedback<br>
+let them join and build<br>
+<br>
+negative motivation:<br>
+漠视工作成果<br>
+shredder<br>
+
 =ice-breaker = =打开话匣子的方法=
 Folder 		Icebreakers Functions
 [[BuildingTrust]]

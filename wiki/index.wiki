@@ -5,7 +5,7 @@
       - [[十大学习习惯]] <br />
       - [[Ability/SevenHabits|7个习惯]]<br />
       - [[Ability/ProblemSolvingProcess|解决困难ABCDE习惯]]<br />
-   - [[ElvisAbilityScore| Elvis 能力评估 ]]
+   - [[Ability/ElvisAbilityScore| Elvis 能力评估 ]]
    
 横向 - Elvis's life style <br />
    * 程序员喜欢系列 - [[ProgrammerStyle]]<br />

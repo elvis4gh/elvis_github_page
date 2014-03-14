@@ -12,7 +12,7 @@ Hello, Welcome to Elvis's WIKI
       程序员系列 - [[ProgrammerStyle]]<br />
       程序员喜欢的OS - [[Linux/Linux|Linux]] <br />
       程序员美学 - 
-      [http://www.2maomao.com/blog/best-programmer-fonts/ 程序员最喜欢用的编程字体]
+      [[ http://www.2maomao.com/blog/best-programmer-fonts/  程序员最喜欢用的编程字体]]
       [http://ethanschoonover.com/solarized 程序员喜欢的colorscheme]
       
       

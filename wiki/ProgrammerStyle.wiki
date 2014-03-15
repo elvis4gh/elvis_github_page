@@ -2,14 +2,22 @@
 
 Elvis's life style: <br />
    * 程序员喜欢的OS - [[Linux/Linux|Linux]] <br />
+   * 程序员喜欢的环境 - [[LAMP]]
+   * 程序员喜欢的开源网站 - 
+      [[http://www.hotscripts.com|PHP hotscripts]]
+      [[http://sourceforge.net|SourceForge]]
    * 程序员美学 - 
       - [[http://www.2maomao.com/blog/best-programmer-fonts/ | 程序员喜欢的编程字体]]
       - [[http://ethanschoonover.com/solarized | 程序员喜欢的colorscheme]]
       - 程序员喜欢的标记语言
-         - markdown
-         - textile
-         - [[VimwikiFormat | vimwiki]]
-         - mediawiki <br />
+         markdown
+         textile
+         [[VimwikiFormat | vimwiki]]
+         mediawiki <br />
       - 程序员喜欢的wiki工具 -
-         - [[VimwikiFormat | vimwiki]]
-         - mediawiki <br />
+         [[VimwikiFormat | vimwiki]]
+         mediawiki <br />
+
+
+----
+http://www.hotscripts.com/listing/webtester-59440/

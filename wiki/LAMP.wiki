@@ -4,7 +4,10 @@
 
 Linux
 Apache - [[ApacheConfig]]
-Mysql
+Mysql  [[MySqlConfig]]
 PHP - 
    [[phpMyAdminConfig]]
+   [[http://www.php.net/manual/zh/|PHP手册]]
+   乱码问题： http://blog.csdn.net/linwins/article/details/5947545
+   <? ... ?> 显示问题 - <?php?> 是PHP的默认语法，而<??>则是短标记方法，需要在php.ini中开启short_open_tag指令
    ZendOptimizer

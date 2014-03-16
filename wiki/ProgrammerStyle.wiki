@@ -2,7 +2,7 @@
 
 Elvis's life style: <br />
    * 程序员喜欢的OS - [[Linux/Linux|Linux]] <br />
-   * 程序员喜欢的环境 - [[LAMP]]
+   * 程序员喜欢的环境 - [[LAMP]] [[ELDK]]
    * 程序员喜欢的开源网站 - 
       [[http://www.hotscripts.com|PHP hotscripts]]
       [[http://sourceforge.net|SourceForge]]

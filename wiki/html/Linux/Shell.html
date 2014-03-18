@@ -32,8 +32,98 @@
         
 
 
+
+<h2 id="toc_0.1">shell function:</h2>
+
 <p>
-如何知道用的是什么shell?
+eldk-switch () 
+{ 
+</p>
+<blockquote>
+eval <code>eldk-switch.sh $*</code>
+</blockquote>
+<p>
+}
+</p>
+
+
+<h2 id="toc_0.2">如何知道用的是什么shell?</h2>
+
+<h2 id="toc_0.3">linux中神奇的叹号命令</h2>
+<p>
+!!
+</p>
+
+<p>
+上一条命令
+</p>
+
+<p>
+!$
+</p>
+
+<p>
+上一条命令中的最后一个参数
+</p>
+
+<p>
+!:-
+</p>
+
+<p>
+上一命令除了最后一个参数
+</p>
+
+<p>
+!* 
+</p>
+
+<p>
+上一条命令中的所有参数
+</p>
+
+<p>
+!str
+</p>
+
+<p>
+最近一条以str开头的命令
+</p>
+
+<p>
+!?str?
+</p>
+
+<p>
+最近一条包含str的命令
+</p>
+
+<p>
+!n
+</p>
+
+<p>
+顺数第n条命令
+</p>
+
+<p>
+!-n
+</p>
+
+<p>
+倒数第n条命令
+</p>
+
+<p>
+<sup><small>old</small></sup>new
+</p>
+
+<p>
+将上一命令中的old替换为new
+</p>
+
+<p>
+!!:gs/old/new
 </p>
 
         </article>

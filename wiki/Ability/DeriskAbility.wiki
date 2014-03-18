@@ -21,6 +21,8 @@
 
    信息出现问题
       [[InformationHandleAbility]]
+   电脑坏了
+      options: 进安全模式
    
 
 ==制定可持续发展规划 ==

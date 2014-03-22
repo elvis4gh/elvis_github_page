@@ -1,0 +1,20 @@
+vim configure 
+
+=environment parameter=
+==how to get the specific parameter's help?==
+:tab help <para_name>
+
+e.g
+   :tab help 'runtimepath'
+
+==how to set the parameter==
+:set <para_name>
+
+e.g 
+   :set rtp 
+
+
+我的配置：
+VimKeyMap - 自定义键位 ==Key Mapping==
+
+

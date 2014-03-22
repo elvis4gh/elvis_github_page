@@ -1,0 +1,18 @@
+
+# plugins     - 
+      c:\Documents and Settings\elvis\vimperator\plugin\
+      拼音输入连接
+      ubiquity intergration
+      自动隐藏cmdline maine-coonjs
+# config      - 
+   c:\Documents and Settings\elvis\_vimperatorrc.local
+   colorscheme - 
+   no flash??
+   scrapbook?
+   视窗定位脚本？
+   marco？
+   搜索正则表达式
+   快速调用书签
+# tips - 
+VimperatorTips
+# forum - http://vimfox.info/wiki/%E9%A6%96%E9%A1%B5

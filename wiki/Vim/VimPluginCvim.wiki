@@ -1,0 +1,188 @@
+5. c.vim 插件
+ (1). 帮助手册查看
+     help csupport
+ 
+ (2). 功能
+     C/C++-IDE for Vim/gVim. 简单的说, 就是如果安装配置好后, vim/gvim就是一个
+     c/c++编程的一个IDE, 其功能堪比windows里常用的vc.
+ 
+ (3). 安装
+     下载cvim.zip压缩包后, 把压缩包copy到 $HOME/.vim 目录(windows下, copy 到
+             C:/Program Files/Vim/vimfiles)下解压, 即可.
+         unzip cvim.zip    // 解压命令
+         
+ (4). 使用方法
+     安装好后就可以直接用了, 具体例子看"使用例子".
+     
+ (5). 使用例子
+     在终端用vim打开一个c文件:
+         $vim hello.c
+     进入vim, 敲入 "/im" 即可发现一个main函数框架就这样快捷简单完美地写出.    
+ 
+     我比效常用的的操作有(第一列为命令, 第二列为说明, 第三列为该命令所支持的模式
+         普通模式, v:可视模式, i:插入模式):
+           -- Help -----------------------------------------------
+           /hm       show manual for word under the cursor (n,i)
+           /hp       show plugin help                      (n,i)
+           
+           -- Idioms ------------------------------------------------
+           /if       function                            (n,v,i)
+           /isf      static function                     (n,v,i)
+           /im       main()                              (n,v,i)
+           /i0       for( x=0; x<n; x+=1 )               (n,v,i)
+           /in       for( x=n-1; x>=0; x-=1 )            (n,v,i)
+           /ie       enum   + typedef                    (n,i)
+           /is       struct + typedef                    (n,i)
+           /iu       union  + typedef                    (n,i)
+           /ip       printf()                            (n,i)
+           /isc      scanf()                             (n,i)
+           /ica      p=calloc()                          (n,i)
+           /ima      p=malloc()                          (n,i)
+           /isi      sizeof()                            (n,v,i)
+           /ias      assert()                            (n,v)
+           /ii       open input file                     (n,i)
+           /io       open output file                    (n,i)
+ 
+ 
+           -- Comments "/c*"--------------------------------------
+           /cl       end-of-line comment                 (n,v,i)
+           /cj       adjust end-of-line comment(s)       (n,v,i)
+           /cs       set end-of-line comment column      (n)
+           /c*       code -> comment /* */               (n,v)
+           /cc       code -> comment //                  (n,v)              <-------------------- Good!
+           /co       comment -> code                     (n,v)
+           /cfr      frame comment                       (n,i)
+           /cfu      function comment                    (n,i)
+           /cme      method description                  (n,i)
+           /ccl      class description                   (n,i)
+           /cd       date                                (n,v,i)
+           /ct       date /& time                        (n,v,i)
+ 
+           -- Statements ------------------------------------------
+           /sd       do { } while                        (n,v,i)
+           /sfo      for { }                             (n,v,i)
+           /sife     if { } else { }                     (n,v,i)
+           /se       else { }                            (n,v,i)
+           /swh      while { }                           (n,v,i)
+           /ss       switch                              (n,v,i)
+ 
+           -- Preprocessor -----------------------------------------
+           /p<       #include <>                         (n,i)
+           /p''      #include ""                         (n,i)
+           /pd       #define                             (n,i)
+           /pu       #undef                              (n,i)
+           /pie      #if  #else #endif                   (n,v,i)
+           /pid      #ifdef #else #endif                 (n,v,i)
+           /pin      #ifndef #else #endif                (n,v,i)
+           /pind     #ifndef #def #endif                 (n,v,i)
+           /pi0      #if 0 #endif                        (n,v,i)
+           /pr0      remove #if 0 #endif                 (n,i)
+           /pe       #error                              (n,i)
+           /pl       #line                               (n,i)
+           /pp       #pragma                             (n,i)
+ 
+           -- Snippets ------------------------------------------------
+           /nr       read code snippet                   (n,i)
+           /nw       write code snippet                  (n,v,i)
+           /ne       edit code snippet                   (n,i)
+           /np       pick up prototype                   (n,v,i)
+           /ni       insert prototype(s)                 (n,i)
+           /nc       clear  prototype(s)                 (n,i)
+           /ns       show   prototype(s)                 (n,i)
+           /ntl      edit local templates                (n,i)
+           /ntg      edit global templates               (n,i)
+           /ntr      rebuild templates                   (n,i)
+ 
+           -- C++ ----------------------------------------------------
+           /+co      cout  <<  << endl;                  (n,i)
+           /+c       class                               (n,i)
+           /+cn      class (using new)                   (n,i)
+           /+ci      class implementation                (n,i)
+           /+cni     class (using new) implementation    (n,i)
+           /+mi      method implementation               (n,i)
+           /+ai      accessor implementation             (n,i)
+ 
+           /+tc      template class                      (n,i)
+           /+tcn     template class (using new)          (n,i)
+           /+tci     template class implementation       (n,i)
+           /+tcni    template class (using new) impl.    (n,i)
+           /+tmi     template method implementation      (n,i)
+           /+tai     template accessor implementation    (n,i)
+ 
+           /+tf      template function                   (n,i)
+           /+ec      error class                         (n,i)
+           /+tr      try ... catch                       (n,v,i)
+           /+ca      catch                               (n,v,i)
+           /+c.      catch(...)                          (n,v,i)
+ 
+           -- Run ---------------------------------------------------
+           /rc       save and compile                    (n,i)
+           /rl       link                                (n,i)
+           /rr       run                                 (n,i)
+           /ra       set comand line arguments           (n,i)
+           /rm       run make                            (n,i)
+           /rg       cmd. line arg. for make             (n,i)
+           /rp       run splint                          (n,i)
+           /ri       cmd. line arg. for splint           (n,i)
+           /rk       run CodeCheck (TM)                  (n,i)
+           /re       cmd. line arg. for CodeCheck (TM)   (n,i)
+           /rd       run indent                          (n,v,i)
+           /rh       hardcopy buffer                     (n,v,i)
+           /rs       show plugin settings                (n,i)
+           /rx       set xterm size                      (n, only Linux/UNIX & GUI)
+           /ro       change output destination           (n,i)
+                 
+     关于此插件的更多功能和各种说明, 请查看帮助手册, help csupport.
+
+=8 Powerful Features of C.Vim Plugin=
+==Feature 1: Add Automatic Header to *.c file==
+When you open a file with the extension .c it opens the file with header as shown below. This will also place the cursor in the Description field in Insert mode.
+To change the default value of the AUTHOR and COMPANY, modify the default value in
+   c:\Program Files\Vim\vim72\c-support\templates\Templates
+
+Note: To add custom fields to the header, modify the ~/.vim/c-support/templates/file-description.template file and add your own custom field.
+   c:\Program Files\Vim\vim72\c-support\templates\file-description.template
+   
+
+==Feature 2: Adding C function using \if==
+To change function format by editing file:
+c:\Program Files\Vim\vim72\c-support\templates\c.idioms.template
+
+==Feature 3: Insert main Function Header using \im==
+For inserting main function, type \im in normal mode, which will add the main function as shown below.
+
+==Feature 4: Insert a Function Header using \cfu==
+For inserting a function header, type \cfu in normal mode, which will ask the function name as shown in Fig 4, and adds the comment as shown in Fig 5.
+
+==Feature 6: To include header file, use \p<==
+Type \p< in the normal mode, which will include the text “#include <>”, and places the cursor in the < symbol in Insert mode where you can type the header file name.
+
+==Feature 7: Save the file, compile it and execute it immediately.==
+To save and compile the file use \rc.
+To run use \rr.
+
+==Feature 8: Insert pre-defined code-snippet to the C code using \nr==
+The plugin comes with few pre-defined code snippets that you can insert into your code. Following are the default code snippets that comes with the plugin.
+
+   $ ls ~/.vim/c-support/codesnippets
+   Makefile                        calloc_double_matrix.c  main.c   print_double_array.c.noindent
+   Makefile.multi-target.template  calloc_int_matrix.c     main.cc  print_int_array.c.noindent
+
+For example, if you want to create a function that will Allocate a dynamic int-matrix of size rows*columns; return a pointer, you can re-use it from the existing code snippets. Following is the content of the calloc_int_matrix.c pre-defined code snippets.
+
+Note:
+You can define your own code snippets and place it under ~/.vim/c-support/codesnippets/.
+You can also build your own code snippets from the existing code – select the part of code need to be made as code snippet, press \nw, and give a file-name to it. From next time, type \nr and the file-name to get your custom code snippet.
+
+
+
+
+
+
+
+   
+
+
+
+
+

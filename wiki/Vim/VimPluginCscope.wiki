@@ -1,0 +1,52 @@
+(1). 帮助手册查看
+:help if_cscop.txt
+
+(2). 功能
+用Cscope自己的话说 - "你可以把它当做是超过频的ctags", 其功能和强大程度可见
+一斑吧, 关于它的介绍我就不详细说了, 如果你安装好了前文介绍的帮助手册.
+
+(3). 安装
+如果是在linux环境中, cscope一般都会随系统一起安装了; 在windows环境中, 则需要下载windows版本的(cscope.exe), 然后把它放到path环境变量所设置的目录中(如: C:/Program Files/Vim/vim72).
+
+(4). 使用方法
+在.vimrc中增加如下设置, 就可以利用相应的快捷键进行不同的查找了.
+156         if has("cscope")
+157             set cscopetag   " 使支持用 Ctrl+]  和 Ctrl+t 快捷键在代码间跳来跳去
+158             " check cscope for definition of a symbol before checking ctags:
+159             " set to 1 if you want the reverse search order.
+160             set csto=1
+161 
+162             " add any cscope database in current directory
+163             if filereadable("cscope.out")
+164                 cs add cscope.out
+165             " else add the database pointed to by environment variable
+166             elseif $CSCOPE_DB != ""
+167                 cs add $CSCOPE_DB
+168             endif
+169 
+170             " show msg when any other cscope db added
+171             set cscopeverbose
+172 
+173             nmap <C-/>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+174             nmap <C-/>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+175             nmap <C-/>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+176             nmap <C-/>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+177             nmap <C-/>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+178             nmap <C-/>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+179             nmap <C-/>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+180             nmap <C-/>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+181         endif
+182 
+183 (5). 使用例子
+184     首先进入源码目录, 在linux终端中输入以下命令以创建cscope数据库:
+185         $ find ~/work/..Project/ -name "*.h" -o -name "*.cpp" > cscope.files
+186         $ cscope -bkq -i cscope.files
+187     如果是在windows环境中, 则换成如下命令:
+188         dir /s /b *.cpp *.h > cscope.files
+189         cscope -b -q -k -i cscope.files
+190 
+191     然后, 用vim打开一个源文件(如: vim main.cpp),
+192     打开后, 第一件事就是导入cscope数据库了:
+193         :cs add /home/yourname/workpace/cscope.out /home/yourname/workpace
+        cscope数据库导入成功后, 就可以利用"步骤(4)"中定义的快捷键进行相关的查找, 浏览等操作了(当然也可以直接利用相关命令, 嘿嘿).
+

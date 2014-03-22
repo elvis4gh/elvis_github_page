@@ -1,0 +1,145 @@
+=vi/vim 查找替换 =
+:help substitute
+
+:%s/fred/joe/igc           : general substitute command
+:%s/\r//g                  : delete DOS Carriage Returns (^M)
+:'a,'bg/fred/s/dick/joe/gc : VERY USEFUL
+:s/\(.*\):\(.*\)/\2 : \1/  : reverse fields separated by :
+# non-greedy matching \{-}
+:%s/^.\{-}pdf/new.pdf/     : to first pdf)
+:s/fred/<c-r>a/g           : substitute "fred" with contents of register "a"
+:%s/^\(.*\)\n\1/\1$/       : delete duplicate lines
+:help /\{-}
+# multiple commands
+:%s/\f\+\.gif\>/\r&\r/g | v/\.gif$/d | %s/gif/jpg/
+:%s/suck\|buck/loopy/gc       : ORing
+:s/__date__/\=strftime("%c")/ : insert datestring
+
+
+substitute({expr}, {pat}, {sub}, {flags})		*substitute()*
+
+={expr} 特定范围替换 =
+n 为数字,若 n 为 .,表示从当前行开始到最后一行 range of line: 
+       1, 2, 3, ...   line number
+       .   current line
+       $   last line
+virtual mode and ":"
+       
+={pat}=
+==[0-9]   0-9任意一位数字==
+==[0-9]\+      任意数字  ==
+==\zs和\ze 匹配的开始与结束 ==
+e.g “#”号后面的数字需要加15，手动修改比较麻烦
+   from:   <li><a href="#18">1.1 How to Avoid Reading This Book</a></li>
+                          |
+   to:     <li><a href="#35">1.1 How to Avoid Reading This Book</a></li>
+   
+   %s/#\zs[0-9]\+\ze/\=submatch(0)+15
+==\s      space空格 ==
+==\s\+    任意space空格 ==
+   ma
+   :%s#^double\s\+data\zs\d\ze#\=(line(".")-line("'a")+1)#g
+==^M      输入回车符号==
+^M 是在Vim中显示出来的样子, 事实上物理存储的并非一个 ‘^’ 和一个 ‘M’. 究其原因, Win上用 “\r\n” 表示换行, Unix 用 “\n” 表示换行.
+真正的转换方式是:
+   vim中: %s/\r//g
+   sed: sed ‘s/\r//g’
+# dos2unix干的就是这事儿.
+# :%s/^M//g  (^M = Ctrl v + Ctrl m ( windows C-V changed to C-Q ) )
+
+==^@     ？？？==
+    
+={flags}=
+== \=function() ==
+:s/替换字符串/\=函数式
+•函数式可以有多个，返回值可以用字符串连接符.连接起来，
+e.g
+   line(".")   返回匹配行号（:help line()  ），
+   submatch(n) 可以引用\1、\2的内容，其中submatch(0)引用匹配的整个内容；
+   
+•函数式也可以是字符串常量，用双引号引起来。函数式也可以是任意表达式，需要用小括号引起来，如(3+2*6)；
+•函数式还可以是寄存器中的内容，通过"@寄存器名"访问，如@a（不需要加引号，但是还是需要用.来连接）；
+example:
+•要将下列8行的data0依次变成data0~7（前面的数字是行号）
+double data0;
+double data0;
+double data0;
+double data0;
+double data0;
+double data0;
+double data0;
+double data0;
+                        如果安装有perl的话，我以前一般都是借助perl来完成这件事情：
+                        ---------------------------------------------------------------------------
+                        :r !perl -n -le "if(s/^(double\s+data)\d;/$1$k;/){ $k++; print $_; }" %:p
+                        ---------------------------------------------------------------------------
+                           其中%:p表示包含完整路径的文件名
+   
+首先将光标移到125行（line(".")返回当前匹配行的行号，line("'a")返回mark a的行号）：
+---------------------------------------------------------------------------
+ma
+:%s/^\(double\s\+data\)\d\(;\)/\=submatch(1).(line(".")-line("'a")+1).submatch(2)/g
+---------------------------------------------------------------------------
+再或者
+首先将光标移到125行（line("'V7j
+:%s/^\(double\s\+data\)\d\(;\)/\=submatch(1).(line(".")-line("'
+---------------------------------------------------------------------------
+
+-----------------
+=替换string=
+:s/vivian/sky/ 替换当前行第一个 vivian 为 sky 
+:s/vivian/sky/g 替换当前行所有 vivian 为 sky 
+e.g 
+   :n,$s/vivian/sky/ 替换第 n 行开始到最后一行中每一行的第一个 vivian 为 sky 
+   :n,$s/vivian/sky/g 替换第 n 行开始到最后一行中每一行所有 vivian 为 sky 
+　 
+　 
+　　可以使用 # 作为分隔符,此时中间出现的 / 不会作为分隔符 
+　　:s#vivian/#sky/# 替换当前行第一个 vivian/ 为 sky/ 
+　　:%s+/oradata/apras/+/user01/apras1+ （使用+ 来 替换 / ）: /oradata/apras/替换成/user01/apras1/ 
+
+
+　 
+==她需要定义一系列变量output rca_out_data0~rca_out_data15，现在她已经写好output rca_out_data0，然后复制了15行，她问我怎么把data后面的0一次替换成1~15，我不假思索的说，用脚本呗（我以前coding碰到这种情况都是用perl -ne来做的）。她说不想用脚本，问能不能就用vim就实现？==
+
+总结下述4条对于自己来说比较实用的替换技巧，其中第2条、第3条和第4条都可以完美的解决师姐的问题
+
+1.替换变量
+见 VimRegExp 子模式
+
+==\zs和\ze 匹配的开始与结束 ==
+\zs和\ze可以用于替换操作中指明替换的开始与结束，如上例中可以以更短的操作来实现：
+---------------------------------------------------------------------------
+==vim表达式==
+另外，还可以使用vim表达式来实现上述功能：
+---------------------------------------------------------------------------
+:let n=0 | g/^double\s\+data\zs\d/s//\=n/ | let n+=1
+---------------------------------------------------------------------------
+其中 
+•|      用来分割不用的命令；
+•g      在匹配后面模式的行中执行指定的ex命令
+•\zs    指明匹配由此开始
+•s//\=n 对匹配模式进行替换，匹配模式为空，表示以上一次匹配成功的模式，
+并且指明替换是一个表达式；
+
+==高级递增替换==
+
+把下面几句放到 _vimrc
+-------------------------------
+let g:I=0
+function! INC(increment)
+let g:I =g:I + a:increment
+return g:I
+endfunction
+------------------------------
+•对于上述问题，可以这样解决：
+-----------------------------------------------------
+:let I=-1 | %s/^ double\s\+data\zs\d\ze/\=INC(1)/
+-----------------------------------------------------
+•还可以生成数字序列，如生成1~100间隔为5的数字序列：
+--------------------------------------
+:let I=0 | ‘a,’b s/^/\=INC(5)/
+--------------------------------------
+
+==vim小技巧: 计算有多少个搜寻关键字==
+:%s/pattern/&/g

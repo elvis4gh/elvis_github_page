@@ -1,0 +1,12 @@
+Calendar 顾名思义，是 Vim 的一个日历插件，它可以提供类似日记的功能。那么我们可以用它来干什么呢，我想可以记录技术笔记、当备忘录甚至可以记录 我家小白 的成长过程。总之，一切需要按日期记录的文本用它来记录是最合适不过的了。
+
+插件的官方地址 在这里 。安装方法很简单，就是将此文件拷贝到 $VIMRUNTIME/plugin 目录下，然后运行
+
+:Calendar
+即可（使用 :CalendarH 命令打开水平的日历窗口）。不过默认 Calendar 存放的文件路径是 ~/diary，可能对于 Windows 用户不适用。如果想更改，在 vimrc 中设置一下 即可：
+
+let g:calendar_diary=<PATH>
+建议绑定一个热键随时调出 Calendar，比如我就是这样做的：
+
+map ca :Calendar<cr>
+

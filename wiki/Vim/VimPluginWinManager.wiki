@@ -1,0 +1,13 @@
+(4). 使用方法
+122     在.vimrc中加入如下设置:
+let g:winManagerWindowLayout='FileExplorer|BufExplorer'  // 这里可以设置为多个窗口, 如'FileExplorer|BufExplorer|TagList'
+let g:persistentBehaviour=0             // 只剩一个窗口时, 退出vim.
+let g:winManagerWidth=20
+let g:defaultExplorer=1
+nmap <silent> <leader>few :FirstExplorerWindow<cr>
+nmap <silent> <leader>bew :BottomExplorerWindow<cr>
+nmap <silent> <leader>wm :WMToggle<cr>
+
+(5). 使用例子
+在正常模式下, 敲入 ",wm" 即可看到, vim的左侧新建了两个窗口:FileExplorer和 BufExplorer, 这样我们即可在FileExplorer窗口很方便地对目录进行查看, 编辑等 操作; 在BufExplorer窗口中查看当前vim已经打开那些文件.
+

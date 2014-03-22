@@ -1,0 +1,19 @@
+=RegExp Searching:=
+
+/^fred.*joe.*bill  : line beginning with fred, followed by joe then bill
+/^[A-J]            : line beginning A-J
+/^[A-J][a-z]\+\s   : line beginning A-J then one or more lowercase characters then space or tab
+/fred\_.\{-}joe    : fred then anything then joe (over multiple lines)
+/fred\_s\{-}joe    : fred then any whitespace (including newlines) then joe
+/fred\|joe         : fred OR joe
+
+
+=Searching history =
+q/               : 搜索命令历史的窗口
+
+
+
+refer VimRegExp
+
+=多文件查找 Searching in multiple files=
+VimMultipleFiles

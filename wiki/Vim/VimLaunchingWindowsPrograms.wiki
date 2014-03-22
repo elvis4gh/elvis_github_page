@@ -1,0 +1,29 @@
+This causes Windows to launch the program associated with the file extension. It also restores the paste buffer to its original value: 
+
+" This command will execute the file, for example, if this is an
+" HTML file, it will run:
+"     start c:\absolute\filename.html
+nnoremap <silent> <C-F6> :let old_reg=@"<CR>:let @"=substitute(expand("%:p"), "/", "\\", "g")<CR>:silent!!cmd /cstart <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
+
+
+You can also use Windows rundll32.exe for some options:
+" vmap <silent> <C-F5> :<C-U>let old_reg=@"<CR>gvy:silent!!start rundll32.exe url.dll,FileProtocolHandler <C-R><C-R>"<CR><CR>:let @"=old_reg<CR>
+
+
+Or, for example, you can launch Internet Explorer directly:
+:nmap <Leader>f :update<CR>:silent !start c:\progra~1\intern~1\iexplore.exe file://%:p<CR>
+:nmap <Leader>i :update<CR>:!start c:\progra~1\intern~1\iexplore.exe <cWORD><CR>
+
+==FTP from Vim==
+cmap <Leader>r :Nread ftp://209.51.134.122/public_html/index.html
+cmap <Leader>w :Nwrite ftp://209.51.134.122/public_html/index.html
+gvim ftp://209.51.134.122/public_html/index.html
+: For ascii file transfers add the following line to your .vimrc
+let g:netrw_ftpmode="ascii"
+
+==Preview in Firefox web browser==
+#add this to your .vimrc:
+command Preview :!firefox %<CR>
+#if you are using windows, you will need to adjust your PATH to include the path to your browser.
+
+

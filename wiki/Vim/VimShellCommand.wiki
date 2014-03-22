@@ -1,0 +1,28 @@
+=Get output from shell commands=
+These use external programs – ls, grep, date, sort, … (see :help :sort to learn how to use Vim's built-in sort).
+
+:r!ls                : reads in output of ls (use dir on Windows)
+:r !grep "^ebay" file.txt  : read output of grep
+:20,25 !rot13        : rot13 lines 20 to 25
+:r!date              : insert date (use  date /T on Windows)
+:.!sh                : execute contents of current line in buffer and capture the output
+
+ Sorting with external sort
+:%!sort -u           : contents of the current file is sorted and only unique lines are kept
+:'v,'w!sort          : sort from line marked v thru lines marked w
+:g/^$/;,/^$/-1!sort  : sort each block (note the crucial ;)
+
+!1} sort             : sorts paragraph; this is issued from normal mode!)
+
+ Entering !! in normal mode is translated to  :.!
+ Appending a command sends the current line to the command replacing it with command's result
+!!date              : Replace current line with date
+!!which command     : Replace current line with the absolute path to command
+!!tr -d AEIO        : translate current line deleting As, Es, Is, and Os from the current line
+
+ You can also use ! on a visual selection. Select an area with one of the visualmode
+ commands, and then type !command to pipe the whole selection through command.
+This is equivalent to :'<,'>!command.
+For example, after selecting multiple lines with visualmode:
+!sort              : sort selected lines
+!grep word         : keep only lines containing 'word' in the selected range.

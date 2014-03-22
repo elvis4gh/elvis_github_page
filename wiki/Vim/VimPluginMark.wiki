@@ -1,0 +1,24 @@
+mark.vim插件 ( 不同于Mark.vim 插件)
+
+(1). 帮助手册查看
+这个插件没有帮助手册, 不过大可放心使用, 其提供的功能也不是很多, 就几条命令, 但是用起来真的是很方便.
+
+(2). 功能
+这个插件与vim中自带的'*'与'#'非常相像. 不同之处是: vim中的'*'与'#'命令只能同时高亮一个同类词组(或正则表达式的搜索结果), 而Mark.vim插件可以同时高亮多个.
+
+(3). 安装
+把下载好的Mark.vim插件放到 $HOME/.vim/plugin 目录中, 即可.
+
+(4). 使用方法
+
+/m      mark or unmark the word under (or before) the cursor
+/r      manually input a regular expression. 用于搜索.
+/n      clear this mark (i.e. the mark under the cursor), or clear all highlighted marks .
+/*      把光标向前切换到当前被Mark的MarkWords中的下一个MarkWord.
+/#      把光标向后切换到当前被Mark的MarkWords中的上一个MarkWord.
+//      把光标向前切换到所有被Mark的MarkWords中的下一个MarkWord.
+/?      把光标向后切换到所有被Mark的MarkWords中的上一个MarkWord.
+
+说明: 这些命令中的 '/' 是 vim 中的 mapleader, 你也可以设置为别的: 如, 若要设置为 ',', 把下面这条语句加到.vimrc文件中, 即可,
+let mapleader=","
+

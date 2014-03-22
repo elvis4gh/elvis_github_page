@@ -1,8 +1,14 @@
 %title 程序员喜欢系列
 
 Elvis's life style: <br />
+   * 程序员喜欢的编辑器 - [[Vim/Vim|Vim]] <br />
    * 程序员喜欢的OS - [[Linux/Linux|Linux]] <br />
-   * 程序员喜欢的环境 - [[LAMP]] [[ELDK]]
+   * 程序员喜欢的环境 - 
+      * web: 
+         * [[LAMP]], WAMP
+         * LNMP
+      * Embedded: 
+         * [[ELDK]]
    * 程序员喜欢的开源网站 - 
       [[http://www.hotscripts.com|PHP hotscripts]]
       [[http://sourceforge.net|SourceForge]]

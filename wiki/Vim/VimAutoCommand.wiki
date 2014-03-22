@@ -1,0 +1,15 @@
+=autocmd=
+    这个命令十分的强大, 可以用这个命令实现对不同的文件格式应用不同的配置; 可以
+在新建文件时自动添加上版权声明等等. 这些命令一般定义在 ~/.vimrc 这样的配置文件
+里面. 由于他很强大, 所以我不能给出很具体的说明, 只能举几个例子, 详细的请看帮助.
+
+  :autocmd!               删除所有之前的自动命令.
+  autocmd FileType        java  source ~/.vim/files/java.vim
+  autocmd FileType        java  source ~/.vim/files/jcommenter.vim
+    以上两条命令让我在打开 java 文件时才应用后面提到的两个配置文件.
+  autocmd BufNewFile      *.java  0r ~/.vim/files/skeletons/java.skel
+    以上这条命令让我在新建 java 文件时自动加入 java.skel 文件的内容.
+  autocmd BufNewFile      *.java  normal gnp
+    以上这条命令让我在新建 java 文件时自动运行 gnp 命令, 这个命令进行一些特殊化
+    处理, 比如将新 java 文件中的 __date__ 替换成今天的日期什么的.
+

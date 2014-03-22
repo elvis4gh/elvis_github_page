@@ -1,0 +1,18 @@
+Help for help
+
+:h visual<C-D><Tab> : obtain list of all visual help topics
+                    : Then use tab to step through them
+:h ctrl<C-D> : list help of all control keys
+:h regexp<C-D>      : 按下 control-D 键即可得到包含有 regexp 的帮助主题的列表
+                     : (使用TAB可以实现帮助的自动补齐)
+:h :r        : help for :ex command
+:h CTRL-R    : normal mode
+:h \r        : what's \r in a regexp
+:h i_CTRL-R  : help for say <C-R> in insert mode
+:h c_CTRL-R  : help for say <C-R> in command mode
+:h v_CTRL-V  : visual mode
+:h 'ai       : help on setting option 'autoindent'
+
+
+# 信息来源　VimResource
+----------------------------------------

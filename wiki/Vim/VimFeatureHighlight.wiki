@@ -1,0 +1,48 @@
+==¿¿¿ colorcolumn  7.3 ¿¿==
+http://www.verydemo.com/demo_c116_i9498.html
+
+==å¦‚ä½•è®©vim è‡ªåŠ¨é«˜äº®current word under cursorï¼Ÿ==
+   autohighlight.vim
+   z/  - toggle auto highlight
+   http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle
+   
+   ==To change the search highlighting color ==
+   hi Search guibg=LightBlue ctermbg=LightBlue
+   (also try LightGreen)
+   NOTE: "hi Search guibg=LightBlue" is only for the GUI version of Vim. If you're using Vim in-console, try "hi Search ctermbg=LightBlue" 
+
+   For my error message highlighting I use:
+   highlight ErrorMsg guibg=White guifg=Red
+   
+-------------------------------------
+pending list:
+
+   Mark.vim é«˜äº®å¯¹åº”çš„record key word  
+
+   ==å¦‚ä½•è®©vim è‡ªåŠ¨é«˜äº®/color ç‰¹æ®Šæ ¼å¼çš„è¡Œï¼Ÿ==
+   
+   
+==customize highlight==
+¿VIM¿¿¿¿¿¿¿¿¿¿¿¿(matching)¿
+¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+
+:match Group /pattern/
+
+¿¿¿¿¿¿¿¿¿
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿(color group)¿¿¿
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+
+¿¿¿¿¿¿¿¿¿¿¿(^¿¿)¿¿¿¿¿Error¿¿¿¿¿¿¿¿¿¿¿¿¿ErrorMsg¿¿¿¿¿¿(¿¿¿¿¿¿¿)¿
+
+
+
+¿: ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+
+:so $VIMRUNTIME/syntax/hitest.vim
+
+
+

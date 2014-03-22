@@ -1,0 +1,15 @@
+
+进入各种模式的命令
+F7 caret模式；
+F7+v visual模式；
+
+各种控制台相关命令
+:dl 或者: downloads 打开下载管理器；
+:addons 扩展管理器；
+:js 脚本管理器；
+:prefs! about:config；
+
+
+Key Mapping help page:
+ :optionusage
+

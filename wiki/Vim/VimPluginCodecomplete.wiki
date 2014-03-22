@@ -1,0 +1,22 @@
+(4). 使用方法
+进入源码目录, 执行如下命令:
+ctags -R --c-kinds=+p --fields=+S .
+
+(5). 使用例子
+" Usage:
+"           hotkey:
+"               "<tab>" (default value of g:completekey)
+"               Do all the jobs with this key, see
+"           example:
+"               press <tab> after function name and (
+"                 foo ( <tab>
+"               becomes:
+"                 foo ( /<first param>`,/<second param>` )
+"               press <tab> after code template
+"                 if <tab>
+"               becomes:
+"                 if( /<...>` )
+"                 {
+"                     /<...>`
+"                 }
+

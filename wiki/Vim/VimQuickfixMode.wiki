@@ -1,0 +1,94 @@
+==Quickfix模式==
+Quickfix模式的主要思想是保存一个位置列表，然后提供一系列命令，实现在这个位置列表中跳转。
+
+==如何快速替换在所有的位置的字符？==
+
+==常用命令：==
+:cc                显示详细错误信息 ( :help :cc )
+:cp                跳到上一个错误 ( :help :cp )
+:cn                跳到下一个错误 ( :help :cn )
+:cl                列出所有错误 ( :help :cl )
+:cw                如果有错误列表，则打开quickfix窗口 ( :help :cw )
+:col               到前一个旧的错误列表 ( :help :col )
+:cnew              到后一个较新的错误列表 ( :help :cnew ) 
+更多的命令，以及这些命令更详细的解释，请参见手册。
+
+对于经常用到的命令，最好提供更方便的使用方法，在我的vimrc中的定义：
+autocmd FileType c,cpp  map <buffer> <leader><space> :w<cr>:make<cr>
+nmap <leader>cn :cn<cr>
+nmap <leader>cp :cp<cr>
+nmap <leader>cw :cw 10<cr> 
+
+==位置列表的产生==
+- 可以从编译器的编译输出信息中获得，
+- 可以由grep命令的输出信息中获得，
+- cscope命令，也可以产生位置列表信息(:help ‘cscopequickfix’)。
+
+==[编译]==
+
+为了做到这一点，你首先要定义编译时所使用的程序，对大多数使用Makefile的项目来说，vim的缺省设置”make“已经可以满足要求了。
+如果你的项目需要用一个特殊的程序进行编译，就需要修改’makeprg‘选项的值。
+
+eg. hello world，讲一下quickfix模式的用法。
+
+该程序的内容如下，里面包含了三个小小的错误：
+
+/* hello world demo */
+#include <stdio.h"
+int main(int argc, char **argv)
+{
+    int i;
+    print("hello world\n");
+    return 0;
+} 
+
+我们可以为这个程序写个小小的Makefile文件，不过为了演示’makeprg‘的设置方法，我们并不用Makefile，而直接设置’makeprg‘选项，如下：
+
+:set makeprg=gcc\ -Wall\ -ohello\ hello.c 
+:make 
+
+在使用”:make“时，vim会自动调用’makeprg‘选项定义的命令进行编译，并把编译输出重定向到一个临时文件中，当编译出现错误时，vim会从上述临时文件中读出错误信息，根据这些信息形成quickfix列表，并跳转到第一个错误出现的地方。
+
+对于我们上面的程序来说，光标会停在第三行，也就是第一个出错的位置，vim同时会提示出错信息。如果你没看清出错信息，可以输入”:cc“命令，vim会更次显示此信息，或者干脆使用”:cw“命令，打开一个quickfix窗口，把所有的出错信息显示出来，见下图： 
+现在我们知道错在哪儿了，修正一下，然后使用”:cn“命令（或者在Quickfix List对应行上输入回车）跳到下一个出错的地方，以此类推，直到修正全部错误。
+
+
+vim可以同时记住最新的10个错误列表，也就是说你最近10次使用”:make“命令编译所遇到的错误都保存着，可以使用”:colder“和”:cnewer“命令，回到旧的错误列表，或者到更新的错误列表。
+
+
+现在使用”,<space>“(先按,再按空格)就可以编译，使用”,cp“和”,cn“跳到上一个和下一个错误，使用”,cw“来打开一个quickfix窗口。这下顺手多了！
+
+如果你希望跳转到出错的文件时，使用一个分隔的窗口打开，请参阅’switchbuf‘选项的值。
+
+在vim7中，每个窗口都可以拥有自己的位置列表，这样，你就能够同时打开多个位置列表了，而quickfix列表在整个vim中只有一个。你可以使用位置列表来显示编译错误信息，具体命令参阅手册：”:help location-list“以及”:help :lmake“。
+
+[GREP]
+
+我们在程序员的利器 – cscope中讲过，cscope可以做为一个快速的grep程序使用，对于我们的软件项目，用cscope生成一个数据库，可以大大加快查找字符串的速度。但cscope需要事先生成一个数据库，对一些简单的查找，不需要专门为之生成数据库，这时候可以使用grep。
+
+Grep的名字来源于”g/re/p”，”re”是正则表达式(regex)的意思，”p”是打印，也就是把匹配正则表达式的行打印出来。
+
+vim既可以使用外部的grep程序，也可以使用内部集成的grep功能。
+
+使用集成的grep命令非常简单，通常使用格式为：
+
+:vimgrep /main/gj **/*.c 
+
+在上面的例子里，我们使用vim内部集成的grep功能，在当前目录及其子目录树的所有c文件中查找main字符串，如果一行中main出现了多次，每个匹配都计入；在查找到后，不立即跳转到第一个匹配的地方。
+
+使用内部集成的grep功能速度要比外部grep慢一些，因为它会打开每个文件，对其进行检查，然后关闭；但集成的grep支持vim增强的正则表达式，可以利用它进行更为复杂的查找。它也支持vim扩展的文件通配符表示方式，见”:help starstar-wildcard“。
+
+vimgrep查找到的结果，也会放在quickfix列表中。下图是在vim 7.0的源代码目录中执行上面的命令生成的quickfix列表： 
+
+我们可以使用上面介绍的quickfix模式的命令，来查看这些匹配。
+
+你也可以用外部的grep程序来查找，如果你的系统中所用的不是标准的grep程序，那么就需要修改’grepprg‘选项，详情请参阅手册。
+
+使用外部grep的语法与grep程序相同，请参阅grep的手册。
+
+无论使用内部的vimgrep，还是使用外部的grep，vim都允许你将查找到的结果放在与窗口相关联的位置列表，要了解详细信息，”:help :lvimgrep“及”:help :lgrep“。
+
+在我的vimrc中，定义下面的键映射，利用它可以在当前文件中快速查找光标下的单词：
+nmap <leader>lv :lv /<c-r>=expand("<cword>")<cr>/ %<cr>:lw<cr> 
+
+

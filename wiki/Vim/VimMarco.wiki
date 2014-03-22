@@ -1,0 +1,25 @@
+=record the marco in register=
+qa  #录制到a
+...... #输入一系列复杂的指令
+q  #再次按q停止录制
+
+=run the marco in register =
+@a  #执行a中存储的指令
+@@  #重复执行
+
+execute the macro recorded in register a on all lines of the current file.
+:%normal @a 
+
+run the marco to the selected virtual block, with a visually selected set of lines:
+:normal @a
+
+=Modify the marco in register=
+:reg            : 列出寄存器, 显示所有当前的register
+"ap             #把register a中的内容贴到当前位置
+.. #现在你可以修改它了
+"add#删除之，重新存入register a
+
+
+= Macro and column mode =
+VimColumnMode
+

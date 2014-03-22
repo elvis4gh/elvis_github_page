@@ -1,0 +1,14 @@
+==vim的参数列表==
+args
+
+
+==%为内部变量，表示文件名==
+==%<表示没有后缀的文件名。==
+   ===check out current file:===
+   :!neu co %
+==&filetype是一个内部变量，前缀&起标识内部变量的作用。==
+==内部寄存器 ==
+VimRegister
+
+
+

@@ -1,0 +1,24 @@
+www.vim.org         : 官方站点
+vim wiki http://vim.wikia.com/wiki/Best_Vim_Tips
+comp.editors        : 新闻组
+http://vimdoc.sourceforge.net/cgi-bin/vim2html2.pl : 关于vim的可查询文档
+
+----------------------------------------
+forum - http://vimdoc.sourceforge.net/vimfaq.html          : VIM FAQ
+wiki - http://vim.wikia.com/wiki/
+course - 
+web (search SNS twitter blog) - 
+   易水博客: http://easwy.com/blog/archives/advanced-vim-skills-catalog/
+   VIMer的程序世界： http://www.vimer.cn/
+   Chong Tang's blog: http://www.yjpub.com/index.php/1042
+   另外两个觉得有学习价值的配置文件：
+   http://home.ustc.edu.cn/~stephen1/script/vimrc.html
+   http://www.vi-improved.org/vimrc.php 
+doc - http://vimdoc.sourceforge.net/cgi-bin/vim2html2.pl : 关于vim的可查询文档
+book - http://www.newriders.com/books/opl/ebooks/0735710015.html : Vim书籍 hackign vim 7.2
+magazine -
+newspaper - 
+video program -
+comp.editors 新闻组
+
+

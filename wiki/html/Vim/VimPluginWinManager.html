@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>VimPluginWinManager</title>
+       <link rel="shortcut icon" href="../../../favicon.ico" />
+       <link href="../../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../../media/css/style.css" />
+       <link rel="stylesheet" href="../../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+  <body>
+    <a name="top"></a>
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>VimPluginWinManager</h1>
+        </header>
+        <nav>
+        <span><a title="网站首页" class="" href="../../../">首页</a></span>
+        <span><a title="文章分类" class="" href="../../../categories/">分类</a></span>
+        <span><a title="标签索引" class="" href="../../../tags/">标签</a></span>
+        <!--<span><a title="友情链接" class="" href="../../../links/">链接</a></span>-->
+        <span><a title="留言交流" class="" href="../../../guestbook/">留言</a></span>
+        <span><a title="关于站长" class="" href="../../../about/">关于</a></span>
+        <span><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></span>
+        </nav>
+        <article class="content">
+        
+<p>
+(4). 使用方法
+122     在.vimrc中加入如下设置:
+let g:winManagerWindowLayout='FileExplorer|BufExplorer'  // 这里可以设置为多个窗口, 如'FileExplorer|BufExplorer|TagList'
+let g:persistentBehaviour=0             // 只剩一个窗口时, 退出vim.
+let g:winManagerWidth=20
+let g:defaultExplorer=1
+nmap &lt;silent&gt; &lt;leader&gt;few :FirstExplorerWindow&lt;cr&gt;
+nmap &lt;silent&gt; &lt;leader&gt;bew :BottomExplorerWindow&lt;cr&gt;
+nmap &lt;silent&gt; &lt;leader&gt;wm :WMToggle&lt;cr&gt;
+</p>
+
+<p>
+(5). 使用例子
+在正常模式下, 敲入 ",wm" 即可看到, vim的左侧新建了两个窗口:FileExplorer和 BufExplorer, 这样我们即可在FileExplorer窗口很方便地对目录进行查看, 编辑等 操作; 在BufExplorer窗口中查看当前vim已经打开那些文件.
+</p>
+
+        </article>
+      </div>
+
+    <footer>
+        <p><small>
+	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../../about/">About_Elvis</a>
+       | <a href="../../html/index.html">Wiki_home</a>
+       | <a href="../../../index.html">Blog_home</a>
+       | <a href="#top">TOP</a>
+         </small></p>
+    </footer>
+
+    </div>
+  </body>
+</html>

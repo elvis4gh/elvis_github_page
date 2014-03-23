@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>VimPluginTaglist</title>
+       <link rel="shortcut icon" href="../../../favicon.ico" />
+       <link href="../../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../../media/css/style.css" />
+       <link rel="stylesheet" href="../../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+  <body>
+    <a name="top"></a>
+    <div id="container">
+      <div id="main" role="main">
+        <header>
+        <h1>VimPluginTaglist</h1>
+        </header>
+        <nav>
+        <span><a title="网站首页" class="" href="../../../">首页</a></span>
+        <span><a title="文章分类" class="" href="../../../categories/">分类</a></span>
+        <span><a title="标签索引" class="" href="../../../tags/">标签</a></span>
+        <!--<span><a title="友情链接" class="" href="../../../links/">链接</a></span>-->
+        <span><a title="留言交流" class="" href="../../../guestbook/">留言</a></span>
+        <span><a title="关于站长" class="" href="../../../about/">关于</a></span>
+        <span><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></span>
+        </nav>
+        <article class="content">
+        
+<p>
+Tag List 插件
+(1). 帮助手册查看 :help taglist.txt
+</p>
+
+<h2 id="toc_0.1">使用它：</h2>
+<p>
+:tag {ident}            "跳转到指定的标签
+   e.g 搜索 tag setallflags
+   :tag setallflags 
+   :tag /\C\                  "你可以输入一个VIM正则表达式来表示你所查找的名字
+</p>
+   
+<p>
+:tags                   "显示标签栈
+CTRL-]                  "跳转到当前光标下的标签
+CTRL-T                  "跳到标签栈中较早的标签
+</p>
+   
+<p>
+:Tlist                  " prompt tlist command:
+,tl ( Elvis's configuration)
+</p>
+
+<p>
+在taglist中的操作：<br /> 详细列表      :help taglist-keys
+&lt;CR&gt; - 跳转到tag
+o    - open一个新的window显示tag，光标回到code
+p    - 跳转到tag显示，光标仍在taglist
+s    - Change the sort order of the tags (by name or by order)
+u    - update taglist ":TlistUpdate" 
+</p>
+
+<h2 id="toc_0.2">how to use it?</h2>
+<p>
+   1. configuration 
+   首先请先在你的~/.vimrc文件中添加下面语句:
+   let Tlist_Ctags_Cmd='/bin/ctags'   // 若在windows中应写成: let Tlist_Ctags_Cmd='ctags.exe'
+   let Tlist_Show_One_File=1
+   let Tlist_OnlyWindow=1
+   let Tlist_Use_Right_Window=0
+   let Tlist_Sort_Type='name'
+   let Tlist_Exit_OnlyWindow=1
+   let Tlist_Show_Menu=1
+   let Tlist_Max_Submenu_Items=10
+   let Tlist_Max_Tag_length=20
+   let Tlist_Use_SingleClick=0
+   let Tlist_Auto_Open=0
+   let Tlist_Close_On_Select=0
+   let Tlist_File_Fold_Auto_Close=1
+   let Tlist_GainFocus_On_ToggleOpen=0
+   let Tlist_Process_File_Always=1
+   let Tlist_WinHeight=10
+   let Tlist_WinWidth=28
+   let Tlist_Use_Horiz_Window=0
+</p>
+   
+<h2 id="toc_0.3">what's it?</h2>
+<blockquote>
+高效地浏览源码, 其功能就像vc中的workpace, 那里面列出了当前文件中的所有宏, 全局变量, 函数名等.
+</blockquote>
+
+        </article>
+      </div>
+
+    <footer>
+        <p><small>
+	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../../about/">About_Elvis</a>
+       | <a href="../../html/index.html">Wiki_home</a>
+       | <a href="../../../index.html">Blog_home</a>
+       | <a href="#top">TOP</a>
+         </small></p>
+    </footer>
+
+    </div>
+  </body>
+</html>

@@ -1,5 +1,13 @@
 [http://blog.sina.com.cn/s/blog_4ca720af0102edq7.html|问题是什么]
 
+一条路走不通，在那里耗不是办法？怎么办？
+   - option1: 强势开路
+      - 找帮手一块开路（人/resource不够，做资源整合/放狗搜/...）
+      - 小步快跑
+   - option2: 找到闭环。找到路障的feedback，让他告诉你为什么走不通，再修正(debug方法)
+   - option3: 看看有没有另外的路走（workaround/e.g ghost系统的例子）
+    
+
 找问题，分析问题，总结问题，提出建议，发掘创新的能力
 
 如何丰富分析观察的角度 Are you a Vertical Thinker, Lateral Thinker

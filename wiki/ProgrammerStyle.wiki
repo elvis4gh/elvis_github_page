@@ -12,9 +12,17 @@ Elvis's life style: <br />
    * 程序员喜欢的开源网站 - 
       [[http://www.hotscripts.com|PHP hotscripts]]
       [[http://sourceforge.net|SourceForge]]
+   
+   * 程序员喜欢的函数文档
+      * [[http://net.pku.edu.cn/~yhf/linux_c/|Linux常用C函数]]
+    
+   * 程序员喜欢的手册 - [[http://www.w3school.com.cn/cssref/|CSS手册]]
+       
    * 程序员美学 - 
-      - [[http://www.2maomao.com/blog/best-programmer-fonts/ | 程序员喜欢的编程字体]]
-      - [[http://ethanschoonover.com/solarized | 程序员喜欢的colorscheme]]
+      - [[http://www.2maomao.com/blog/best-programmer-fonts/|程序员喜欢的编程字体]]
+      - [[http://ethanschoonover.com/solarized|程序员喜欢的vim colorscheme]]
+      - [[http://www.cnblogs.com/shinings/archive/2009/05/29/1491834.html|程序员喜欢的css色版]]
+         [[http://www.divcss5.com/uploads/allimg/100531/1_100531133740_1.gif|程序员喜欢的css色版2]]
       - 程序员喜欢的标记语言
          markdown
          textile

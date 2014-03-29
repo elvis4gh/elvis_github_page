@@ -11,38 +11,47 @@
     <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
 
-
   <body>
     <div id="container">
-      <nav><!-- top nav -->
-		<div class="menu">
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Products</a></li>
-				<li><a href="#">Services</a></li>
-				<li><a href="#">Support</a></li>
-				<li><a href="#">Contact Us</a></li>
-			</ul>
-		</div>
+      <nav>
+      <span><a title="网站首页" class="" href="{{site.baseurl}}/">首页</a></span>
+      <span><a title="文章分类" class="" href="{{site.baseurl}}/categories/">分类</a></span>
+      <span><a title="标签索引" class="" href="{{site.baseurl}}/tags/">标签</a></span>
+      <!--<span><a title="友情链接" class="" href="{{site.baseurl}}/links/">链接</a></span>-->
+      <span><a title="留言交流" class="" href="{{site.baseurl}}/guestbook/">留言</a></span>
+      <span><a title="关于站长" class="" href="{{site.baseurl}}/about/">关于</a></span>
+      <span><a title="种子订阅" class="" href="{{site.baseurl}}/feed/" target="_blank">订阅</a></span>
       </nav>
 
       <div id="main" role="main">
-        <header>
-        <h1>{{ page.title }}</h1>
+        <header><!-- header -->
+           <h1>{{ page.title }}</h1>
+		     <h2>Life. Love. Responsibility.</h2>
         </header>
-        <nav>
-        <span><a title="网站首页" class="" href="{{site.baseurl}}/">首页</a></span>
-        <span><a title="文章分类" class="" href="{{site.baseurl}}/categories/">分类</a></span>
-        <span><a title="标签索引" class="" href="{{site.baseurl}}/tags/">标签</a></span>
-        <!--<span><a title="友情链接" class="" href="{{site.baseurl}}/links/">链接</a></span>-->
-        <span><a title="留言交流" class="" href="{{site.baseurl}}/guestbook/">留言</a></span>
-        <span><a title="关于站长" class="" href="{{site.baseurl}}/about/">关于</a></span>
-        <span><a title="种子订阅" class="" href="{{site.baseurl}}/feed/" target="_blank">订阅</a></span>
-        </nav>
         <article class="content">
         {{ content }}
         </article>
+        <aside id="sidebar"><!-- sidebar -->
+					<h3>Things To Do</h3>
+					<ul>
+						<li><a href="#">Play Games</a></li>
+						<li><a href="#">Chat With Friends</a></li>
+						<li><a href="#">Swap Stories</a></li>
+						<li><a href="#">Sell Stuff</a></li>
+						<li><a href="#">Buy Stuff</a></li>
+						<li><a href="#">Trade Stuff</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect With Us</h3>
+					<ul>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Facebook</a></li>
+					</ul>
+
+		  </aside>
       </div>
 
     <footer>

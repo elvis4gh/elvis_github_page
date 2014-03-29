@@ -29,16 +29,15 @@
       </nav>
 
       <header><!-- header -->
-        <h1>{{ page.title }}</h1>
-        <h2>Life. Love. Responsibility.</h2>
+         <h1><a href="#">{{ page.title }} Elvis's Life</a></h1>
+         <h2>Life. Love. Responsibility.</h2>
       </header>
 
       <section id="main">
-      <div id="main1" role="main">
-        <article class="content">
-        {{ content }}
-        </article>
-        <aside id="sidebar"><!-- sidebar -->
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
 					<h3>Things To Do</h3>
 					<ul>
 						<li><a href="#">Play Games</a></li>
@@ -59,21 +58,51 @@
 					</ul>
 
 		  </aside>
-      </div>
       </section>
 
-    <footer>
-        <p><small>
-	     <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="{{site.baseurl}}/about/">{{ site.author }}</a>
-       | <a href="{{site.baseurl}}/wiki/html/index.html">Elvis Wiki</a>
+      <footer>
+		<section id="footer-area">
+
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="{{site.baseurl}}/about/">{{ site.author }}</a> </li>
+									<li><a href="{{site.baseurl}}/wiki/html/index.html">Elvis Wiki</a></li>
+									<li><a href="#">three linkylinks</a></li>
 {% if site.beian %}
              | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
 {% endif %}
 {% if site.cnzz %}
              | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
 {% endif %}
-         </small></p>
-    </footer>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
 
     </div>
   </body>

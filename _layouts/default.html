@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div id="container">
+    <div id="wrapper">
       <nav>
       <span><a title="网站首页" class="" href="{{site.baseurl}}/">首页</a></span>
       <span><a title="文章分类" class="" href="{{site.baseurl}}/categories/">分类</a></span>
@@ -23,11 +23,13 @@
       <span><a title="种子订阅" class="" href="{{site.baseurl}}/feed/" target="_blank">订阅</a></span>
       </nav>
 
-      <div id="main" role="main">
-        <header><!-- header -->
-           <h1>{{ page.title }}</h1>
-		     <h2>Life. Love. Responsibility.</h2>
-        </header>
+      <header><!-- header -->
+        <h1>{{ page.title }}</h1>
+        <h2>Life. Love. Responsibility.</h2>
+      </header>
+
+      <section id="main">
+      <div id="main1" role="main">
         <article class="content">
         {{ content }}
         </article>
@@ -53,6 +55,7 @@
 
 		  </aside>
       </div>
+      </section>
 
     <footer>
         <p><small>

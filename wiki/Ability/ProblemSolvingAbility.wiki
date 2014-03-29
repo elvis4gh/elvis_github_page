@@ -6,7 +6,10 @@
       - 小步快跑
    - option2: 找到闭环。找到路障的feedback，让他告诉你为什么走不通，再修正(debug方法)
    - option3: 看看有没有另外的路走（workaround/e.g ghost系统的例子）
+   - option4: 慎用 - 找更远的target的捷径
     
+    
+Facebook 的众多海报当中，有一张写的是「任何一个 Facebook 的问题，都不是别人的问题」
 
 找问题，分析问题，总结问题，提出建议，发掘创新的能力
 

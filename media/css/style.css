@@ -185,6 +185,7 @@ header h1 a:hover {
 text-decoration: underline;
 }
 header h2 {
+position:relative;
 padding: 20px 0 0 30px;
 font-style: italic;
 font-size: 14px;

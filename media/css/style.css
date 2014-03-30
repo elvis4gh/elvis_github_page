@@ -126,7 +126,9 @@ nav .menu a:hover {
 text-decoration: underline;
 }
 
-nav .menu ul ul {
+nav .menu ul ul 
+nav .menu ul ul ul
+{
 visibility:hidden;
 position:relative;
 } 

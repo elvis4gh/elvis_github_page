@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>VimWiki</title>
+       <link rel="shortcut icon" href="../../../favicon.ico" />
+       <link href="../../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../../media/css/style.css" />
+       <link rel="stylesheet" href="../../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="../../../">首页</a></li>
+            <li><a title="文章分类" class="" href="../../../categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="../../../tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="../../../links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="../../../guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="../../../about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimWiki</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content">
+           <article>
+             
+<p>
+:h vimwiki-options
+</p>
+
+<p>
+VimWikiTemplate
+</p>
+
+<h2 id="toc_0.1">生成HTML?</h2>
+<p>
+:Vimwiki2HTML 可以为当前维基条目生成HTML文件
+:VimwikiAll2HTML 可以为所有条目生成HTML 
+您可以为每个维基项目指定 auto_export 选项，这样在wiki文件保存时就会自动生成HTML。个人不建议这样做，因为当条目很大，保存就相当费时。
+</p>
+
+<p>
+定义下面的快捷键映射即可：
+</p>
+<blockquote>
+map &lt;S-F4&gt; :VimwikiAll2HTML&lt;cr&gt;
+map &lt;F4&gt; :Vimwiki2HTML&lt;cr&gt; 
+</blockquote>
+
+<h1 id="toc_1">多个维基项目</h1>
+<p>
+您可以配置 g:vimwiki_list，指定多个维基项目，它们各自拥有单独的文件夹。这就允许你把工作维基和生活的琐事记录完全分开。
+请打开 vimrc ，加入以下内容：
+let g:vimwiki_list = [{'path': 'E:/path/to/vimwiki-1/vimwiki/',  
+  \ 'path_html': 'E:/My Dropbox/vimwiki_html/'
+  \ 'html_header': 'E:/My Dropbox/Public/vimwiki_template/header.htm',
+  \ 'html_footer': 'E:/My Dropbox/Public/vimwiki_template/footer.htm',
+  \ 'diary_link_count': 5},
+  \{'path': 'Z:/path/to/vimwiki-2/vimwiki/'}]
+这里其实定义了两个维基项目。
+   path 是必须的，说明你想要把 wiki 条目存在哪个目录。其他选项各有默认值。
+   path_html 生成的HTML存放在 path_html 下, 默认是与 path 同目录下的 WIKIFOLDER_html ，其中 WIKIFOLER 是你存放维基条目的文件夹名。
+   你可以分别为每个 wiki 项目指定 html 头部和尾部模板，建议把模板文件后缀采用 htm ，既和生成的 html 有所区分，又能保证语法高亮和各种 ftplugin 可用。 
+   diary_link_count 是指 diary.wiki 里每行放多少个日志链接。
+</p>
+
+<p>
+定义好之后，你可以使用 &lt;leader&gt;ws 选择当前活动的维基项目。使用 &lt;leader&gt;ws 会弹出一个维基项目的列表，并带有编号，使用这个编号加上“快捷键总览”部分的快捷键，就可以打开相应项目的首页、日记等。如 2&lt;leader&gt;w&lt;leader&gt;w 就是在当前窗口打开列表中第二个项目的日记。
+</p>
+
+<p>
+更多选项请参考 :h viwmiki-local-options 
+</p>
+
+<h2 id="toc_1.1">Search Wiki</h2>
+<p>
+直接使用 :VimwikiSearch key 命令或者：
+:vimgrep /KEY/ %:p:h/*.wiki
+</p>
+
+  
+<h2 id="toc_1.2">Link image/webside image/...??</h2>
+<p>
+Link with description: &gt;
+ [<a href="http://habamax.ru/blog">http://habamax.ru/blog</a> habamax home page]
+</p>
+ 
+<p>
+<a href="http://vimwiki.googlecode.com/hg/screenshots/vimwiki3.png">http://vimwiki.googlecode.com/hg/screenshots/vimwiki3.png</a>
+</p>
+
+<p>
+Link to a local image: &gt;
+   <a href="../images/DscBasedVirtualSoftHandoffCallp.JPG.html">../images/DscBasedVirtualSoftHandoffCallp.JPG</a>
+<a href="http://code.google.com/p/vimwiki/">http://code.google.com/p/vimwiki/</a>
+</p>
+
+
+<p>
+<a href="Wiki.html">Wiki</a>
+</p>
+
+           </article>
+        </section>
+        <aside id="sidebar">
+            <h3>WIKI精选</h3>
+					<ul>
+                  <li><a href="../Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="../Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="../十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+									<li><a href="../index.html">Elvis Wiki</a></li>
+                           <li><a href="../../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
+
+    </div>
+  </body>
+
+</html>

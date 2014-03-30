@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>VimCommandVimgrep</title>
+       <link rel="shortcut icon" href="../../../favicon.ico" />
+       <link href="../../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../../media/css/style.css" />
+       <link rel="stylesheet" href="../../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="../../../">首页</a></li>
+            <li><a title="文章分类" class="" href="../../../categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="../../../tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="../../../links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="../../../guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="../../../about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimCommandVimgrep</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content">
+           <article>
+             
+<h1 id="toc_1">vimgrep</h1>
+<p>
+使用vim可以方便的搜索多个文件，这个时侯需要使用的命令是：vimgrep。vimgrep的命令格式是：
+</p>
+
+<p>
+:vim[grep][!] /{pattern}/[g][j] {file} ...
+命令：vimgrep，grep可以省略。！是在你要放弃当前文件的修改时使用。
+   {pattern}是需要搜索的内容。
+   {file}是需要搜索的文件。
+</p>
+   
+<p>
+e.g
+:vim(grep) /patter/ *<strong>/</strong>.py
+</p>
+
+<h2 id="toc_1.1">就是在所有的.c文件中搜索an error。</h2>
+<p>
+:vimgrep /an error/ *.c
+</p>
+
+<h2 id="toc_1.2">查找当前目录下的文件中的an error，不包括子目录</h2>
+<p>
+:vimgrep/an error/*
+</p>
+
+<h2 id="toc_1.3">查找当前目录并且包括递归子目录下的所有文件</h2>
+<p>
+:vimgrep/an error/**
+</p>
+
+<p>
+vimgrep会产生一个error list，其实就是搜索结果列表。并会打开第一个符合的文件中第一个符合的位置。
+</p>
+
+           </article>
+        </section>
+        <aside id="sidebar">
+            <h3>WIKI精选</h3>
+					<ul>
+                  <li><a href="../Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="../Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="../十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+									<li><a href="../index.html">Elvis Wiki</a></li>
+                           <li><a href="../../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
+
+    </div>
+  </body>
+
+</html>

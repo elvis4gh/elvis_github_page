@@ -1,0 +1,47 @@
+Tag List 插件
+(1). 帮助手册查看 :help taglist.txt
+
+==使用它：==
+:tag {ident}            "跳转到指定的标签
+   e.g 搜索 tag setallflags
+   :tag setallflags 
+   :tag /\C\                  "你可以输入一个VIM正则表达式来表示你所查找的名字
+   
+:tags                   "显示标签栈
+CTRL-]                  "跳转到当前光标下的标签
+CTRL-T                  "跳到标签栈中较早的标签
+   
+:Tlist                  " prompt tlist command:
+,tl ( Elvis's configuration)
+
+在taglist中的操作：<br /> 详细列表      :help taglist-keys
+<CR> - 跳转到tag
+o    - open一个新的window显示tag，光标回到code
+p    - 跳转到tag显示，光标仍在taglist
+s    - Change the sort order of the tags (by name or by order)
+u    - update taglist ":TlistUpdate" 
+
+==how to use it?==
+   1. configuration 
+   首先请先在你的~/.vimrc文件中添加下面语句:
+   let Tlist_Ctags_Cmd='/bin/ctags'   // 若在windows中应写成: let Tlist_Ctags_Cmd='ctags.exe'
+   let Tlist_Show_One_File=1
+   let Tlist_OnlyWindow=1
+   let Tlist_Use_Right_Window=0
+   let Tlist_Sort_Type='name'
+   let Tlist_Exit_OnlyWindow=1
+   let Tlist_Show_Menu=1
+   let Tlist_Max_Submenu_Items=10
+   let Tlist_Max_Tag_length=20
+   let Tlist_Use_SingleClick=0
+   let Tlist_Auto_Open=0
+   let Tlist_Close_On_Select=0
+   let Tlist_File_Fold_Auto_Close=1
+   let Tlist_GainFocus_On_ToggleOpen=0
+   let Tlist_Process_File_Always=1
+   let Tlist_WinHeight=10
+   let Tlist_WinWidth=28
+   let Tlist_Use_Horiz_Window=0
+   
+==what's it?==
+    高效地浏览源码, 其功能就像vc中的workpace, 那里面列出了当前文件中的所有宏, 全局变量, 函数名等.

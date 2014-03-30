@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>VimPlugin</title>
+       <link rel="shortcut icon" href="../../../favicon.ico" />
+       <link href="../../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../../media/css/style.css" />
+       <link rel="stylesheet" href="../../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="../../../">首页</a></li>
+            <li><a title="文章分类" class="" href="../../../categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="../../../tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="../../../links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="../../../guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="../../../about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimPlugin</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content">
+           <article>
+             
+<p>
+用Bundle管理插件大概是常识吧...
+vundule 优雅地管理你的vim插件
+</p>
+
+<p>
+   写点自己的snippets ，再写点好用的插件.
+</p>
+
+<h1 id="toc_1">vim plugin overview</h1>
+<p>
+vim的插件, 其实就是用vimscript写的脚本. 当vim启动时, 会自动加载这些插件.
+如果感觉到vimrc中某个函数, 功能很强大, 并且太占地方, 那么就可以把它提取出来, 包装成一个插件了
+vim有两种形式的插件:
+ 1.一般插件: 适用于所有类型的文件, 即, 无论编辑什么类型的文件, 都可以使用插件提供的功能.
+ 2.特种插件: 适用于特定类型的文件, 即, 只有在编辑特定类型的文件时, 该插件才生效.
+✰安装插件: 把脚本name.vim丢进特定的目录 ✰Linux: ~/.vim/plugin (e.g  Windows: C:\Program Files\vim\vimfiles\plugin )
+✰卸载插件: 把刚才丢进去的脚本name.vim删除 
+</p>
+
+<p>
+<a href="http://www.vimer.cn/">http://www.vimer.cn/</a>
+</p>
+
+
+<h1 id="toc_2">vim useful plugins</h1>
+<p>
+VimWiki - 不用说，天天用
+Project - VimPluginProject &lt;F7&gt; 打开，map &lt;C-/&gt; FIXME linux上成功，在window 上怎么不好使？ 
+Taglist - VimPluginTaglist 挺好用
+omnicppcomplete - VimPluginOmnicppcomplete 提供C++代码的自动补全功能
+snippet.vim
+supertab.vim
+管理vim 插件的插件
+</p>
+
+
+
+<p>
+a.vim - :A 就可以自动跳到对应的.h 或者 .cpp/.c文件
+</p>
+
+
+<p>
+bash.vim - 使用bash.vim。。插入模式就用emacs的绑定。。。不错的。
+vimim - 中文输入法
+</p>
+
+
+<p>
+listfile - GTD 好帮手 Plugin provides simple and efficient tools for managing a plain-text file of nested lists.
+vimpress - 写博客  只能发布到wordpress 弃用
+matchit.vim  - 使得 % 能够配对标记 &lt;tr&gt;&lt;td&gt;&lt;script&gt; &lt;?php 等等  用不着
+vimtweak - transparent effect，性能问题，弃用
+</p>
+
+<p>
+vimdiff
+supertab.vim - tab键可以autocomplete， 一般情况下是自动搜索当前文件和所有打开的文件，经过配置可以搜索预先定义的字典,见下面截图
+</p>
+
+<h1 id="toc_3">requirement</h1>
+<p>
+P1：
+全局tag搜索  taglist             &lt;------------------ HOT
+代码折叠  fold VimFeatureFoldmethod , VOOF
+自动补全 code-complete
+   函数和类/结构成员的补全omnicppcomplete
+全局文件搜索 project, NERD tree
+高亮      mark - VimPluginMark  doesn't work!!!!!!
+声明提示 - echofunc
+变量调用的通篇搜索 - Ctrl + /    vimgrep
+</p>
+
+<p>
+P2：
+列模式 VimColumnMode
+Virtual Mode multiple line operation - 如 在行首插入“ - ”
+</p>
+
+
+<p>
+语法检查插件 checksyntax 一个通用的语法检查插件，支持c,js,等等
+</p>
+
+<p>
+c.vim - VimPluginCvim 
+</p>
+
+<h1 id="toc_4">In-Use list</h1>
+<p>
+Exuberant Ctags - <a href="ctags.html">ctags</a>
+Taglist - VimPluginTaglist 
+Win Manager - VimPluginWinManager 管理各个窗口, 或者说整合各个窗口.
+omnicppcomplete - VimPluginOmnicppcomplete 提供C++代码的自动补全功能
+code-complete - VimPluginCodecomplete
+</p>
+
+<p>
+echofunc - VimPluginEchofunc 当鼠标移到一个标志符之上时，会出现一个气球显示该标志符的定义，
+calendar.vim - VimPluginCalendar 提供日历的功能，并且可以记笔记
+Source Explorer
+</p>
+
+
+<h1 id="toc_5">pending list</h1>
+<p>
+cscope - VimPluginCscope 你可以把它当做是超过频的ctags
+Sketch - 
+BufExplorer - doesn't work??
+</p>
+
+<p>
+checksyntax 一个通用的语法检查插件，支持c,js,等等
+</p>
+
+<p>
+latex-suite
+word_complete  
+DrawIt        
+SearchComplete  
+vcscommand     
+switchtags
+ccal.rb       viki      NERD_tree       fencview       matrix
+Tetris    BlockComment
+</p>
+
+<p>
+ZenCoding.vim。html编程用 如果想跟进这个插件的版本的话，可以Github上找到这个VIM插件的的最新情况<a href="http://github.com/mattn/zencoding-vim。">http://github.com/mattn/zencoding-vim。</a>
+</p>
+
+<p>
+surround.vim 快速给单词/句子两边增加符号（包括html标签），缺点是不用用"."来重复命令，repeat.vim可以解决这个问题
+Vimpress 用vim来查看、发布、修改、删除博客
+VOoM 提供outline功能，功能非常强大
+CmdlineComplete 提供命令模式下的补全，可以补全缓冲区中出现过的单词
+weibo.vim 在Vim中发腾讯微博（本博编写）
+</p>
+
+
+
+
+
+
+
+<p>
+python:
+   pyflakes 提供实时检查python代码语法的功能（强烈推荐！）
+   pydoc 在vim中查找python文档
+</p>
+
+
+<hr />
+<h1 id="toc_6">clewn</h1>
+<p>
+下载地址： 官方站点
+官方描述： Clewn implements full gdb support in the vim editor: breakpoints, watch variables, gdb command completion, assembly windows, etc.
+滇狐评价： Vim 从一开始的设计哲学就是要保持简单， 不要把太多的东西整合在 Vim 中。 Clewn 在保持了 Vim 简单的原则下， 将集成调试所需的一部分功能引入到了 GVim 中， 支持设置断点、 查看变量的值等许多操作， 非常方便。
+</p>
+
+<p>
+conque_term     提供在vim中打开终端的功能，非常有用！
+</p>
+
+           </article>
+        </section>
+        <aside id="sidebar">
+            <h3>WIKI精选</h3>
+					<ul>
+                  <li><a href="../Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="../Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="../十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+									<li><a href="../index.html">Elvis Wiki</a></li>
+                           <li><a href="../../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
+
+    </div>
+  </body>
+
+</html>

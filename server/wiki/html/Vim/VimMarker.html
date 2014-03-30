@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>VimMarker</title>
+       <link rel="shortcut icon" href="../../../favicon.ico" />
+       <link href="../../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../../media/css/style.css" />
+       <link rel="stylesheet" href="../../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="../../../">首页</a></li>
+            <li><a title="文章分类" class="" href="../../../categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="../../../tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="../../../links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="../../../guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="../../../about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimMarker</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content">
+           <article>
+             
+<p>
+我一般用来做code 地图，比如ma 做pip mb 做 pcp 。。。 串起来就可以看整个signal的流程
+</p>
+
+<h2 id="toc_0.1">[转]VIM标记 mark 详解</h2>
+<p>
+Vim 允许你在文本中放置自定义的标记。命令 "ma" 用 a 标记当前的光标位置。你可以在文本中使用 26 个标记（a到z）。这些标记是不可见的，只是一个由 Vim 记住的位置。
+要跳到一个你定义的标记，可以使用命令 `{mark}，这里 {mark} 是指定义标记的那个字母。所以，移到标记a的命令是：
+</p>
+<blockquote>
+`a
+</blockquote>
+
+<p>
+命令 'mark（单引号加上一个标记）会移到标记所在行的行首。这与 `mark 命令是不同的， 
+后者是移到标记所在行上被标记的列。
+</p>
+
+<p>
+标记在需要处理一个文件的两个相关地方的时候非常有用。假设你在处理文末的时候需要 
+查看文首的一些内容，先移动到行首，设置一个标记 s (start)：
+</p>
+<blockquote>
+ms
+</blockquote>
+
+<p>
+然后移动到你需要处理的地方，再设置一个标记 e (end)：
+</p>
+<blockquote>
+me
+</blockquote>
+
+<p>
+现在你可以随意移动，当你需要看开头的地方，可以使用这个命令移到那里：
+</p>
+<blockquote>
+'s
+</blockquote>
+
+<p>
+然后使用 '' 跳回来。或者用 'e 跳到你正在处理的文尾的地方。 
+</p>
+<blockquote>
+这里使用 s 和 e 作标记名没有特别的含义，只是为了好记而已。
+</blockquote>
+
+<p>
+你可以用如下命令取得所有的标记的列表：
+</p>
+<blockquote>
+:marks
+</blockquote>
+
+<p>
+你会注意到有一些特殊的标记，包括：
+</p>
+<blockquote>
+'       跳转前的位置 
+"       最后编辑的位置 
+[       最后修改的位置的开头 
+]       最后修改的位置的结尾 
+</blockquote>
+
+<p>
+补充：如果想要删除marks，可用命令delmarks + markname 。
+</p>
+
+
+
+<h2 id="toc_0.2">Markers and moving about</h2>
+<p>
+'.       : jump to last modification line (SUPER)
+`.       : jump to exact spot in last modification line
+</p>
+
+<p>
+&lt;C-O&gt;    : retrace your movements in file (backward)
+&lt;C-I&gt;    : retrace your movements in file (forward)
+</p>
+
+<p>
+:ju(mps) : list of your movements <img src="help" alt="jump-motions" />
+:history : list of all your commands
+</p>
+
+           </article>
+        </section>
+        <aside id="sidebar">
+            <h3>WIKI精选</h3>
+					<ul>
+                  <li><a href="../Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="../Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="../十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+									<li><a href="../index.html">Elvis Wiki</a></li>
+                           <li><a href="../../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
+
+    </div>
+  </body>
+
+</html>

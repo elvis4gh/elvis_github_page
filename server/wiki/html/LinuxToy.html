@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>LinuxToy</title>
+       <link rel="shortcut icon" href="../../favicon.ico" />
+       <link href="../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../media/css/style.css" />
+       <link rel="stylesheet" href="../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="../../">首页</a></li>
+            <li><a title="文章分类" class="" href="../../categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="../../tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="../../links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="../../guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="../../about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="../../feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">LinuxToy</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content">
+           <article>
+             
+
+
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">Freescale:</a>
+<li><a href="#toc_0.2">串口 Serial</a>
+<li><a href="#toc_0.3">API</a>
+<ul>
+<li><a href="#toc_0.3.1">串口操作需要的头文件</a>
+<li><a href="#toc_0.3.2">打开串口</a>
+<li><a href="#toc_0.3.3">设置串口</a>
+</ul>
+<li><a href="#toc_0.4">Serial Flow control</a>
+<ul>
+<li><a href="#toc_0.4.1">这五个控制信号的协商机制如下：</a>
+</ul>
+</ul>
+</ul>
+</div>
+
+<h2 id="toc_0.1">Freescale:</h2>
+
+<p>
+Linux Hyperion 3.0.48-rt70 #12 Sun Jul 28 15:50:40 CST 2013 ppc GNU/Linux
+</p>
+
+<p>
+/sys # cat /proc/cpuinfo 
+processor    : 0
+cpu          : e500v2
+clock        : 599.999994MHz
+revision     : 5.1 (pvr 8021 1151)
+bogomips     : 100.00
+timebase     : 50000000
+platform     : P1022 DS
+model        : fsl,P1022DS
+Memory       : 1024 MB 
+</p>
+
+<p>
+FreeScaleStartup
+</p>
+
+<h2 id="toc_0.2">串口 Serial</h2>
+<p>
+《Serial Programming Guide for POSIX Operating Systems》
+</p>
+
+<p>
+串口一 为 /dev/ttyS0，串口二 为 /dev/ttyS1。
+</p>
+
+
+<h2 id="toc_0.3">API</h2>
+<h3 id="toc_0.3.1">串口操作需要的头文件</h3>
+<p>
+#include     &lt;stdio.h&gt;      /<strong>标准输入输出定义</strong>/
+#include     &lt;stdlib.h&gt;     /<strong>标准函数库定义</strong>/
+#include     &lt;unistd.h&gt;     /<strong>Unix 标准函数定义</strong>/
+#include     &lt;sys/types.h&gt; 
+#include     &lt;sys/stat.h&gt;   
+#include     &lt;fcntl.h&gt;      /<strong>文件控制定义</strong>/
+#include     &lt;termios.h&gt;    /<strong>PPSIX 终端控制定义</strong>/
+#include     &lt;errno.h&gt;      /<strong>错误号定义</strong>/
+</p>
+
+<h3 id="toc_0.3.2">打开串口</h3>
+<p>
+通过使用标准的文件打开函数操作：
+int fd;
+/<strong>以读写方式打开串口</strong>/
+fd = open( "/dev/ttyS0", O_RDWR);
+if (-1 == fd){ 
+/* 不能打开串口一*/ 
+perror(" 提示错误！");
+}
+</p>
+
+
+<h3 id="toc_0.3.3">设置串口</h3>
+<p>
+最基本的设置串口包括波特率设置，效验位和停止位设置。串口的设置主要是设置 struct termios 结构体的各成员值。
+struct termio
+{        unsigned short c_iflag; /* 输入模式标志 */
+</p>
+<blockquote>
+unsigned short c_oflag; /* 输出模式标志 */    
+unsigned short c_cflag; /* 控制模式标志*/     
+unsigned short c_lflag; /* local mode flags */
+unsigned char c_line;   /* line discipline */    
+unsigned char c_cc[NCC]; /* control characters */
+</blockquote>
+<p>
+};
+</p>
+
+<p>
+refer
+<a href="http://hi.baidu.com/spiritlzp/item/bb7c0951219359978c12ed95">http://hi.baidu.com/spiritlzp/item/bb7c0951219359978c12ed95</a>
+</p>
+
+<h2 id="toc_0.4">Serial Flow control</h2>
+<p>
+DCD、DTR、DSR、RTS及CTS等五个状态指示分别代表什么意思？
+</p>
+
+<p>
+DCD （ Data Carrier Detect 数据载波检测）
+DTR（Data Terminal Ready，数据终端准备好）
+DSR（Data Set Ready 数据准备好）
+RTS（Request To Send 请求发送） 
+CTS（Clear To Send 清除发送）
+</p>
+
+<p>
+在这五个控制信号中，
+DTR和RTS     是DTE设备（数据终端设备，在实际应用中就是路由器）发出的，
+DSR、CTS和DCD是DCE设备（数据电路终结设备，在实际中就是各种基带MODEM）发出的。
+</p>
+
+<h3 id="toc_0.4.1" class="justcenter">这五个控制信号的协商机制如下：</h3>
+<p>
+   1、在路由器的串口没有配置流控命令的情况下，只要一上电，DTR和RTS就会被置成有效（即只要一加电这两个状态就UP，不管串口有没有接电缆），当路由器检测到对端送过来的DSR、CTS和DCD三个信号时，串口的物理状态就上报UP(任何一个物理信号无效都不会报UP，或者说，这三个信号中只要有一个为DOWN，路由器串口的物理状态就处于DOWN的状态)。
+</p>
+<blockquote>
+另外，如果在路由器的串口上配置了NO DETECT DSR-DTR命令，DTE侧（路由器）就不会检测对端是否送过来DSR和CTS信号，只要检测到DCD信号，物理层就报UP。
+</blockquote>
+<p>
+   2、如果在路由器的串口上配置了流控命令（具体命令为flowcontrol auto），RTS和CTS两个信号就会用于流量控制（路由器串口和基带Modem之间的数据发送、接收流控）。当出现数据处理不及时的情况，这两个控制信号就可能处于DOWN的状态
+</p>
+
+           </article>
+        </section>
+        <aside id="sidebar">
+            <h3>WIKI精选</h3>
+					<ul>
+                  <li><a href="Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+									<li><a href="index.html">Elvis Wiki</a></li>
+                           <li><a href="../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
+
+    </div>
+  </body>
+
+</html>

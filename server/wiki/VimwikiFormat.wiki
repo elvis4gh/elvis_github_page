@@ -1,0 +1,190 @@
+%title VimWiki 的书写语法
+
+
+
+%toc 目录:
+
+   
+----
+
+==换行==
+
+换行只用<“br”>
+
+多少个>2换行都等效于一个
+
+两次换行，等效于分段
+
+文字文字 文字文字 文字文字(这里换行，没有用br)<br>
+文字文字 文字文字 文字文字<br>
+等效于：<br>
+文字文字 文字文字 文字文字 文字文字 文字文字 文字文字<br>
+
+{{{
+ free style!!  refer to 5.7. Preformatted text 
+ as dfkjadf
+ adfa
+ g
+ a dsf   fakdf
+ a
+ f
+    adsf
+    akfj
+
+}}}
+
+----
+
+==分界线==
+4个“-”
+----
+
+==缩进==
+   (这里缩进3个chap)文字文字 文字文字 文字文字
+   
+    (这里缩进4个chap 生成blockquote, 我自己改成3算了)文字文字 文字文字 文字文字
+   
+        (这里缩进8个chap, 没有缩进两层的效果)文字文字 文字文字 文字文字
+        
+==枚举==
+
+"#" + "<space>" + content
+e.g<br>
+
+# text asdfasd
+# text adsfw 
+# text pq 
+# text rp1 
+
+"-" + "<space>" + content
+
+- text asdfasd
+- text adsfw 
+- text pq 
+- text rp1 
+
+能不能嵌套？ 
+
+- text asdfasd
+- text adsfw 
+   - text adsfw 
+      - text adsfw 
+         - text adsfw 
+         - text adsfw 
+         - text adsfw 
+            - text adsfw 
+      - text adsfw 
+      - text adsfw 
+            - text 这样embedded两级只起到一级的效果，往后的会乱掉  
+         - text 乱掉
+         - text 乱掉
+   - text pq 回复正常
+- text pq 
+
+Unordered lists: ><br>
+   * Bulleted list item 1<br>
+   * Bulleted list item 2<br>
+      * Bulleted list sub item 1<br>
+      * Bulleted list sub item 2<br>
+      * more ...<br>
+         * and more ...<br>
+         * ...<br>
+      * Bulleted list sub item 3<br>
+      * etc.<br>
+or: ><br>
+  - Bulleted list item 1<br>
+  - Bulleted list item 2<br>
+    - Bulleted list sub item 1<br>
+    - Bulleted list sub item 2<br>
+    - more ...<br>
+      - and more ...<br>
+      - ...<br>
+    - Bulleted list sub item 3<br>
+    - etc.<br>
+<br>
+or mix: ><br>
+  - Bulleted list item 1<br>
+  - Bulleted list item 2<br>
+    * Bulleted list sub item 1<br>
+    * Bulleted list sub item 2<br>
+    * more ...<br>
+      - and more ...<br>
+      - ...<br>
+    * Bulleted list sub item 3<br>
+    * etc.<br>
+<br>
+Ordered lists: ><br>
+   # Numbered list item 1<br>
+   # Numbered list item 2<br>
+      # Numbered list sub item 1<br>
+      # Numbered list sub item 2<br>
+      # more ...<br>
+         # and more ...<br>
+         # ...<br>
+      # Numbered list sub item 3<br>
+      # etc.<br>
+<br>
+It is possible to mix bulleted and numbered lists: ><br>
+  * Bulleted list item 1<br>
+  * Bulleted list item 2<br>
+    # Numbered list sub item 1<br>
+    # Numbered list sub item 2<br>
+<br>
+Note that a space after *, - or # is essential.<br>
+<br>
+Multiline list items: ><br>
+  * Bulleted list item 1<br>
+    List item 1 continued line.<br>
+    List item 1 next continued line.<br>
+  * Bulleted list item 2<br>
+    * Bulleted list sub item 1<br>
+      List sub item 1 continued line.<br>
+      List sub item 1 next continued line.<br>
+    * Bulleted list sub item 2<br>
+    * etc.<br>
+<br>
+Definition lists: ><br>
+Term 1:: Definition 1<br>
+Term 2::<br>
+:: Definition 2<br>
+:: Definition 3<br>
+
+        
+==百分号“%”==
+
+百分号“%” + title     文章标题-VimWiki插件
+百分号“%” + toc       文章目录 
+
+==链接（内链和外链）==
+
+外链：
+[[http://elvis4gh.github.com/elvis_github_page | Elvis Page]]
+
+
+==格式化文字段==
+
+有几种常见方法：
+
+在一行的开始缩进4个字符（所有文字必须在一行）。生成HTML代码<pre>。
+用{{{ sed -i "adfa/ags" gasdg* }}} 把代码段扩起来（可以有多行）。生成HTML代码<pre>。
+用"`"（数字键1）前面那个键把文字扩起来（所有文字必须在一行）。生成HTML代码<code>。
+
+
+==修饰文字显示效果==
+
+text should be decorated: ><br>
+用*将文字扩起来（*和前后的文字间要有空格），以加粗方式显示， *加粗* <br />
+  *bold text*<br>
+  _italic text_<br>
+  ~~strikeout text~~<br>
+  `code (no syntax) text`<br>
+  super^script^<br>
+  文字上标，如x平方 x^2^<br />
+  sub,,script,,<br>
+  文字下标，如A,,1,,<br />
+
+[[#top|Top]]
+
+==参考&鸣谢==
+vimwiki help page<br>
+refer： [[http://www.berlinix.com/vim/VimWiki.php |波黎克斯vimwiki总结]]

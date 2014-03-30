@@ -1,0 +1,45 @@
+%title Hello! Welcome to Elvis's WIKI
+
+纵向 - 个人素质模型： <br>
+   - [[Ability/AbilityList|AbilityList]] 
+      - [[十大学习习惯]] <br />
+         - [[Ability/TopTenHabits|十大习惯]] <br />
+      - [[Ability/SevenHabits|7个习惯]]<br />
+      - [[Ability/ProblemSolvingProcess|解决困难ABCDE习惯]]<br />
+   - [[Ability/ElvisAbilityScore|Elvis能力评估]]
+   
+横向 - Elvis's life style <br />
+   * 程序员喜欢系列 - [[ProgrammerStyle]]<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----
+[[QuestionList|有奖问答]]
+
+
+
+
+
+
+
+
+
+
+

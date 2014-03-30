@@ -1,0 +1,6 @@
+
+
+Services:
+   udev - udev是Linux kernel 2.6系列的通用内核设备管理器,以守护进程的方式运行于Linux系统，并监听在新设备初始化或设备从系统中移除时
+          内核（通过netlink socket）所发出的uevent；简单点讲就是当有多块磁盘的时候，可以用udev来固定磁盘对应的设备名
+

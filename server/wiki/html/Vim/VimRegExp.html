@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>VimRegExp</title>
+       <link rel="shortcut icon" href="../../../favicon.ico" />
+       <link href="../../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../../media/css/style.css" />
+       <link rel="stylesheet" href="../../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="../../../">首页</a></li>
+            <li><a title="文章分类" class="" href="../../../categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="../../../tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="../../../links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="../../../guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="../../../about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimRegExp</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content">
+           <article>
+             
+<h2 id="toc_0.1">\v (very magic) reduces backslashing</h2>
+<p>
+Vim traps: In regular expressions you must backslash + (match 1 or more).
+</p>
+
+<p>
+/codes\(\n\|\s\)*where : normal regexp
+/\vcodes(\n|\s)*where  : very magic
+</p>
+
+<h1 id="toc_1">子模式</h1>
+<p>
+在正规表达式中使用 \( 和 \) 符号括起正规表达式，即可在后面使用\1、\2等变量来访问 \( 和 \) 中的内容。
+example:
+</p>
+<h3 id="toc_1.0.1" class="justcenter">•将 data1 data2 修改为 data2 data1</h3>
+<p>
+   :s/\(\w\+\)\s\+\(\w\+\)/\2\t\1
+</p>
+<h3 id="toc_1.0.2" class="justcenter">•将 Doe, John 修改为 John Doe</h3>
+<p>
+   :%s/\(\w\+\), \(\w\+\)/\2 \1/    
+</p>
+   
+   
+<h2 id="toc_1.1">\&lt;，\&gt;，表示单词的起始，结束</h2>
+<p>
+要查找单词hi，要用 \&lt;hi\&gt;
+</p>
+<h2 id="toc_1.2">\{1,}   1或更多，同 \+</h2>
+<h2 id="toc_1.3">\d\+    1个或更多连续的数字</h2>
+<h2 id="toc_1.4">\{0,1}  0或1，   同 \=</h2>
+<p>
+\(\=0\d\{2}[) -]\=\d\{8}  这个表达式可以匹配几种格式的电话号码
+\&lt;\(\w\+\)\s\+\1\&gt; 可以用来匹配重复的单词
+\&lt;\w\+\(ing\)\@=   Vim称为：零宽度匹配前面的匹配原
+</p>
+<h2 id="toc_1.5">\|  "或"运算符</h2>
+	
+
+<p>
+\(\&lt;re\)\@&lt;=\w\+   零宽度反向匹配。要求前面的匹配原紧贴在后面的模式之前匹配
+\(\=0\d\{2}[) -]\=\d\{8}
+</p>
+   
+
+<ol>
+<li>
+Vim 正则 
+
+</ol>
+<p>
+vim Perl 意义
+\@= (?= 顺序环视
+\@! (?! 顺序否定环视
+\@&lt;= (?&lt;= 逆序环视
+\@&lt;! (?&lt;! 逆序否定环视
+\@&gt; (?&gt; 固化分组
+\%(atom\) (?: 非捕获型括号
+</p>
+
+<p>
+e.g
+</p>
+<ol>
+<li>
+Perl的写法
+
+</ol>
+<p>
+/(?&lt;=foo)bar/
+</p>
+
+<ol>
+<li>
+vim的写法
+
+</ol>
+<p>
+/\(foo\)\@&lt;=bar
+</p>
+
+<ol>
+<li>
+pattern
+
+<li>
+译释： :g/{pattern}/{cmd} 就是全局找到匹配的行
+
+</ol>
+<p>
+/^/匹配文件的所有行（这是查找的一个常用技巧
+/./匹配非空行
+</p>
+
+<p>
+中文汉字的正则表达式 
+[^\x00-\xff]
+</p>
+
+<h2 id="toc_1.6">有没有写vim正则的plugin？</h2>
+
+<h2 id="toc_1.7">把文本中的所有数字，从右到左，每三位加一个逗号，</h2>
+<p>
+用vim的正则表达式实现如下功能： 
+如     a number in text 1234567 and another number 1234
+替换成 a number in text 1,234,567 and another number 1,234
+</p>
+
+<p>
+:%s/\([0-9]\)\@&lt;=\([0-9]\{3\}\)\(\([0-9]\{3\}\)*\([^0-9]\|$\)\)\@=/,&amp;/g 
+</p>
+<blockquote>
+\([0-9]\)\@&lt;=                                                                      逆序环视。匹配一个空隙，但是这个空隙前面应该是一个数字
+\([0-9]\{3\}\)                                                        这里应该有三个数字
+\(\([0-9]\{3\}\)*\([^0-9]\|$\)\)\@=                     顺序环视。
+(\([0-9]\{3\}\)*                                       表示的是零个或者是3的倍数个数字，
+\([^0-9]\|$\)\)                        表示的是一个非数字或者行的结束，
+\@=                     蓝色部分匹配的是一个空隙，空隙在3的整数个数字之前。
+,&amp;                  其中逗号就是表示逗号， &amp;表示的是匹配到的模式
+</blockquote>
+
+           </article>
+        </section>
+        <aside id="sidebar">
+            <h3>WIKI精选</h3>
+					<ul>
+                  <li><a href="../Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="../Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="../十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+									<li><a href="../index.html">Elvis Wiki</a></li>
+                           <li><a href="../../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
+
+    </div>
+  </body>
+
+</html>

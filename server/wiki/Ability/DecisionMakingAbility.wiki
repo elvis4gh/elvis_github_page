@@ -1,0 +1,45 @@
+=Decision Making Process=
+   Step 1: Set a decision objective
+   Step 2: Formulate the DecisionCriteria
+   Step 3: Generate & compare options
+   •	Use BrainStorming or other creativity techniques to broaden your choices
+   •	Formulate 3 to 5 options
+   •	Compare the options against the DecisionCriteria and rank their performance
+   •	Use OptionComparisonForm
+   Step 4: Make decision & take action
+   
+-> Monitoring Results
+
+=Good decision element=
+Informed: 	Based on data and all points of view
+   survey and follow-up interviews
+Timely:  	Not too late and not too early
+Aligned:  	With corporate/business priorities
+Scaled:  	Effort is proportional to business importance
+
+
+
+=马化腾的决策=
+任何一个新业务的开展，以为请个高人来就可以搞定，这不现实。“你自己一定要有了解”，需要“不断充电”。
+在拍板行动之前，马化腾要想清楚几个事情：比如是否做搜索，哪些是技术的问题，哪些非技术的问题；有哪些是可以用合作解决的；还是哪些是必须自己投入的；商业模型是否成型，收费还是不收费。比如是否做电子商务，看eBay和淘宝怎么赚钱，在未来5年还是不是一个很重要的市场；做这个服务对我的社区是不是很重要，有生意往来对既有的朋友关系是不是有帮助。
+
+而一旦决定做了，大到框架怎么搭、小到具体如何实施都放手给选定的人。
+
+
+
+
+陈安之李彦宏马化腾周思敏杜云生马云杨涛鸣俞敏
+
+
+
+
+=决策树=
+
+BusinessAcumen
+
+=哲学帮助决策=
+一家卓越的企业，往往都一如既往的坚持着其自身的哲学，一种企业内所有人完全认同的哲学观或理念，而当企业发展达到一个瓶颈时，当企业面对广泛的市场与诱惑时，这个最基本的哲学为企业的选择提供了最为优秀的决策依据。
+
+
+
+Folder 		Evaluation Strategies Functions

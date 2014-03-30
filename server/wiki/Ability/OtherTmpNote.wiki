@@ -1,0 +1,42 @@
+
+
+=AEM homing within 30s=
+
+the acceptable time range for all c/s register - 30s for all 1500AEMs/3000 carriers/9000 sectors.
+
+
+ the register speed is 100AEMs/second 
+    2 AEMs/second for every app, totally there is 50 apps
+    so the register speed is 100AEMs/second when I runapp on all CMUST together.
+    
+While from RCP tmaem logs, the whole registration took 6 minutes (from 1st AEM to all AEM status turn to NORM with all carrier/sector status turn to 1).  Need to confirm:
+   - Whether CMUST sent all AEMs registration messages/with all carrier/sector info to AEC in 30s
+      We found CMUST not sent all carriers' register messages in 30s to AEC,
+      it sends the carrier's status to AEC till the previous carrier's status turns to 1.
+   
+   - Whether AEC can handle all these registrations (1500AEM, 3000 carriers, 9000 sectors) in 30s
+
+
+As you know from the EEGS 1.1 result, It had been already discussed and passed during EEGS 1.1 testing as well.
+
+I don’t believe that All AEMs are not ready for Call setup until 6 minutes.
+The earlier the AEMs are homed, the faster the Call setup will be ready
+It means a lot of AEMs can be ready for call setup within 6 minutes
+
+There are lots of message transition between AEC and AEM during Homing procedure and We have a limitation for network load (specially TIPC routing) We remembered there were lots of issues for TIPC multi-casting or uni-casting…So AEC had to implemented the pace control so that we could provide more stable homing procedure. 
+
+From the log, as soon as there is >=1 sector is ready, AEM status will turn to NORM, I think that's what we called "ready for callp".
+ 
+
+ 
+
+1. AEM from 0 to 1500:  ~30s 10/22/2012T4:39:08 PM  - 10/22/2012T4:39:37 PM.  But only have 671 NORM AEM(status=NORM, have >1 sector in service)
+TOTAL_AEM = 1500, NORM_AEM = 671, NORM_SECT = 1034, INIT_SECT = 474, ABN_SECT = 0
+
+2. All 1500 AEM status NORM: 10/22/2012T4:43:07 PM, took ~4 minutes
+TOTAL_AEM = 1500, NORM_AEM = 1500, NORM_SECT = 4320, INIT_SECT = 636, ABN_SECT = 0
+
+3.All Carrier/Secotor's status turn to normal: 10/22/2012T4:45:36 PM, from 4:39:37 to 4:45:36, it takes 6 minutes for All AEM's Sectors turning to normal. 
+TOTAL_AEM = 1500, NORM_AEM = 1500, NORM_SECT = 9000, INIT_SECT = 0, ABN_SECT = 0
+
+   

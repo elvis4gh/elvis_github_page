@@ -1,0 +1,83 @@
+==总纲==
+   [[MyProspect]] -> [[MyTarget]] -> ToDoList PlanAndReport PlanTips 人生愿景目标与行动规划
+   
+==On check ?==
+   - chrome calendar - https://www.google.com/calendar/render?pli=1
+==具体计划==
+知道自己的 big-rock是什么；
+需要的资源是什么，花时间？花银两？花精力？或者需要提前准备一段时间的，至少花销几十个小时的
+
+计划- task - gtd tool ，agile tool
+      schedule - calendar
+      
+   锻炼计划的 to do ：HealthPlan\HealthPlan.wiki       每个周五总结跟进
+   ToDoList - 星期1 知识养成计划 c:\Users\lenovo\Dropbox\wiki\Ability\KnowledgePlan\KnowledgePlan.wiki
+   ToDoList - 星期4 2014 读书计划
+   ToDoList - 思考如何处理和经理之间的关系
+   ToDoList - 做每个年度和自己的上司相聚的预案
+
+优先排big-rock: 
+- big-rock: mba
+- big-rock: 考证 - PMP
+
+- 职业规划 CareerDevelopment 
+   - master java 计划
+   - 软件设计思想整理
+
+- 学车计划
+ 
+- 学业务计划
+   - 这个问题是做技术过几年又要重新学，要有接受新东西的魄力才行
+    
+- 财务计划 ---> 提炼成资源保有计划 参考：Resource List
+  - 父母的养老
+  - 养老 (首先我应该是自己解决自己的养老，同时希望两个小孩都可以在我身边陪伴，自己要有一份保险)
+     - 买一份养老保险
+  - 衣食
+  - 住 （供房）
+     - 还贷计划
+        - 我30岁要供到50岁。非常吃力，所以要省吃俭用10年，希望到时候可以提前在45岁还清
+     - 书房装修计划 pending 
+     - 改善型住房计划 pending 
+      
+  - 行 （）
+     - 买车 - 一台车 1. 7人座，
+                   ～ 2. 4人座
+            排量，保有量，售价，质量
+  - 教育
+     - 没有特别的资金供小孩出国，但是我希望他们用自己的能力争取
+      
+  - 生活杂费 lifestyle 
+     - 提高生活质素
+        To buy list: 买球拍 买鞋 Big rock - 买audi 买两居室的房子
+        To sell list: 卖掉手机，
+           To fix list: 
+  
+- 养小孩计划
+   - 这个要Alice负责吧，我言传身教，负责总方向就行，但是我不会放养的
+   refer - [[CoachingAbility]]
+    
+- 学英语计划
+   - 最终的目标是交流
+   - 目标：在2014年之内，
+    
+- training 计划
+
+- 休假计划 LeavePlan
+   - 2013 所有的假放在小孩出生之后放。大概10月份
+ 
+- 自我更新生理计划 - 两个词，不用计划：看书，锻炼
+   - 体育锻炼计划 (可以和啊勇踢球)
+      - 足球计划
+      - 羽毛球高手计划
+
+- 整容计划
+   - 植发是好事？
+
+   DONE: - 生一胎计划 BabyPlan\BabyPlan
+   ToDoList - DONE: 提前还贷计划 
+   ToDoList - DONE: 我有自己的专业技术问答社区，不是普通的科普问答社区 - stackoverflow 足够了
+   ToDoList - DONE: 季度第一个月 做每个季度和自己的朋友相聚的预案 - 不就是请客吃饭呗
+   ToDoList - DONE: 季度第二个月 做每个季度和自己的家人相聚的预案
+   ToDoList - DONE: 星期6晚上 我在QQ上IM上整理自己和他们交流
+

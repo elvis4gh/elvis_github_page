@@ -1,0 +1,37 @@
+==自定义命令 - 大写字母开头 ==
+:command
+e.g 定义Preview 
+command Preview :!firefox %<CR>
+
+==自带命令 - 小写字母开头==
+:au VimAutoCommand
+:g VimGlobalCommand
+:s VimSubstitudeCommmand
+:vimgrep VimCommandVimgrep       <----------- HOT!!
+:wn           : write file and move to next (SUPER)
+:bd           : remove file from buffer list (SUPER)
+:sav php.html : Save current file as php.html and "move" to php.html
+:sp fred.txt  : open fred.txt into a split
+:w /some/path/%:r   : save file in another directory, but with the same name
+:e #          : edit alternative file
+:e!           : return to unmodified file
+
+:args         : display argument list
+:n            : next file in argument list
+:prev         : previous file in argument list
+:rew          : rewind to first file in argument list
+:ls           : display buffer list
+:bn           : next buffer
+:bp           : previous buffer
+:brew         : rewind to first buffer in buffer list
+:tabe         : open new tab page (Ctrl-PgUp, Ctrl-PgDown for next/previous tab)
+:tabm n       : move tab to position n (0=leftmost position)
+
+:sp  | :split
+:vsp | :vsplit
+:diffsplit <----HOT
+
+:history
+:<C-F>           : 历史命令记录的窗口
+
+

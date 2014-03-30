@@ -1,0 +1,39 @@
+<!---title:Ohlinux wiki 运维 OP -首页-->
+<!---keywords:Linux,CentOS,sa,OP,mac,OSx,运维,开发-->
+
+Elvis's try!!
+Wonderful!! CentOS's blog SDE setup complete!!
+
+##网站建设
+
+CSS 框架 - Bootstrap
+Github 上最受欢迎的开源 CSS 框架（库）
+   http://www.oschina.net/news/39496/the-most-popular-css-libraries-that-are-on-github 
+
+[用markdown + pandoc + makefile + vimwiki + git(github)搭建wiki](wiki/tool/sitebuild/ohlinuxwiki.html)
+
+[markdown语法速查](wiki/tool/sitebuild/markdown_syntax.html)
+
+[vimwiki安装和使用](wiki/tool/sitebuild/vimwiki_use.html)
+
+[pandoc安装使用](wiki/tool/sitebuild/pandoc_install.html)
+
+[github免输入密码](wiki/tool/sitebuild/github_sshkey.html)
+
+##操作系统OS 
+
+[常用Linux系统命令TOP100](wiki/linux/cmd/top_cmd.html)
+adf
+
+##编程开发
+
+###Shell
+
+[shell脚本速查](wiki/sw_develop/language/shell.html)
+
+###开发工具DevTools 
+
+[git](wiki/tool/versionmanage/git.html)
+
+
+<!-- vim:set tw=0:-->

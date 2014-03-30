@@ -1,0 +1,2 @@
+
+玩玩 LAMP - Linux + apache + mysql + PHP（ phpMyadmin ）

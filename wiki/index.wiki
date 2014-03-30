@@ -5,7 +5,7 @@
       - [[十大学习习惯]] <br />
          - [[Ability/TopTenHabits|十大习惯]] <br />
       - [[Ability/SevenHabits|7个习惯]]<br />
-      - [[Ability/ProblemSolvingProcess|解决困难ABCDE习惯]]<br />
+      =- [[Ability/ProblemSolvingProcess|解决困难ABCDE习惯]]<br />=
    - [[Ability/ElvisAbilityScore|Elvis能力评估]]
    
 横向 - Elvis's life style <br />

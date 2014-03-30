@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>VimSubstitute</title>
+       <link rel="shortcut icon" href="../../../favicon.ico" />
+       <link href="../../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../../media/css/style.css" />
+       <link rel="stylesheet" href="../../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="../../../">首页</a></li>
+            <li><a title="文章分类" class="" href="../../../categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="../../../tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="../../../links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="../../../guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="../../../about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimSubstitute</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content">
+           <article>
+             
+<h1 id="toc_1">vi/vim 查找替换</h1>
+<p>
+:help substitute
+</p>
+
+<p>
+:%s/fred/joe/igc           : general substitute command
+:%s/\r//g                  : delete DOS Carriage Returns (^M)
+:'a,'bg/fred/s/dick/joe/gc : VERY USEFUL
+:s/\(.<strong>\):\(.</strong>\)/\2 : \1/  : reverse fields separated by :
+</p>
+<ol>
+<li>
+non-greedy matching \{-}
+
+</ol>
+<p>
+:%s/^.\{-}pdf/new.pdf/     : to first pdf)
+:s/fred/&lt;c-r&gt;a/g           : substitute "fred" with contents of register "a"
+:%s/^\(.*\)\n\1/\1$/       : delete duplicate lines
+:help /\{-}
+</p>
+<ol>
+<li>
+multiple commands
+
+</ol>
+<p>
+:%s/\f\+\.gif\&gt;/\r&amp;\r/g | v/\.gif$/d | %s/gif/jpg/
+:%s/suck\|buck/loopy/gc       : ORing
+:s/_<em>date</em>_/\=strftime("%c")/ : insert datestring
+</p>
+
+
+<p>
+substitute({expr}, {pat}, {sub}, {flags})		<strong>substitute()</strong>
+</p>
+
+<h1 id="toc_2">{expr} 特定范围替换</h1>
+<p>
+n 为数字,若 n 为 .,表示从当前行开始到最后一行 range of line: 
+</p>
+<blockquote>
+1, 2, 3, ...   line number
+.   current line
+$   last line
+</blockquote>
+<p>
+virtual mode and ":"
+</p>
+       
+<h1 id="toc_3">{pat}</h1>
+<h2 id="toc_3.1">[0-9]   0-9任意一位数字</h2>
+<h2 id="toc_3.2">[0-9]\+      任意数字</h2>
+<h2 id="toc_3.3">\zs和\ze 匹配的开始与结束</h2>
+<p>
+e.g “#”号后面的数字需要加15，手动修改比较麻烦
+   from:   &lt;li&gt;&lt;a href="#18"&gt;1.1 How to Avoid Reading This Book&lt;/a&gt;&lt;/li&gt;
+</p>
+<blockquote>
+|
+</blockquote>
+<p>
+   to:     &lt;li&gt;&lt;a href="#35"&gt;1.1 How to Avoid Reading This Book&lt;/a&gt;&lt;/li&gt;
+</p>
+   
+<p>
+   %s/#\zs[0-9]\+\ze/\=submatch(0)+15
+</p>
+<h2 id="toc_3.4">\s      space空格</h2>
+<h2 id="toc_3.5">\s\+    任意space空格</h2>
+<p>
+   ma
+   :%s#^double\s\+data\zs\d\ze#\=(line(".")-line("'a")+1)#g
+</p>
+<h2 id="toc_3.6">^M      输入回车符号</h2>
+<p>
+<sup><small>M 是在Vim中显示出来的样子, 事实上物理存储的并非一个 ‘</small></sup>’ 和一个 ‘M’. 究其原因, Win上用 “\r\n” 表示换行, Unix 用 “\n” 表示换行.
+真正的转换方式是:
+   vim中: %s/\r//g
+   sed: sed ‘s/\r//g’
+</p>
+<ol>
+<li>
+dos2unix干的就是这事儿.
+
+<li>
+:%s/<sup><small>M//g  (</small></sup>M = Ctrl v + Ctrl m ( windows C-V changed to C-Q ) )
+
+</ol>
+
+<h2 id="toc_3.7">^@     ？？？</h2>
+    
+<h1 id="toc_4">{flags}</h1>
+<h2 id="toc_4.1">\=function()</h2>
+<p>
+:s/替换字符串/\=函数式
+•函数式可以有多个，返回值可以用字符串连接符.连接起来，
+e.g
+   line(".")   返回匹配行号（:help line()  ），
+   submatch(n) 可以引用\1、\2的内容，其中submatch(0)引用匹配的整个内容；
+</p>
+   
+<p>
+•函数式也可以是字符串常量，用双引号引起来。函数式也可以是任意表达式，需要用小括号引起来，如(3+2*6)；
+•函数式还可以是寄存器中的内容，通过"@寄存器名"访问，如@a（不需要加引号，但是还是需要用.来连接）；
+example:
+•要将下列8行的data0依次变成data0~7（前面的数字是行号）
+double data0;
+double data0;
+double data0;
+double data0;
+double data0;
+double data0;
+double data0;
+double data0;
+</p>
+<blockquote>
+如果安装有perl的话，我以前一般都是借助perl来完成这件事情：
+---------------------------------------------------------------------------
+:r !perl -n -le "if(s/^(double\s+data)\d;/\(1\)k;/){ \(k++; print \)_; }" %:p
+---------------------------------------------------------------------------
+其中%:p表示包含完整路径的文件名
+</blockquote>
+   
+<p>
+首先将光标移到125行（line(".")返回当前匹配行的行号，line("'a")返回mark a的行号）：
+<hr />
+ma
+:%s/^\(double\s\+data\)\d\(;\)/\=submatch(1).(line(".")-line("'a")+1).submatch(2)/g
+<hr />
+再或者
+首先将光标移到125行（line("'V7j
+:%s/^\(double\s\+data\)\d\(;\)/\=submatch(1).(line(".")-line("'
+<hr />
+</p>
+
+<hr />
+<h1 id="toc_5">替换string</h1>
+<p>
+:s/vivian/sky/ 替换当前行第一个 vivian 为 sky 
+:s/vivian/sky/g 替换当前行所有 vivian 为 sky 
+e.g 
+   :n,$s/vivian/sky/ 替换第 n 行开始到最后一行中每一行的第一个 vivian 为 sky 
+   :n,$s/vivian/sky/g 替换第 n 行开始到最后一行中每一行所有 vivian 为 sky 
+　 
+　 
+　　可以使用 # 作为分隔符,此时中间出现的 / 不会作为分隔符 
+　　:s#vivian/#sky/# 替换当前行第一个 vivian/ 为 sky/ 
+　　:%s+/oradata/apras/+/user01/apras1+ （使用+ 来 替换 / ）: /oradata/apras/替换成/user01/apras1/ 
+</p>
+
+
+<p>
+　 
+</p>
+<h2 id="toc_5.1">她需要定义一系列变量output rca_out_data0~rca_out_data15，现在她已经写好output rca_out_data0，然后复制了15行，她问我怎么把data后面的0一次替换成1~15，我不假思索的说，用脚本呗（我以前coding碰到这种情况都是用perl -ne来做的）。她说不想用脚本，问能不能就用vim就实现？</h2>
+
+<p>
+总结下述4条对于自己来说比较实用的替换技巧，其中第2条、第3条和第4条都可以完美的解决师姐的问题
+</p>
+
+<p>
+1.替换变量
+见 VimRegExp 子模式
+</p>
+
+<h2 id="toc_5.2">\zs和\ze 匹配的开始与结束</h2>
+<p>
+\zs和\ze可以用于替换操作中指明替换的开始与结束，如上例中可以以更短的操作来实现：
+<hr />
+</p>
+<h2 id="toc_5.3">vim表达式</h2>
+<p>
+另外，还可以使用vim表达式来实现上述功能：
+<hr />
+:let n=0 | g/^double\s\+data\zs\d/s//\=n/ | let n+=1
+<hr />
+其中 
+•|      用来分割不用的命令；
+•g      在匹配后面模式的行中执行指定的ex命令
+•\zs    指明匹配由此开始
+•s//\=n 对匹配模式进行替换，匹配模式为空，表示以上一次匹配成功的模式，
+并且指明替换是一个表达式；
+</p>
+
+<h2 id="toc_5.4">高级递增替换</h2>
+
+<p>
+把下面几句放到 _vimrc
+<hr />
+let g:I=0
+function! INC(increment)
+let g:I =g:I + a:increment
+return g:I
+endfunction
+<hr />
+•对于上述问题，可以这样解决：
+<hr />
+:let I=-1 | %s/^ double\s\+data\zs\d\ze/\=INC(1)/
+<hr />
+•还可以生成数字序列，如生成1~100间隔为5的数字序列：
+<hr />
+:let I=0 | ‘a,’b s/^/\=INC(5)/
+<hr />
+</p>
+
+<h2 id="toc_5.5">vim小技巧: 计算有多少个搜寻关键字</h2>
+<p>
+:%s/pattern/&amp;/g
+</p>
+
+           </article>
+        </section>
+        <aside id="sidebar">
+            <h3>WIKI精选</h3>
+					<ul>
+                  <li><a href="../Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="../Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="../十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+									<li><a href="../index.html">Elvis Wiki</a></li>
+                           <li><a href="../../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
+
+    </div>
+  </body>
+
+</html>

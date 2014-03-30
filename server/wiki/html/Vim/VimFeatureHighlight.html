@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>VimFeatureHighlight</title>
+       <link rel="shortcut icon" href="../../../favicon.ico" />
+       <link href="../../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../../media/css/style.css" />
+       <link rel="stylesheet" href="../../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="ç½‘ç«™é¦–é¡µ" class="" href="../../../">é¦–é¡µ</a></li>
+            <li><a title="æ–‡ç« åˆ†ç±»" class="" href="../../../categories/">åˆ†ç±»</a></li>
+            <li><a title="æ ‡ç­¾ç´¢å¼•" class="" href="../../../tags/">æ ‡ç­¾</a></li>
+            <!--<li><a title="å‹æƒ…é“¾æ¥" class="" href="../../../links/">é“¾æ¥</a></li>-->
+            <li><a title="ç•™è¨€äº¤æµ" class="" href="../../../guestbook/">ç•™è¨€</a></li>
+            <li><a title="å…³äºç«™é•¿" class="" href="../../../about/">å…³äº</a></li>
+            <li><a title="ç§å­è®¢é˜…" class="" href="../../../feed/" target="_blank">è®¢é˜…</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimFeatureHighlight</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content">
+           <article>
+             
+<h2 id="toc_0.1">¿¿¿ colorcolumn  7.3 ¿¿</h2>
+<p>
+<a href="http://www.verydemo.com/demo_c116_i9498.html">http://www.verydemo.com/demo_c116_i9498.html</a>
+</p>
+
+<h2 id="toc_0.2">å¦‚ä½•è®©vim è‡ªåŠ¨é«˜äº®current word under cursorï¼Ÿ</h2>
+<p>
+   autohighlight.vim
+   z/  - toggle auto highlight
+   <a href="http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle">http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle</a>
+</p>
+   
+<h2 id="toc_0.3" class="justcenter">To change the search highlighting color</h2>
+<p>
+   hi Search guibg=LightBlue ctermbg=LightBlue
+   (also try LightGreen)
+   NOTE: "hi Search guibg=LightBlue" is only for the GUI version of Vim. If you're using Vim in-console, try "hi Search ctermbg=LightBlue" 
+</p>
+
+<p>
+   For my error message highlighting I use:
+   highlight ErrorMsg guibg=White guifg=Red
+</p>
+   
+<hr />
+<p>
+pending list:
+</p>
+
+<p>
+   Mark.vim é«˜äº®å¯¹åº”çš„record key word  
+</p>
+
+<h2 id="toc_0.4" class="justcenter">å¦‚ä½•è®©vim è‡ªåŠ¨é«˜äº®/color ç‰¹æ®Šæ ¼å¼çš„è¡Œï¼Ÿ</h2>
+   
+   
+<h2 id="toc_0.5">customize highlight</h2>
+<p>
+¿VIM¿¿¿¿¿¿¿¿¿¿¿¿(matching)¿
+¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+</p>
+
+<p>
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+</p>
+
+<p>
+:match Group /pattern/
+</p>
+
+<p>
+¿¿¿¿¿¿¿¿¿
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿(color group)¿¿¿
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+</p>
+
+<p>
+¿¿¿¿¿¿¿¿¿¿¿(^¿¿)¿¿¿¿¿Error¿¿¿¿¿¿¿¿¿¿¿¿¿ErrorMsg¿¿¿¿¿¿(¿¿¿¿¿¿¿)¿
+</p>
+
+
+
+<p>
+¿: ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+</p>
+
+<p>
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+</p>
+
+<p>
+:so $VIMRUNTIME/syntax/hitest.vim
+</p>
+
+           </article>
+        </section>
+        <aside id="sidebar">
+            <h3>WIKIç²¾é€‰</h3>
+					<ul>
+                  <li><a href="../Ability/TopTenHabits.html">åå¤§ä¹ æƒ¯</a></li>
+                  <li><a href="../Ability/SevenHabits.html">7ä¸ªä¹ æƒ¯</a></li>
+                  <li><a href="../åå¤§å­¦ä¹ ä¹ æƒ¯.html">åå¤§å­¦ä¹ ä¹ æƒ¯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+									<li><a href="../index.html">Elvis Wiki</a></li>
+                           <li><a href="../../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
+
+    </div>
+  </body>
+
+</html>

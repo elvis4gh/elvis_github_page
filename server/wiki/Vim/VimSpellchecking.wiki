@@ -1,0 +1,22 @@
+Vim 7 has built in spellchecking.  Misspelled words will then be underlined in red in Gvim Or highlighted in using Vim in the terminal:
+
+There are two easy ways to turn on spellchecking. 
+= GUI (gVim) =
+If you are using gVim, you can use Tools > Spelling > Spellcheck On:
+
+= Terminal =
+If you are using Vim in the terminal, or prefer to type, you can turn on spellchecking in Vim with the command :set spell and turn off spellchecking with :set nospell.
+
+
+=the commands you need to know:=
+
+    ]s — move to the next mispelled word
+    [s — move to the previous mispelled word
+    zg — add a word to the dictionary
+    zug — undo the addition of a word to the dictionary
+    z= — view spelling suggestions for a mispelled word
+
+Here is the Vim spellchecker offering suggestions for the word Nihon:
+
+That is Vim spell checking in a nutshell. For more commands and documentation, just type :help spell into Vim or read the Vim spell docs online. 
+

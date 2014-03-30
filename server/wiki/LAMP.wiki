@@ -1,0 +1,16 @@
+
+
+
+Linux<br>
+Apache - [[ApacheConfig]]<br>
+Mysql  [[MySqlConfig]]<br>
+PHP - <br>
+   [[phpMyAdminConfig]]
+   [[http://www.php.net/manual/zh/|PHP手册]]
+   乱码问题： http://blog.csdn.net/linwins/article/details/5947545
+   <? ... ?> 显示问题 - <?php?> 是PHP的默认语法，而<??>则是短标记方法，需要在php.ini中开启short_open_tag指令
+   ZendOptimizer
+   gd库 lib - http://www.phpddt.com/server/984.html 可以用<?php info?> 查看
+   debug - php.ini field: display_errors = On
+   
+[[http://www.360doc.com/content/11/0214/23/4171006_93104738.shtml |CentOS LAMP]]

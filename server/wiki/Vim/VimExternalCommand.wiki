@@ -1,0 +1,194 @@
+==调用外部linux命令   :!cmd==
+:!cmd
+不退出vim 执行命令 cmd
+
+:r !cmd
+不退出vim执行命令cmd,并将cmd的输出内容插入当前文本中。
+
+:shell
+切换到shell里（此时并没有退出vim，可以理解成vim转入后台），你可以在shell中做任何操作，退出shell（比如用exit）后，会切换回原来的vim中
+refer VimShellCommand
+
+==在VIM中添加一键编译和一键运行==
+
+这样就定义两个函数
+这样就定义两个函数，分别编译C和C++，其含义应该是比较明显的了。注意，这里用到的两个变量compilecmd和compileflag都是局部变量。
+
+search函数用来搜索字符串，我根据源码的头文件来判断编译所需要的库。连接两个字符串的运行符是一个句点。
+
+%为内部变量，表示文件名，而%<表示没有后缀的文件名。
+func! CompileGcc()
+     exec "w"
+     let compilecmd="!gcc "
+     let compileflag="-o %< "
+     if search("mpi\.h") != 0
+         let compilecmd = "!mpicc "
+     endif
+     if search("glut\.h") != 0
+         let compileflag .= " -lglut -lGLU -lGL "
+     endif
+     if search("cv\.h") != 0
+         let compileflag .= " -lcv -lhighgui -lcvaux "
+     endif
+     if search("omp\.h") != 0
+         let compileflag .= " -fopenmp "
+     endif
+     if search("math\.h") != 0
+         let compileflag .= " -lm "
+     endif
+     exec compilecmd." % ".compileflag
+endfunc
+
+func! CompileGpp()
+     exec "w"
+     let compilecmd="!g++ "
+     let compileflag="-o %< "
+     if search("mpi\.h") != 0
+         let compilecmd = "!mpic++ "
+     endif
+     if search("glut\.h") != 0
+         let compileflag .= " -lglut -lGLU -lGL "
+     endif
+     if search("cv\.h") != 0
+         let compileflag .= " -lcv -lhighgui -lcvaux "
+     endif
+     if search("omp\.h") != 0
+         let compileflag .= " -fopenmp "
+     endif
+     if search("math\.h") != 0
+         let compileflag .= " -lm "
+     endif
+     exec compilecmd." % ".compileflag
+ endfunc
+ 
+第二步，组合成一个函数
+
+func! CompileCode()
+         exec "w"
+         if &filetype == "cpp"
+                 exec "call CompileGpp()"
+         elseif &filetype == "c"
+                 exec "call CompileGcc()"
+         endif
+endfunc
+ 
+
+
+
+
+该函数根据文件类别来选定不同的编译函数。
+
+filetype不光是cpp和c，还可以是python,java等等。
+ 
+ 
+第三步，键绑定
+
+map <F5> :call CompileCode()<CR>
+ imap <F5> <ESC>:call CompileCode()<CR>
+ vmap <F5> <ESC>:call CompileCode()<CR>
+ 
+
+
+这里绑定了三次，分别对应普通模式，插入模式和可视模式。显然<ESC>起到的作用是从这些模式中退出来，而<CR>表示carriage return，即敲命令时的回车。
+
+
+
+
+现在，大功告成了，你只需要按F5键，源码就会自动保存，然后进行编译。运行可执行文件做法也是一样的。
+
+下面贴出我的完整的解决方案，除了C/C++，还涉及到java和python。并且按F6就能执行编译生成的可执行文件。
+
+
+func! CompileGcc()
+     exec "w"
+     let compilecmd="!gcc "
+     let compileflag="-o %< "
+     if search("mpi\.h") != 0
+         let compilecmd = "!mpicc "
+     endif
+     if search("glut\.h") != 0
+         let compileflag .= " -lglut -lGLU -lGL "
+     endif
+     if search("cv\.h") != 0
+         let compileflag .= " -lcv -lhighgui -lcvaux "
+     endif
+     if search("omp\.h") != 0
+         let compileflag .= " -fopenmp "
+     endif
+     if search("math\.h") != 0
+         let compileflag .= " -lm "
+     endif
+     exec compilecmd." % ".compileflag
+ endfunc
+func! CompileGpp()
+     exec "w"
+     let compilecmd="!g++ "
+     let compileflag="-o %< "
+     if search("mpi\.h") != 0
+         let compilecmd = "!mpic++ "
+     endif
+     if search("glut\.h") != 0
+         let compileflag .= " -lglut -lGLU -lGL "
+     endif
+     if search("cv\.h") != 0
+         let compileflag .= " -lcv -lhighgui -lcvaux "
+     endif
+     if search("omp\.h") != 0
+         let compileflag .= " -fopenmp "
+     endif
+     if search("math\.h") != 0
+         let compileflag .= " -lm "
+     endif
+     exec compilecmd." % ".compileflag
+ endfunc
+ 
+func! RunPython()
+         exec "!python %"
+ endfunc
+func! CompileJava()
+     exec "!javac %"
+ endfunc
+ 
+
+func! CompileCode()
+         exec "w"
+         if &filetype == "cpp"
+                 exec "call CompileGpp()"
+         elseif &filetype == "c"
+                 exec "call CompileGcc()"
+         elseif &filetype == "python"
+                 exec "call RunPython()"
+         elseif &filetype == "java"
+                 exec "call CompileJava()"
+         endif
+ endfunc
+ 
+func! RunResult()
+         exec "w"
+         if search("mpi\.h") != 0
+             exec "!mpirun -np 4 ./%<"
+         elseif &filetype == "cpp"
+             exec "! ./%<"
+         elseif &filetype == "c"
+             exec "! ./%<"
+         elseif &filetype == "python"
+             exec "call RunPython"
+         elseif &filetype == "java"
+             exec "!java %<"
+         endif
+ endfunc
+ 
+map <F5> :call CompileCode()<CR>
+ imap <F5> <ESC>:call CompileCode()<CR>
+ vmap <F5> <ESC>:call CompileCode()<CR>
+ 
+map <F6> :call RunResult()<CR>
+ 
+ 
+
+func! pip()
+   exec "w"
+   exec "/vobs/gen_rnc_app/cpp/src/callp/pipcall/mk"
+endfunc 
+
+map <F10> :call pip()<CR>

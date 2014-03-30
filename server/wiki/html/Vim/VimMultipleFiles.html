@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+  <head>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+       <link rel="Stylesheet" type="text/css" href="../../../media/css/style.css" />
+       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+       <meta name="author" content="Elvis" />
+       <title>VimMultipleFiles</title>
+       <link rel="shortcut icon" href="../../../favicon.ico" />
+       <link href="../../../feed/" rel="alternate" title="Elvis" type="application/atom+xml" />
+       <link rel="stylesheet" href="../../../media/css/style.css" />
+       <link rel="stylesheet" href="../../../media/css/highlight.css" />
+       <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="../../../">首页</a></li>
+            <li><a title="文章分类" class="" href="../../../categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="../../../tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="../../../links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="../../../guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="../../../about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimMultipleFiles</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content">
+           <article>
+             
+<p>
+:help quickfix
+</p>
+<h2 id="toc_0.1">Operate command over multiple files</h2>
+<p>
+:argdo %s/foo/bar/
+:bufdo %s/foo/bar/
+:windo %s/foo/bar/
+:tabdo %s/foo/bar/
+</p>
+
+<h2 id="toc_0.2">多文件中查找</h2>
+<p>
+对于多文件中的查找来说，比较容易，vimgrep是vim自带的一个工具，类似于grep的用法就可以实现
+</p>
+
+<p>
+:vimgrep word *    在当前目录查找word，使用如下：
+:vimgrep word **   递归查找所有下级目录里面，那么就用
+</p>
+
+<p>
+另外，如果想要在使用是快捷查找当前光标下的字母，则只需要在vimrc中添加如下代码：
+</p>
+
+<p>
+"对搜索的设置
+map ft :call Search_Word()&lt;CR&gt;:copen&lt;CR&gt;
+function Search_Word()
+   let w = expand("&lt;cword&gt;") " 在当前光标位置抓词
+   execute "vimgrep " w " *"
+endfunction
+</p>
+
+<p>
+通过vimgrep查找到的结果会生成到quickfix中，
+</p>
+
+
+
+<p>
+VimCommand
+</p>
+
+
+<h2 id="toc_0.3">第二，多文件替换。</h2>
+<h3 id="toc_0.3.1" class="justcenter">1. 使用quickfix 的文件list，一个命题替换</h3>
+<p>
+		Useful application: Find pattern matches in multiple files and
+		do something with them: &gt;
+</p>
+		
+<p>
+			:vimgrep /theword/jg *.c
+</p>
+			
+<p>
+			:for d in getqflist()
+			:   echo bufname(d.bufnr) ':' d.lnum '=' d.text
+			:endfor
+</p>
+
+
+<h3 id="toc_0.3.2">2. 实际上只要如下两个命令即可（假设要将当前目录下所有扩展名为.txt的文件中的hate替换成love）:</h3>
+<p>
+:args *.txt
+:argdo %s/hate/love/gc | update
+就可以完成啦。解释如下，
+:args *.txt    这样写会扫描当前目录下的.txt文件，并加入到参数列表。
+:args *<strong>/</strong>.txt 递归扫描所有下级目录的话
+:args <strong>/</strong>.txt  只扫描下一级目录（即不扫描当前目录）
+:argdo %s/hate/love/gc | update 将参数列表中的所有文件的hate提换成love，并写入硬盘（如果没有|update，就不会写入，但相应的替换也会被中断）
+</p>
+
+<p>
+最后强调一点，使用替换命令的时候，一定记得备份，因为替换是直接写入硬盘滴哦……
+</p>
+
+
+<h2 id="toc_0.4">search in multiple files</h2>
+<p>
+VimCommand
+</p>
+
+           </article>
+        </section>
+        <aside id="sidebar">
+            <h3>WIKI精选</h3>
+					<ul>
+                  <li><a href="../Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="../Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="../十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+									<li><a href="../index.html">Elvis Wiki</a></li>
+                           <li><a href="../../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
+
+    </div>
+  </body>
+
+</html>

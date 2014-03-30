@@ -1,0 +1,5 @@
+官方描述：
+1. When you type ‘(‘ after a function name in insert mode, the function declaration will be displayed in the command line automatically. 
+   Then use Alt+-, Alt+ to cycle between function declarations (if exists).
+滇狐评价： 一个非常好用的插件， 虽然很小巧， 功能也很简单， 但非常实用， 强烈推荐。 
+2. 除此之外，当鼠标移到一个标志符之上时， 还会出现一个气球显示该标志符的定义

@@ -27,7 +27,7 @@
 			</ul>
 		</div>
       </nav>
-      <header background="images/headerimg.jpg"><!-- header -->
+      <header>
          <h1><a href="#">{{ page.title }}</a></h1>
          <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
       </header>
@@ -37,9 +37,9 @@
           {{ content }}
         </section>
         <aside id="sidebar">
-					<h3>Things To Do</h3>
+            <h3>Elvis"十大"能力模型</h3>
 					<ul>
-						<li><a href="#">Play Games</a></li>
+                  <li><a href="{{site.wikiurl}}Ability/TopTenHabits.html">十大习惯</a></li>
 						<li><a href="#">Chat With Friends</a></li>
 						<li><a href="#">Swap Stories</a></li>
 						<li><a href="#">Sell Stuff</a></li>
@@ -86,6 +86,7 @@
 								<ul>
                            <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="{{site.baseurl}}/about/">{{ site.author }}</a> </li>
 									<li><a href="{{site.baseurl}}/wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="{{site.baseurl}}/../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
 {% if site.beian %}
              | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>

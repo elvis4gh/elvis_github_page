@@ -9,6 +9,7 @@ padding: 0;
 }
 
 /* add for nav menu list */
+
 .clear:after {
     clear: both;
     content: ".";
@@ -39,7 +40,6 @@ margin-bottom: 5px;
 -webkit-box-shadow: 3px 3px 7px #777;
 -moz-box-shadow: 3px 3px 7px #777;
 }
-
 nav {
 width: 940px;
 height: 50px;
@@ -91,16 +91,9 @@ text-decoration:underline;
 p {
 margin-bottom: 18px;
 }
-
 li {
 padding-left: 5px;
-	list-style:none;
-	float:left;
-	border-right: 1px solid #2E3235;
-	position: relative;
-	background:#555D5F;
 }
-
 /* nav */
 nav .menu {
 font-size: 16px;

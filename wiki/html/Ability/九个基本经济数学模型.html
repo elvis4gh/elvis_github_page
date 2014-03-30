@@ -12,75 +12,104 @@
        <link rel="stylesheet" href="../../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>九个基本经济数学模型</h1>
-        </header>
-        <nav>
-        <span><a title="网站首页" class="" href="../../../">首页</a></span>
-        <span><a title="文章分类" class="" href="../../../categories/">分类</a></span>
-        <span><a title="标签索引" class="" href="../../../tags/">标签</a></span>
-        <!--<span><a title="友情链接" class="" href="../../../links/">链接</a></span>-->
-        <span><a title="留言交流" class="" href="../../../guestbook/">留言</a></span>
-        <span><a title="关于站长" class="" href="../../../about/">关于</a></span>
-        <span><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></span>
-        </nav>
-        <article class="content">
-        
-<p>
-1、边际分析模型
-边际成本：设成本函数为：C=C(q) (q是产量)则边际成本： 表示产量为q时生产１个单位产品所花费的成本。　
-边际收益：设需求函数为Ｐ＝P(q)　(q是产量，Ｐ是价格)则收益函数为：R=R(q)=q﹒p(q) 边际收益为： 表示销售量为q时销售1个单位产品所增加的收入。
-边际利润：设利润函数L=L(q)=R (q)-C(q) 则边际利润ML=L’ (q)= 边际利润ML=L’ (q)表示销售量为q时销售点1个单位产品的所增加的利润。
-</p>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="..//">首页</a></li>
+            <li><a title="文章分类" class="" href="..//categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="..//tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="..//links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="..//guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="..//about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="..//feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">九个基本经济数学模型</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
 
-<p>
-2、弹性分析模型
-需求价格弹性：设需求函数q=q(p)，q是需求量，P是价格。则需求价格弹性：当价格上升百分之一时，需求量减少百分之一 ；当价格下降百分之一时，需求量上升百分之一 
-需求收入弹性：需求量是收入的（单增）函数，q=q(R),q是需求量，R是收入，则需求收入弹性当收入增加百分之一时，需求量增加百分之 ；当收入减少百分之一时，需求量减少百分之 
-</p>
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="..//wiki/html/Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="..//wiki/html/Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="..//wiki/html/十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
 
-<p>
-3、最大利润模型
-设总利润L=L(q)=R(q)-C(q)L(q)取得最大利润的必要条件： L(q)取得最大利润的充分条件： 
-</p>
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
 
-<p>
-4、最优批量模型（其中：T总成本，Q为每批产量，S为产品的调整准备成本，A为全年产量）得 
-5、线性回归方程模型
-设变量x与y存在线性关系，y=ax+b，对n项实验得n对数据（x1、y1）, （x2、y2）,………(xn、yn)。可求出则y=ax+b6、线性规划数学模型1 2 1式称为目标函数，2式称为约束条件x1、x2………, xn称为决策变量，满足2式的一组变量值称为线性规划问题的可行解，使1式达到最大（小）值的可行解称为最大解。
-</p>
+		  </aside>
+      </section>
 
-<p>
-7、投入产出数学模型
-投入产出表(略)产出分配平衡方程： （i=1,2,…...,n）投入构成平衡方程： （j=1,2,…...,n）是直接消耗系数设 则投入产出数学模型完全消耗系数: 有： 
-</p>
+      <footer>
+		<section id="footer-area">
 
-<p>
-8、风险型决策数学模型
-1期望值准则如果用A表示各行动方案的集合， N表示各自然状态的集合， P是各状态出现的概率向量， M是益损值的矩阵，即这时， 则决策实质就是求向量E（A）的最大元或最小元对应的行动方案。2决策树方法决策树方法：形式上采用了下观的树状图，实质还是对各方案的期望值比较。可通过案例说明方法的运用，此处不便写出固定模型。
-</p>
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
 
-<p>
-9、工序质量控制数学模型
-由于工序质量控制的基本思想概念以及工序质量控制的方法、模型、具体的实际运用涉及内容较多，这里不详细给出。
-</p>
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
 
-        </article>
-      </div>
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
+									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="..//../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
 
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../../about/">About_Elvis</a>
-       | <a href="../../html/index.html">Wiki_home</a>
-       | <a href="../../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
+		</section><!-- end of footer-area -->
+	</footer>
+
+
 
     </div>
   </body>
+
 </html>

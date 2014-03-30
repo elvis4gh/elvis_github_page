@@ -12,156 +12,104 @@
        <link rel="stylesheet" href="../../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>VimRegister</h1>
-        </header>
-        <nav>
-        <span><a title="网站首页" class="" href="../../../">首页</a></span>
-        <span><a title="文章分类" class="" href="../../../categories/">分类</a></span>
-        <span><a title="标签索引" class="" href="../../../tags/">标签</a></span>
-        <!--<span><a title="友情链接" class="" href="../../../links/">链接</a></span>-->
-        <span><a title="留言交流" class="" href="../../../guestbook/">留言</a></span>
-        <span><a title="关于站长" class="" href="../../../about/">关于</a></span>
-        <span><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></span>
-        </nav>
-        <article class="content">
-        
-<p>
-寄存器(Registers)
-:reg            : 列出寄存器, 显示所有当前的register
-</p>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="..//">首页</a></li>
+            <li><a title="文章分类" class="" href="..//categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="..//tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="..//links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="..//guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="..//about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="..//feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimRegister</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
 
-<ol>
-<li>
-附加到一个register (就是用大写的register名字啦！) VimRegister
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="..//wiki/html/Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="..//wiki/html/Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="..//wiki/html/十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
 
-</ol>
-<p>
-"a5yy #复制5行到a中
-10j   #下移10行
-"A5yy #再添加5行到a中
-</p>
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
 
-<h1 id="toc_1">yy@"</h1>
-<p>
-"" - The unnamed register. "d", "c", "s", "x" 和 "y" 等涉及删除或拷贝的命令都会将内容存放于此(有例外)。
-@" - run the content in register " as a command
-yy@" - We can use yy@" to run the current line's content as a command
-"ayy@a - store the current line in register a as a command and execute it.
-</p>
+		  </aside>
+      </section>
 
+      <footer>
+		<section id="footer-area">
 
-<h1 id="toc_2"># 寄存器的主要有以下几种：</h1>
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
 
-<p>
-"" - The unnamed register. "d", "c", "s", "x" 和 "y" 等涉及删除或拷贝的命令都会将内容存放于此(有例外)。
-</p>
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
 
-<p>
-"0 to "9 - 10 numbered registers.  0 为最近拷贝的内容，1-9 为最近删除的内容。指定 named register 时不会存放于此。
-"-       - The small delete register 删除不多于一行的内容会存在于此。
-"a to "z 
-"A to "Z - 26 named registers 小写与大写的区别是，小写是覆盖方式，大写是添加方式。
-   e.g 附加到一个register (就是用大写的register名字啦！)
-</p>
-<blockquote>
-"a5yy #复制5行到a中
-10j  #下移10行
-"A5yy #再添加5行到a中
-</blockquote>
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
+									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="..//../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
 
-<p>
-":, "., "% and "# - four read-only registers
-": 上次执行的命令，冒号就是命令行提示符嘛。这个有些什么用呢？在测试配置文件时十分有用，先在命令行输入命令，调试好后，在 insert mode 里按Ctrl-R : 就可将该命令插到文件中。
-". 存放上次插入的文本，例如，你输入了一段文本，在另一个地方也要有相同的内容，你输完后，一般要选择并复制一下吧？而用这个，直接移到需要插入的地方，i&lt;ctrl-r&gt;. 即可。
-"% 是当前编辑文件全名，vim 中，% 就是代表当前编辑文件名的变量，好记吧？不过，一般直接用 % 就行，例如":!cat %"，vim 会自动扩展。
-"# 是alternate file 名称 (这个我不知道)
-</p>
-
-<p>
-"= - the expression register 呵，表达式寄存器，可以输入一个表达式，并插入结果。
-</p>
-
-<p>
-"*, "+ and "~ - The selection and drop registers 跟 gui 即 X/Windows 剪贴板有关的变量。在 X 中，鼠标中键与系统剪贴板不一样，至于区别，大家自己试验一下，这里给个提示，在命令行下输入 reg 可以列出所有寄存器的内容。
-   "* 关联系统选择缓冲区
-   "+ 关联系统剪切板
-</p>
-
-<p>
-"_ - The black hole register 黑洞
-</p>
-
-<p>
-"/ - Last search pattern register 上次搜索的内容。例如，我要搜索一个单词 linuxforum，但我比较懒，先输入 /linux，发现出现很多个 linux，多次按 n 无果，难道要重新输入 /linuxforum ? 不用，只需要 /&lt;ctrl-r&gt;/forum 即可。呵，聪明的你一定想到了，用命令行历史也可以调来，按 ctrl-p 或 ctrl-n 即可上下翻阅。这样也可以嘛，也比较快捷，但要查找 forumlinux 呢？用 ctrl-r 的话只需 /forum&lt;ctrl-r&gt;/ 。
-</p>
+		</section><!-- end of footer-area -->
+	</footer>
 
 
-<p>
-c:\Users\eknoqry\Pictures\BumpintheStack.jpg
-</p>
-
-<h1 id="toc_3">register</h1>
-<p>
-:reg            : 列出寄存器, 显示所有当前的register
-"1p             : paste from register 1         "表示引用register，1表示一个名字叫做1的register
-</p>
-<ol>
-<li>
-译释："也用来定义register
-
-<li>
-先输入 ",表示定义register
-
-<li>
-然后输入名字，如0~9,a~z
-
-<li>
-然后执行删除或复制命令，如dd或y，
-
-<li>
-       或者是visual模式下的d(删除选中的部分)或y(复制选中的部分)
-
-<li>
-则被删除或复制的部分就被存入了这个命名的register
-
-</ol>
-<p>
-#
-</p>
-<ol>
-<li>
-观察：一个特殊的register, "" ，里面存储了一个匿名的删除/复制
-
-<li>
-在你执行dd或y的时候，被作用的部分被存到了""中
-
-<li>
-这些和perl是多么像啊
-
-</ol>
-
-<h1 id="toc_4">marco in register</h1>
-<p>
-VimMarco
-</p>
-
-        </article>
-      </div>
-
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../../about/">About_Elvis</a>
-       | <a href="../../html/index.html">Wiki_home</a>
-       | <a href="../../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
 
     </div>
   </body>
+
 </html>

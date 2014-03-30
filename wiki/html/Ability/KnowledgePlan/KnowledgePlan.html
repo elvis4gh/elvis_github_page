@@ -12,110 +12,104 @@
        <link rel="stylesheet" href="../../../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>KnowledgePlan</h1>
-        </header>
-        <nav>
-        <span><a title="网站首页" class="" href="../../../../">首页</a></span>
-        <span><a title="文章分类" class="" href="../../../../categories/">分类</a></span>
-        <span><a title="标签索引" class="" href="../../../../tags/">标签</a></span>
-        <!--<span><a title="友情链接" class="" href="../../../../links/">链接</a></span>-->
-        <span><a title="留言交流" class="" href="../../../../guestbook/">留言</a></span>
-        <span><a title="关于站长" class="" href="../../../../about/">关于</a></span>
-        <span><a title="种子订阅" class="" href="../../../../feed/" target="_blank">订阅</a></span>
-        </nav>
-        <article class="content">
-        
-<p>
-了解 互联网领域 新知识: 4G / 3G / 云计算 / 物联网 / 动漫 / 大数据的各种应用 hadoop / 模式识别
-</p>
-      
-<p>
-NEW Ericsson Training List :
-   Hadoop Training 
-   Virtualization and Cloud
-</p>
-   
-<p>
-   移动互联网
-</p>
-<blockquote>
-终端软件开发
-Advanced Android Development
-iOS Development
-Android Development
-Mobile Game Development
-</blockquote>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="../..//">首页</a></li>
+            <li><a title="文章分类" class="" href="../..//categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="../..//tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="../..//links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="../..//guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="../..//about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="../..//feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">KnowledgePlan</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
 
-<p>
-   CT
-</p>
-<blockquote>
-Ericsson User Data Consolidation (UDC) 12A Overview
-Ericsson User Profile Gateway (UPG) 12A Overview
-IMS Signalling
-LTE
-CDMA-LTE Interworking and Coexistence
-LTE L13 Protocols and Procedures
-LTE L13 Radio Network Functionality
-LTE/SAE System Overview
-EPG-M 2012A Operation and Configuration
-</blockquote>
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="../..//wiki/html/Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="../..//wiki/html/Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="../..//wiki/html/十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
 
-<p>
-   软件工程管理
-</p>
-<blockquote>
-GIT Advanced Training
-Kanban
-Management 3.0
-SW Leadership
-</blockquote>
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
 
-<p>
-   前端开发
-</p>
-<blockquote>
-HTML5 Programming
-</blockquote>
-      
-<p>
-   基础学科
-</p>
-<blockquote>
-IP Networking
-Java Advanced
-Java Basic
-Linux Kernel Development
-WTEAL
-MySQL
-Statistics
-Oracle
-ECP / ECE
-JavaScript / Jquery
-Erlang
-</blockquote>
+		  </aside>
+      </section>
 
-<p>
-设计+软件生态系统+普及，这绝对是一个浩大的工程
-</p>
+      <footer>
+		<section id="footer-area">
 
-        </article>
-      </div>
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
 
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../../../about/">About_Elvis</a>
-       | <a href="../../../html/index.html">Wiki_home</a>
-       | <a href="../../../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="../..//about/">{{ site.author }}</a> </li>
+									<li><a href="../..//wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="../..//../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
 
     </div>
   </body>
+
 </html>

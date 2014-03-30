@@ -12,91 +12,104 @@
        <link rel="stylesheet" href="../../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>VimScript</h1>
-        </header>
-        <nav>
-        <span><a title="ç½‘ç«™é¦–é¡µ" class="" href="../../../">é¦–é¡µ</a></span>
-        <span><a title="æ–‡ç« åˆ†ç±»" class="" href="../../../categories/">åˆ†ç±»</a></span>
-        <span><a title="æ ‡ç­¾ç´¢å¼•" class="" href="../../../tags/">æ ‡ç­¾</a></span>
-        <!--<span><a title="å‹æƒ…é“¾æ¥" class="" href="../../../links/">é“¾æ¥</a></span>-->
-        <span><a title="ç•™è¨€äº¤æµ" class="" href="../../../guestbook/">ç•™è¨€</a></span>
-        <span><a title="å…³äºç«™é•¿" class="" href="../../../about/">å…³äº</a></span>
-        <span><a title="ç§å­è®¢é˜…" class="" href="../../../feed/" target="_blank">è®¢é˜…</a></span>
-        </nav>
-        <article class="content">
-        
-<p>
-Vim½Å±¾»òÃüÁîÊ±"µÄ×Ö´®ÊÇÔÊĞíÊ¹ÓÃ×ªÒå×Ö·ûµÄ£¬¶ø'µÄ×Ö´®Ôò²»½øĞĞ×ªÒå¡£
- Èç"\t"±íÊ¾µÄÊÇÒ»¸öÖÆ±í·û¶ø'\t'±íÊ¾µÄÊÇÒ»¸öĞ±¸ÜºÍÒ»¸ö×ÖÄ¸t¡£'\t'µÈ¼ÛµÄË«×ÖºÅ×Ö´®ÊÇ"\\t"¡£
-</p>
- 
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="ç½‘ç«™é¦–é¡µ" class="" href="..//">é¦–é¡µ</a></li>
+            <li><a title="æ–‡ç« åˆ†ç±»" class="" href="..//categories/">åˆ†ç±»</a></li>
+            <li><a title="æ ‡ç­¾ç´¢å¼•" class="" href="..//tags/">æ ‡ç­¾</a></li>
+            <!--<li><a title="å‹æƒ…é“¾æ¥" class="" href="..//links/">é“¾æ¥</a></li>-->
+            <li><a title="ç•™è¨€äº¤æµ" class="" href="..//guestbook/">ç•™è¨€</a></li>
+            <li><a title="å…³äºç«™é•¿" class="" href="..//about/">å…³äº</a></li>
+            <li><a title="ç§å­è®¢é˜…" class="" href="..//feed/" target="_blank">è®¢é˜…</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimScript</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="..//wiki/html/Ability/TopTenHabits.html">åå¤§ä¹ æƒ¯</a></li>
+                  <li><a href="..//wiki/html/Ability/SevenHabits.html">7ä¸ªä¹ æƒ¯</a></li>
+                  <li><a href="..//wiki/html/åå¤§å­¦ä¹ ä¹ æƒ¯.html">åå¤§å­¦ä¹ ä¹ æƒ¯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="è®¸å¯åè®®">Â©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
+									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="..//../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
 
 
-
-
-
-
-
-
-
-<p>
-¡°¸÷Î» Vim ÓÃ»§ºÃ£¬
-</p>
-
-<p>
-ÎÒÃÇÏÖÔÚ×îĞÂµÄ²¹¶¡Êı×ÖÊÇ 7.3.931£¬ÔÙ¹ı¼¸ÖÜ¾ÍÒª·¢²¼ 7.3.999 ÁË¡£¸Ã¿¼ÂÇ Vim 7.4 ÁË£¡
-</p>
-
-<p>
-ÔÚ Vim ĞÂÌØĞÔĞèÇóµÄÍ¶Æ±ÖĞ£¬ÏÂÃæÕâÎå¸öĞèÇóºôÉù×î¸ß£º
-</p>
-
-<p>
-Ôö¼Ó IDE ÌØĞÔ£¨ÕûºÏµ÷ÊÔÆ÷¡¢shell ´°¿Ú£©£»
-Ôö¼ÓºÍPythonµÄÕûºÏ£¬¶ø²»ÊÇÔÙ·¢Ã÷¸ü¶àµÄ Vim ½Å±¾£»
-½â¾öËùÓĞ´ó´óĞ¡Ğ¡ÎÊÌâ£¬ÈÃ Vim ¸ü¼Ó½¡×³£»
-Ìá¸ßÓï·¨¸ßÁÁµÄËÙ¶È£»
-Ôö¼ÓĞ­×÷±à¼­
-ËäÈ»ÎÒ²»¿ÉÄÜÔÚ¼¸ÖÜÄÚ¾Í¿ÉÒÔ×öÍêÒÔÉÏĞèÇó£¬µ«ÎÒ×¼±¸×öÏÂÃæÕâĞ©£º
-</p>
-
-<p>
-¼ÓÈë ZyX ÒÑ¾­×öºÃµÄ Python ²¹¶¡¡£Õâ¿É´Ó Python ½Ó¿ÚÄÇÍ·À´Ìá¸ß Vim API¡£
-¼ÓÈë¿ìËÙµÄÕıÔò±í´ïÊ½ÒıÇæ²¹¶¡£¨ÕâĞü¶øÎ´¾öÀÏ³¤Ê±¼äÁË£©£¬ÓĞĞ©Âß¼­»áÍË»Øµ½¾ÉµÄÕıÔò±í´ïÊ½ÒıÇæ£¬ËùÒÔÓĞĞ©Ä£ĞÍÔÚĞÂÒıÇæÏÂ»òĞíÎŞ·¨¹¤×÷ÁË¡£
-¼ÓÈëºÜ¶à´ı½â¾öµÄ²¹¶¡£¬À´ĞŞÕı Bug ¡£
-´ËÍâ£¬Èç¹ûÄãÊÇÔÚÎ¬»¤ÔËĞĞÊ±ÎÄ¼ş£¬ÓĞÈÎºÎÎ´½â¾öµÄ¸üĞÂ£¬Çë¸øÎÒ·¢¹ıÀ´°É¡£ÔÚ 7.4 °æ·¢²¼Ö®Ç°£¬ÎÒ²»»á×ö³öÖØ´ó±ä»¯£¬ÒòÎªÒ»ÇĞ¶¼ĞèÒªÊ±¼äÀ´²âÊÔÁË¡£ÔÛÃÇ¾Í°ÑÎåÔÂµ×ÉèÎª½ØÖ¹ÆÚÏŞ°É¡£
-</p>
-
-<p>
-ÎÒ»¹Ã»ÓĞÈ·¶¨ 7.4 °æµÄ·¢²¼Ê±¼ä¡£ÎÒ»á¼ÓÈëÄÇĞ©Ìáµ½µÄ±ä»¯£¬È»ºóÎÒÃÇĞèÒªĞ©Ê±¼äÀ´²âÊÔ£¬Ö±ÖÁ¿´ÆğÀ´ÎÈ¶¨¡£Ï£ÍûÔÚ 7.3.999 Ö®Ç°ÄÜ×öÍêÁË¡­¡­¡±
-</p>
-
-<p>
-Ó¢ÎÄÔ­ÎÄ£ºBram Moolenaar£¬±àÒë£º²®ÀÖÔÚÏß£­»ÆÀûÃñ
-ÒëÎÄÁ´½Ó£º<a href="http://blog.jobbole.com/39429/">http://blog.jobbole.com/39429/</a>
-</p>
-
-<p>
-VimFont
-</p>
-
-        </article>
-      </div>
-
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="è®¸å¯åè®®">Â©</a> 2014 <a href="../../../about/">About_Elvis</a>
-       | <a href="../../html/index.html">Wiki_home</a>
-       | <a href="../../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
 
     </div>
   </body>
+
 </html>

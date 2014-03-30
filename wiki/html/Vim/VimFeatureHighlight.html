@@ -12,110 +12,104 @@
        <link rel="stylesheet" href="../../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>VimFeatureHighlight</h1>
-        </header>
-        <nav>
-        <span><a title="ç½‘ç«™é¦–é¡µ" class="" href="../../../">é¦–é¡µ</a></span>
-        <span><a title="æ–‡ç« åˆ†ç±»" class="" href="../../../categories/">åˆ†ç±»</a></span>
-        <span><a title="æ ‡ç­¾ç´¢å¼•" class="" href="../../../tags/">æ ‡ç­¾</a></span>
-        <!--<span><a title="å‹æƒ…é“¾æ¥" class="" href="../../../links/">é“¾æ¥</a></span>-->
-        <span><a title="ç•™è¨€äº¤æµ" class="" href="../../../guestbook/">ç•™è¨€</a></span>
-        <span><a title="å…³äºç«™é•¿" class="" href="../../../about/">å…³äº</a></span>
-        <span><a title="ç§å­è®¢é˜…" class="" href="../../../feed/" target="_blank">è®¢é˜…</a></span>
-        </nav>
-        <article class="content">
-        
-<h2 id="toc_0.1">¿¿¿ colorcolumn  7.3 ¿¿</h2>
-<p>
-<a href="http://www.verydemo.com/demo_c116_i9498.html">http://www.verydemo.com/demo_c116_i9498.html</a>
-</p>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="ç½‘ç«™é¦–é¡µ" class="" href="..//">é¦–é¡µ</a></li>
+            <li><a title="æ–‡ç« åˆ†ç±»" class="" href="..//categories/">åˆ†ç±»</a></li>
+            <li><a title="æ ‡ç­¾ç´¢å¼•" class="" href="..//tags/">æ ‡ç­¾</a></li>
+            <!--<li><a title="å‹æƒ…é“¾æ¥" class="" href="..//links/">é“¾æ¥</a></li>-->
+            <li><a title="ç•™è¨€äº¤æµ" class="" href="..//guestbook/">ç•™è¨€</a></li>
+            <li><a title="å…³äºç«™é•¿" class="" href="..//about/">å…³äº</a></li>
+            <li><a title="ç§å­è®¢é˜…" class="" href="..//feed/" target="_blank">è®¢é˜…</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimFeatureHighlight</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
 
-<h2 id="toc_0.2">å¦‚ä½•è®©vim è‡ªåŠ¨é«˜äº®current word under cursorï¼Ÿ</h2>
-<p>
-   autohighlight.vim
-   z/  - toggle auto highlight
-   <a href="http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle">http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle</a>
-</p>
-   
-<h2 id="toc_0.3" class="justcenter">To change the search highlighting color</h2>
-<p>
-   hi Search guibg=LightBlue ctermbg=LightBlue
-   (also try LightGreen)
-   NOTE: "hi Search guibg=LightBlue" is only for the GUI version of Vim. If you're using Vim in-console, try "hi Search ctermbg=LightBlue" 
-</p>
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="..//wiki/html/Ability/TopTenHabits.html">åå¤§ä¹ æƒ¯</a></li>
+                  <li><a href="..//wiki/html/Ability/SevenHabits.html">7ä¸ªä¹ æƒ¯</a></li>
+                  <li><a href="..//wiki/html/åå¤§å­¦ä¹ ä¹ æƒ¯.html">åå¤§å­¦ä¹ ä¹ æƒ¯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
 
-<p>
-   For my error message highlighting I use:
-   highlight ErrorMsg guibg=White guifg=Red
-</p>
-   
-<hr />
-<p>
-pending list:
-</p>
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
 
-<p>
-   Mark.vim é«˜äº®å¯¹åº”çš„record key word  
-</p>
+		  </aside>
+      </section>
 
-<h2 id="toc_0.4" class="justcenter">å¦‚ä½•è®©vim è‡ªåŠ¨é«˜äº®/color ç‰¹æ®Šæ ¼å¼çš„è¡Œï¼Ÿ</h2>
-   
-   
-<h2 id="toc_0.5">customize highlight</h2>
-<p>
-¿VIM¿¿¿¿¿¿¿¿¿¿¿¿(matching)¿
-¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
-</p>
+      <footer>
+		<section id="footer-area">
 
-<p>
-¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
-</p>
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
 
-<p>
-:match Group /pattern/
-</p>
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
 
-<p>
-¿¿¿¿¿¿¿¿¿
-¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿(color group)¿¿¿
-¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
-</p>
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="è®¸å¯åè®®">Â©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
+									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="..//../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
 
-<p>
-¿¿¿¿¿¿¿¿¿¿¿(^¿¿)¿¿¿¿¿Error¿¿¿¿¿¿¿¿¿¿¿¿¿ErrorMsg¿¿¿¿¿¿(¿¿¿¿¿¿¿)¿
-</p>
+		</section><!-- end of footer-area -->
+	</footer>
 
 
-
-<p>
-¿: ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
-</p>
-
-<p>
-¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
-</p>
-
-<p>
-:so $VIMRUNTIME/syntax/hitest.vim
-</p>
-
-        </article>
-      </div>
-
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="è®¸å¯åè®®">Â©</a> 2014 <a href="../../../about/">About_Elvis</a>
-       | <a href="../../html/index.html">Wiki_home</a>
-       | <a href="../../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
 
     </div>
   </body>
+
 </html>

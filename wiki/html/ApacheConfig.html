@@ -12,163 +12,104 @@
        <link rel="stylesheet" href="../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>ApacheConfig</h1>
-        </header>
-        <nav>
-        <span><a title="网站首页" class="" href="../../">首页</a></span>
-        <span><a title="文章分类" class="" href="../../categories/">分类</a></span>
-        <span><a title="标签索引" class="" href="../../tags/">标签</a></span>
-        <!--<span><a title="友情链接" class="" href="../../links/">链接</a></span>-->
-        <span><a title="留言交流" class="" href="../../guestbook/">留言</a></span>
-        <span><a title="关于站长" class="" href="../../about/">关于</a></span>
-        <span><a title="种子订阅" class="" href="../../feed/" target="_blank">订阅</a></span>
-        </nav>
-        <article class="content">
-        
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="/">首页</a></li>
+            <li><a title="文章分类" class="" href="/categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="/tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="/links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="/guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="/about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="/feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">ApacheConfig</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="/wiki/html/Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="/wiki/html/Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="/wiki/html/十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="/about/">{{ site.author }}</a> </li>
+									<li><a href="/wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="/../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
 
 
-
-
-<h2 id="toc_0.1">安全配置</h2>
-<p>
-<a href="http://hi.baidu.com/happy8d/item/f2544c34674a72d56c15e9fb">http://hi.baidu.com/happy8d/item/f2544c34674a72d56c15e9fb</a>
-</p>
-
-<h2 id="toc_0.2">搭建SSL,让apache支持https</h2>
-<p>
-yum install mod_ssl
-</p>
-
-<p>
-其实安装完这个模块后，重启完apache 就可以用<a href="https://localhost测试了，因为他创建了默认的证书">https://localhost测试了，因为他创建了默认的证书</a>
-</p>
-
-<p>
-在/etc/pki/tls下
-</p>
-
-<p>
-当然我们也可以用openssl创建自己的证书
-yum install openssl
-</p>
-
-<p>
-生成证书文件
-创建一个rsa私钥,文件名为server.key
-openssl genrsa -out server.key 1024
-</p>
-
-
-<p>
-Generating RSA private key, 1024 bit long modulus
-............++++++
-............++++++
-e is 65537 (0x10001)
-</p>
-
-
-<p>
-用 server.key 生成证书签署请求 CSR
-openssl req -new -key server.key -out server.csr
-</p>
-
-<p>
-Country Name:两个字母的国家代号
-State or Province Name:省份名称
-Locality Name:城市名称
-Organization Name:公司名称
-Organizational Unit Name:部门名称
-Common Name:你的姓名
-Email Address:地址
-至于 'extra' attributes 不用输入.直接回车
-</p>
-
-<p>
-生成证书CRT文件server.crt。
-openssl x509 -days 365 -req -in server.csr -signkey server.key -out server.crt
-</p>
-
-<p>
-修改ssl.conf指定我们自己生成的证书
-vi /etc/httpd/conf.d/ssl.conf
-</p>
-
-<p>
-找到如下位置，修改路径
-</p>
-
-<ol>
-<li>
-  Server Certificate:
-
-<li>
-Point SSLCertificateFile at a PEM encoded certificate.  If
-
-<li>
-the certificate is encrypted, then you will be prompted for a
-
-<li>
-pass phrase.  Note that a kill -HUP will prompt again.  A new
-
-<li>
-certificate can be generated using the genkey(1) command.
-
-</ol>
-<p>
-SSLCertificateFile /etc/pki/tls/certs/localhost.crt
-</p>
-
-<ol>
-<li>
-  Server Private Key:
-
-<li>
-  If the key is not combined with the certificate, use this
-
-<li>
-  directive to point at the key file.  Keep in mind that if
-
-<li>
-  you've both a RSA and a DSA private key you can configure
-
-<li>
-  both in parallel (to also allow the use of DSA ciphers, etc.)
-
-</ol>
-<p>
-SSLCertificateKeyFile /etc/pki/tls/private/localhost.key
-</p>
-
-<p>
-OK
-service httpd restart
-</p>
-
-<p>
-一切都搞定拉～～
-</p>
-
-<p>
-整个过程我们不需要修改/etc/httpd/conf/httpd.conf 这就是版本高了的好处阿～
-</p>
-
-        </article>
-      </div>
-
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../about/">About_Elvis</a>
-       | <a href="../html/index.html">Wiki_home</a>
-       | <a href="../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
 
     </div>
   </body>
+
 </html>

@@ -12,477 +12,104 @@
        <link rel="stylesheet" href="../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>VimWiki 的书写语法</h1>
-        </header>
-        <nav>
-        <span><a title="网站首页" class="" href="../../">首页</a></span>
-        <span><a title="文章分类" class="" href="../../categories/">分类</a></span>
-        <span><a title="标签索引" class="" href="../../tags/">标签</a></span>
-        <!--<span><a title="友情链接" class="" href="../../links/">链接</a></span>-->
-        <span><a title="留言交流" class="" href="../../guestbook/">留言</a></span>
-        <span><a title="关于站长" class="" href="../../about/">关于</a></span>
-        <span><a title="种子订阅" class="" href="../../feed/" target="_blank">订阅</a></span>
-        </nav>
-        <article class="content">
-        
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="/">首页</a></li>
+            <li><a title="文章分类" class="" href="/categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="/tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="/links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="/guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="/about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="/feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimWiki 的书写语法</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
+
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="/wiki/html/Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="/wiki/html/Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="/wiki/html/十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="/about/">{{ site.author }}</a> </li>
+									<li><a href="/wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="/../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
 
 
-
-<h1>目录:</h1>
-<div class="toc">
-<ul>
-<li><a href="#toc_0.1">换行</a>
-<li><a href="#toc_0.2">分界线</a>
-<li><a href="#toc_0.3">缩进</a>
-<li><a href="#toc_0.4">枚举</a>
-<li><a href="#toc_0.5">百分号“%”</a>
-<li><a href="#toc_0.6">链接（内链和外链）</a>
-<li><a href="#toc_0.7">格式化文字段</a>
-<li><a href="#toc_0.8">修饰文字显示效果</a>
-<li><a href="#toc_0.9">参考&amp;鸣谢</a>
-</ul>
-</ul>
-</div>
-
-   
-<hr />
-
-<h2 id="toc_0.1">换行</h2>
-
-<p>
-换行只用&lt;“br”&gt;
-</p>
-
-<p>
-多少个&gt;2换行都等效于一个
-</p>
-
-<p>
-两次换行，等效于分段
-</p>
-
-<p>
-文字文字 文字文字 文字文字(这里换行，没有用br)<br>
-文字文字 文字文字 文字文字<br>
-等效于：<br>
-文字文字 文字文字 文字文字 文字文字 文字文字 文字文字<br>
-</p>
-
-<pre>
- free style!!  refer to 5.7. Preformatted text 
- as dfkjadf
- adfa
- g
- a dsf   fakdf
- a
- f
-    adsf
-    akfj
-
-</pre>
-
-<hr />
-
-<h2 id="toc_0.2">分界线</h2>
-<p>
-4个“-”
-<hr />
-</p>
-
-<h2 id="toc_0.3">缩进</h2>
-<p>
-   (这里缩进3个chap)文字文字 文字文字 文字文字
-</p>
-<blockquote>
-(这里缩进4个chap 生成blockquote, 我自己改成3算了)文字文字 文字文字 文字文字
-</blockquote>
-<blockquote>
-(这里缩进8个chap, 没有缩进两层的效果)文字文字 文字文字 文字文字
-</blockquote>
-        
-<h2 id="toc_0.4">枚举</h2>
-
-<p>
-"#" + "&lt;space&gt;" + content
-e.g<br>
-</p>
-
-<ol>
-<li>
-text asdfasd
-
-<li>
-text adsfw 
-
-<li>
-text pq 
-
-<li>
-text rp1 
-
-</ol>
-
-<p>
-"-" + "&lt;space&gt;" + content
-</p>
-
-<ul>
-<li>
-text asdfasd
-
-<li>
-text adsfw 
-
-<li>
-text pq 
-
-<li>
-text rp1 
-
-</ul>
-
-<p>
-能不能嵌套？ 
-</p>
-
-<ul>
-<li>
-text asdfasd
-
-<li>
-text adsfw 
-
-<ul>
-<li>
-text adsfw 
-
-<ul>
-<li>
-text adsfw 
-
-<ul>
-<li>
-text adsfw 
-
-<li>
-text adsfw 
-
-<li>
-text adsfw 
-
-<ul>
-<li>
-text adsfw 
-
-</ul>
-</ul>
-<li>
-text adsfw 
-
-<li>
-text adsfw 
-
-<ul>
-<li>
-text 这样embedded两级只起到一级的效果，往后的会乱掉  
-
-</ul>
-<li>
-text 乱掉
-
-<li>
-text 乱掉
-
-</ul>
-<li>
-text pq 回复正常
-
-</ul>
-<li>
-text pq 
-
-</ul>
-
-<p>
-Unordered lists: &gt;<br>
-</p>
-<ul>
-<li>
-Bulleted list item 1<br>
-
-<li>
-Bulleted list item 2<br>
-
-<ul>
-<li>
-Bulleted list sub item 1<br>
-
-<li>
-Bulleted list sub item 2<br>
-
-<li>
-more ...<br>
-
-<ul>
-<li>
-and more ...<br>
-
-<li>
-...<br>
-
-</ul>
-<li>
-Bulleted list sub item 3<br>
-
-<li>
-etc.<br>
-
-</ul>
-</ul>
-<p>
-or: &gt;<br>
-</p>
-<ul>
-<li>
-Bulleted list item 1<br>
-
-<li>
-Bulleted list item 2<br>
-
-<ul>
-<li>
-Bulleted list sub item 1<br>
-
-<li>
-Bulleted list sub item 2<br>
-
-<li>
-more ...<br>
-
-<ul>
-<li>
-and more ...<br>
-
-<li>
-...<br>
-
-</ul>
-<li>
-Bulleted list sub item 3<br>
-
-<li>
-etc.<br>
-
-</ul>
-</ul>
-<p>
-<br>
-or mix: &gt;<br>
-</p>
-<ul>
-<li>
-Bulleted list item 1<br>
-
-<li>
-Bulleted list item 2<br>
-
-<ul>
-<li>
-Bulleted list sub item 1<br>
-
-<li>
-Bulleted list sub item 2<br>
-
-<li>
-more ...<br>
-
-<ul>
-<li>
-and more ...<br>
-
-<li>
-...<br>
-
-</ul>
-<li>
-Bulleted list sub item 3<br>
-
-<li>
-etc.<br>
-
-</ul>
-</ul>
-<p>
-<br>
-Ordered lists: &gt;<br>
-</p>
-<ol>
-<li>
-Numbered list item 1<br>
-
-<li>
-Numbered list item 2<br>
-
-<ol>
-<li>
-Numbered list sub item 1<br>
-
-<li>
-Numbered list sub item 2<br>
-
-<li>
-more ...<br>
-
-<ol>
-<li>
-and more ...<br>
-
-<li>
-...<br>
-
-</ol>
-<li>
-Numbered list sub item 3<br>
-
-<li>
-etc.<br>
-
-</ol>
-</ol>
-<p>
-<br>
-It is possible to mix bulleted and numbered lists: &gt;<br>
-</p>
-<ul>
-<li>
-Bulleted list item 1<br>
-
-<li>
-Bulleted list item 2<br>
-
-<ol>
-<li>
-Numbered list sub item 1<br>
-
-<li>
-Numbered list sub item 2<br>
-
-</ol>
-</ul>
-<p>
-<br>
-Note that a space after *, - or # is essential.<br>
-<br>
-Multiline list items: &gt;<br>
-</p>
-<ul>
-<li>
-Bulleted list item 1<br>
-    List item 1 continued line.<br>
-    List item 1 next continued line.<br>
-
-<li>
-Bulleted list item 2<br>
-
-<ul>
-<li>
-Bulleted list sub item 1<br>
-      List sub item 1 continued line.<br>
-      List sub item 1 next continued line.<br>
-
-<li>
-Bulleted list sub item 2<br>
-
-<li>
-etc.<br>
-
-</ul>
-</ul>
-<p>
-<br>
-Definition lists: &gt;<br>
-<dl>
-<dt>Term 1</dt>
-<dd>Definition 1<br></dd>
-</dl>
-Term 2::<br>
-<dl>
-<dd>Definition 2<br></dd>
-<dd>Definition 3<br></dd>
-</dl>
-</p>
-
-        
-<h2 id="toc_0.5">百分号“%”</h2>
-
-<p>
-百分号“%” + title     文章标题-VimWiki插件
-百分号“%” + toc       文章目录 
-</p>
-
-<h2 id="toc_0.6">链接（内链和外链）</h2>
-
-<p>
-外链：
-<a href="http://elvis4gh.github.com/elvis_github_page ">Elvis Page</a>
-</p>
-
-
-<h2 id="toc_0.7">格式化文字段</h2>
-
-<p>
-有几种常见方法：
-</p>
-
-<p>
-在一行的开始缩进4个字符（所有文字必须在一行）。生成HTML代码&lt;pre&gt;。
-用{{{ sed -i "adfa/ags" gasdg* }}} 把代码段扩起来（可以有多行）。生成HTML代码&lt;pre&gt;。
-用"`"（数字键1）前面那个键把文字扩起来（所有文字必须在一行）。生成HTML代码&lt;code&gt;。
-</p>
-
-
-<h2 id="toc_0.8">修饰文字显示效果</h2>
-
-<p>
-text should be decorated: &gt;<br>
-用*将文字扩起来（*和前后的文字间要有空格），以加粗方式显示， <strong>加粗</strong> <br />
-  <strong>bold text</strong><br>
-  <em>italic text</em><br>
-  <del>strikeout text</del><br>
-  <code>code (no syntax) text</code><br>
-  super<sup><small>script</small></sup><br>
-  文字上标，如x平方 x<sup><small>2</small></sup><br />
-  sub<sub><small>script</small></sub><br>
-  文字下标，如A<sub><small>1</small></sub><br />
-</p>
-
-<p>
-<a href="#top.html">Top</a>
-</p>
-
-<h2 id="toc_0.9">参考&amp;鸣谢</h2>
-<p>
-vimwiki help page<br>
-refer： <a href="http://www.berlinix.com/vim/VimWiki.php ">波黎克斯vimwiki总结</a>
-</p>
-
-        </article>
-      </div>
-
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../about/">About_Elvis</a>
-       | <a href="../html/index.html">Wiki_home</a>
-       | <a href="../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
 
     </div>
   </body>
+
 </html>

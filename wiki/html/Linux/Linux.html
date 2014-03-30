@@ -12,87 +12,104 @@
        <link rel="stylesheet" href="../../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>Linux</h1>
-        </header>
-        <nav>
-        <span><a title="网站首页" class="" href="../../../">首页</a></span>
-        <span><a title="文章分类" class="" href="../../../categories/">分类</a></span>
-        <span><a title="标签索引" class="" href="../../../tags/">标签</a></span>
-        <!--<span><a title="友情链接" class="" href="../../../links/">链接</a></span>-->
-        <span><a title="留言交流" class="" href="../../../guestbook/">留言</a></span>
-        <span><a title="关于站长" class="" href="../../../about/">关于</a></span>
-        <span><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></span>
-        </nav>
-        <article class="content">
-        
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="..//">首页</a></li>
+            <li><a title="文章分类" class="" href="..//categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="..//tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="..//links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="..//guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="..//about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="..//feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">Linux</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
 
-<p>
-<a href="LinuxSoftware.html">LinuxSoftware</a>
-</p>
-<h2 id="toc_0.1">Service</h2>
-<p>
-LinuxService
-</p>
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="..//wiki/html/Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="..//wiki/html/Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="..//wiki/html/十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
 
-<h2 id="toc_0.2">Shell and Kernel</h2>
-<p>
-<a href="Shell.html">Shell</a> - 
-</p>
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
 
-<p>
-Kernel - LinuxKernel 
-</p>
+		  </aside>
+      </section>
 
-<h2 id="toc_0.3">File System</h2>
+      <footer>
+		<section id="footer-area">
 
-<p>
-SAS(Serial Attached SCSI)即串行连接SCSI，和现在流行的Serial ATA(SATA)硬盘相同，都是采用串行技术以获得更高的传输速度，并通过缩短连结线改善内部空间等。
-SAS是并行SCSI接口之后开发出的全新接口。此接口的设计是为了改善存储系统的效能、可用性和扩充性，并且提供与SATA硬盘的兼容性。
-</p>
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
 
-<h2 id="toc_0.4">serial port command</h2>
-<p>
-windows 连串口： <a href="http://www.vanemery.com/Linux/Serial/serial-console.html">http://www.vanemery.com/Linux/Serial/serial-console.html</a>
-linux 连串口： <a href="http://www.osedu.net/article/linux/2011-05-15/214.html">http://www.osedu.net/article/linux/2011-05-15/214.html</a>
-dmesg | grep tty                        已经使用的串口信息
-cat /proc/tty/driver/serial             所有的串口信息
-stty -F /dev/ttyS0 -a                    串口的speed等信息
-stty ispeed 115200 ospeed 115200 -F /dev/ttyUSB0    
-</p>
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
 
-<p>
-dmidecode | grep Port               所有端口信息
-setserial    /dev/ttyUSB0           查看串口设备ttyUSB0是否连接
-udevinfo   -a  -p  /sys/class/tty/ttyS0       串口ttyS0的信息
-find  /dev/ttyS*   | wc -l           查找/dev/目录下文件中有“ttyS”的个数
-</p>
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
+									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="..//../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
 
 
-<h2 id="toc_0.5">Distribution</h2>
-<p>
-RedHat - <a href="CentOS.html">CentOS</a>
-Debian
-Ubuntu
-Android
-</p>
-
-        </article>
-      </div>
-
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../../about/">About_Elvis</a>
-       | <a href="../../html/index.html">Wiki_home</a>
-       | <a href="../../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
 
     </div>
   </body>
+
 </html>

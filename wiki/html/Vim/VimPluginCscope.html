@@ -12,98 +12,104 @@
        <link rel="stylesheet" href="../../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>VimPluginCscope</h1>
-        </header>
-        <nav>
-        <span><a title="网站首页" class="" href="../../../">首页</a></span>
-        <span><a title="文章分类" class="" href="../../../categories/">分类</a></span>
-        <span><a title="标签索引" class="" href="../../../tags/">标签</a></span>
-        <!--<span><a title="友情链接" class="" href="../../../links/">链接</a></span>-->
-        <span><a title="留言交流" class="" href="../../../guestbook/">留言</a></span>
-        <span><a title="关于站长" class="" href="../../../about/">关于</a></span>
-        <span><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></span>
-        </nav>
-        <article class="content">
-        
-<p>
-(1). 帮助手册查看
-:help if_cscop.txt
-</p>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="..//">首页</a></li>
+            <li><a title="文章分类" class="" href="..//categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="..//tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="..//links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="..//guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="..//about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="..//feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimPluginCscope</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
 
-<p>
-(2). 功能
-用Cscope自己的话说 - "你可以把它当做是超过频的ctags", 其功能和强大程度可见
-一斑吧, 关于它的介绍我就不详细说了, 如果你安装好了前文介绍的帮助手册.
-</p>
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="..//wiki/html/Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="..//wiki/html/Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="..//wiki/html/十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
 
-<p>
-(3). 安装
-如果是在linux环境中, cscope一般都会随系统一起安装了; 在windows环境中, 则需要下载windows版本的(cscope.exe), 然后把它放到path环境变量所设置的目录中(如: C:/Program Files/Vim/vim72).
-</p>
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
 
-<p>
-(4). 使用方法
-在.vimrc中增加如下设置, 就可以利用相应的快捷键进行不同的查找了.
-156         if has("cscope")
-157             set cscopetag   " 使支持用 Ctrl+]  和 Ctrl+t 快捷键在代码间跳来跳去
-158             " check cscope for definition of a symbol before checking ctags:
-159             " set to 1 if you want the reverse search order.
-160             set csto=1
-161 
-162             " add any cscope database in current directory
-163             if filereadable("cscope.out")
-164                 cs add cscope.out
-165             " else add the database pointed to by environment variable
-166             elseif $CSCOPE_DB != ""
-167                 cs add $CSCOPE_DB
-168             endif
-169 
-170             " show msg when any other cscope db added
-171             set cscopeverbose
-172 
-173             nmap &lt;C-/&gt;s :cs find s &lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;
-174             nmap &lt;C-/&gt;g :cs find g &lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;
-175             nmap &lt;C-/&gt;c :cs find c &lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;
-176             nmap &lt;C-/&gt;t :cs find t &lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;
-177             nmap &lt;C-/&gt;e :cs find e &lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;
-178             nmap &lt;C-/&gt;f :cs find f &lt;C-R&gt;=expand("&lt;cfile&gt;")&lt;CR&gt;&lt;CR&gt;
-179             nmap &lt;C-/&gt;i :cs find i ^&lt;C-R&gt;=expand("&lt;cfile&gt;")&lt;CR&gt;$&lt;CR&gt;
-180             nmap &lt;C-/&gt;d :cs find d &lt;C-R&gt;=expand("&lt;cword&gt;")&lt;CR&gt;&lt;CR&gt;
-181         endif
-182 
-183 (5). 使用例子
-184     首先进入源码目录, 在linux终端中输入以下命令以创建cscope数据库:
-185         $ find ~/work/..Project/ -name "<strong>.h" -o -name "</strong>.cpp" &gt; cscope.files
-186         $ cscope -bkq -i cscope.files
-187     如果是在windows环境中, 则换成如下命令:
-188         dir /s /b *.cpp *.h &gt; cscope.files
-189         cscope -b -q -k -i cscope.files
-190 
-191     然后, 用vim打开一个源文件(如: vim main.cpp),
-192     打开后, 第一件事就是导入cscope数据库了:
-193         :cs add /home/yourname/workpace/cscope.out /home/yourname/workpace
-</p>
-<blockquote>
-cscope数据库导入成功后, 就可以利用"步骤(4)"中定义的快捷键进行相关的查找, 浏览等操作了(当然也可以直接利用相关命令, 嘿嘿).
-</blockquote>
+		  </aside>
+      </section>
 
-        </article>
-      </div>
+      <footer>
+		<section id="footer-area">
 
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../../about/">About_Elvis</a>
-       | <a href="../../html/index.html">Wiki_home</a>
-       | <a href="../../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
+									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="..//../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
+
+
 
     </div>
   </body>
+
 </html>

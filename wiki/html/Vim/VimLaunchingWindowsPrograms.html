@@ -12,76 +12,104 @@
        <link rel="stylesheet" href="../../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>VimLaunchingWindowsPrograms</h1>
-        </header>
-        <nav>
-        <span><a title="网站首页" class="" href="../../../">首页</a></span>
-        <span><a title="文章分类" class="" href="../../../categories/">分类</a></span>
-        <span><a title="标签索引" class="" href="../../../tags/">标签</a></span>
-        <!--<span><a title="友情链接" class="" href="../../../links/">链接</a></span>-->
-        <span><a title="留言交流" class="" href="../../../guestbook/">留言</a></span>
-        <span><a title="关于站长" class="" href="../../../about/">关于</a></span>
-        <span><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></span>
-        </nav>
-        <article class="content">
-        
-<p>
-This causes Windows to launch the program associated with the file extension. It also restores the paste buffer to its original value: 
-</p>
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="..//">首页</a></li>
+            <li><a title="文章分类" class="" href="..//categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="..//tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="..//links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="..//guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="..//about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="..//feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">VimLaunchingWindowsPrograms</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
 
-<p>
-" This command will execute the file, for example, if this is an
-" HTML file, it will run:
-"     start c:\absolute\filename.html
-nnoremap &lt;silent&gt; &lt;C-F6&gt; :let old_reg=@"&lt;CR&gt;:let @"=substitute(expand("%:p"), "/", "\\", "g")&lt;CR&gt;:silent!!cmd /cstart &lt;C-R&gt;&lt;C-R&gt;"&lt;CR&gt;&lt;CR&gt;:let @"=old_reg&lt;CR&gt;
-</p>
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="..//wiki/html/Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="..//wiki/html/Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="..//wiki/html/十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
+
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
+
+		  </aside>
+      </section>
+
+      <footer>
+		<section id="footer-area">
+
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
+
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
+									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="..//../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
+
+		</section><!-- end of footer-area -->
+	</footer>
 
 
-<p>
-You can also use Windows rundll32.exe for some options:
-" vmap &lt;silent&gt; &lt;C-F5&gt; :&lt;C-U&gt;let old_reg=@"&lt;CR&gt;gvy:silent!!start rundll32.exe url.dll,FileProtocolHandler &lt;C-R&gt;&lt;C-R&gt;"&lt;CR&gt;&lt;CR&gt;:let @"=old_reg&lt;CR&gt;
-</p>
-
-
-<p>
-Or, for example, you can launch Internet Explorer directly:
-:nmap &lt;Leader&gt;f :update&lt;CR&gt;:silent !start c:\progra~1\intern~1\iexplore.exe <a href="file://%:p&lt;CR&gt;">file://%:p&lt;CR&gt;</a>
-:nmap &lt;Leader&gt;i :update&lt;CR&gt;:!start c:\progra~1\intern~1\iexplore.exe &lt;cWORD&gt;&lt;CR&gt;
-</p>
-
-<h2 id="toc_0.1">FTP from Vim</h2>
-<p>
-cmap &lt;Leader&gt;r :Nread <a href="ftp://209.51.134.122/public_html/index.html">ftp://209.51.134.122/public_html/index.html</a>
-cmap &lt;Leader&gt;w :Nwrite <a href="ftp://209.51.134.122/public_html/index.html">ftp://209.51.134.122/public_html/index.html</a>
-gvim <a href="ftp://209.51.134.122/public_html/index.html">ftp://209.51.134.122/public_html/index.html</a>
-: For ascii file transfers add the following line to your .vimrc
-let g:netrw_ftpmode="ascii"
-</p>
-
-<h2 id="toc_0.2">Preview in Firefox web browser</h2>
-<p>
-#add this to your .vimrc:
-command Preview :!firefox %&lt;CR&gt;
-#if you are using windows, you will need to adjust your PATH to include the path to your browser.
-</p>
-
-        </article>
-      </div>
-
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../../about/">About_Elvis</a>
-       | <a href="../../html/index.html">Wiki_home</a>
-       | <a href="../../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
 
     </div>
   </body>
+
 </html>

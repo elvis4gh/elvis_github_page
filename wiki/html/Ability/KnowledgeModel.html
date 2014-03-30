@@ -12,233 +12,104 @@
        <link rel="stylesheet" href="../../../media/css/highlight.css" />
        <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
   </head>
+
   <body>
-    <a name="top"></a>
-    <div id="container">
-      <div id="main" role="main">
-        <header>
-        <h1>KnowledgeModel</h1>
-        </header>
-        <nav>
-        <span><a title="网站首页" class="" href="../../../">首页</a></span>
-        <span><a title="文章分类" class="" href="../../../categories/">分类</a></span>
-        <span><a title="标签索引" class="" href="../../../tags/">标签</a></span>
-        <!--<span><a title="友情链接" class="" href="../../../links/">链接</a></span>-->
-        <span><a title="留言交流" class="" href="../../../guestbook/">留言</a></span>
-        <span><a title="关于站长" class="" href="../../../about/">关于</a></span>
-        <span><a title="种子订阅" class="" href="../../../feed/" target="_blank">订阅</a></span>
-        </nav>
-        <article class="content">
-        
-<h1 id="toc_1">精深</h1>
-<h2 id="toc_1.1" class="justcenter">标准</h2>
-<p>
-   CdmaSpecification 通信协议分析课程
-</p>
-<ul>
-<li>
-系统分析师 SystemAnalyzer
-   ==Solutions==
-   Network Solutions Arch.&amp; Design, 
-   3rd-Party Eval &amp; Development, 
-   Integration/ Validation/Eng., 
-   Security/Dependability/Performance Rapid Concept Development  
+    <div id="wrapper">
+      <nav>
+      <div class="menu">
+			<ul>
+            <li><a title="网站首页" class="" href="..//">首页</a></li>
+            <li><a title="文章分类" class="" href="..//categories/">分类</a></li>
+            <li><a title="标签索引" class="" href="..//tags/">标签</a></li>
+            <!--<li><a title="友情链接" class="" href="..//links/">链接</a></li>-->
+            <li><a title="留言交流" class="" href="..//guestbook/">留言</a></li>
+            <li><a title="关于站长" class="" href="..//about/">关于</a></li>
+            <li><a title="种子订阅" class="" href="..//feed/" target="_blank">订阅</a></li>
+			</ul>
+		</div>
+      </nav>
+      <header>
+         <h1><a href="#">KnowledgeModel</a></h1>
+         <h2>Write Elvis's own story regarding to "Life/Love/Responsibility".</h2>
+      </header>
 
-</ul>
-   
-<h2 id="toc_1.2" class="justcenter">FCAPS (OAM)</h2>
-<p>
-   OAM, Fault, Configuration, Accounting, Billing, Provisioning, Ntwk Mgmt, Ntwk Element, OAM System Security 
-</p>
-<h2 id="toc_1.3" class="justcenter">End-User Applications and Software</h2>
-<p>
-   Multimedia Applications, Video, Web 2.0, Analytics, User Interface, Voice Recognition, Web Services
-</p>
-<h2 id="toc_1.4" class="justcenter">End-User Context</h2>
-<p>
-   Identity, Location, Mobility, Policy, Presence (Context), FMC
-</p>
-<h2 id="toc_1.5" class="justcenter">Advanced Networking</h2>
-<p>
-   Network Security, Switching, Routing, L4-7, Ethernet, MPLS, IPv6, NPUs, Virtualization, Data Center
-</p>
-<h2 id="toc_1.6" class="justcenter">Protocol</h2>
-<p>
-   <a href="Protocol.html">Protocol</a>
-</p>
-<h2 id="toc_1.7" class="justcenter">Software Platforms</h2>
-<ul>
-<li>
-Carrier Grade, Traditional Software, Platform Based, Call Processing, System Software
+      <section id="main">
+        <section id="content" role="content">
+          {{ content }}
+        </section>
+        <aside id="sidebar">
+            <h3>Elvis WIKI</h3>
+					<ul>
+                  <li><a href="..//wiki/html/Ability/TopTenHabits.html">十大习惯</a></li>
+                  <li><a href="..//wiki/html/Ability/SevenHabits.html">7个习惯</a></li>
+                  <li><a href="..//wiki/html/十大学习习惯.html">十大学习习惯</a></li>
+					</ul>
+					
+				<h3>Sponsors</h3>
+					<img alt="" src="images/ad125.jpg"><br><img alt="" src="images/ad125.jpg"><br><br>
 
-</ul>
+				<h3>Connect</h3>
+					<ul>
+						<li><a href="http://weibo.com/328280959/home?wvr=5">sina weibo</a></li>
+					</ul>
 
-<h2 id="toc_1.8" class="justcenter">High-Performance H/W</h2>
-<ul>
-<li>
-Wireless Access, Optical Access, ASICS/FPGAs
-   ==Hardware Platforms ==
+		  </aside>
+      </section>
 
-<li>
-Hardware, Mechanical, Digital Design, Packaging
-   J2EE平台常识课程
+      <footer>
+		<section id="footer-area">
 
-</ul>
+			<section id="footer-outer-block">
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
 
+					<aside class="footer-segment">
+							<h4>Awesome Stuff</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #second footer segment -->
 
+					<aside class="footer-segment">
+							<h4>Coolness</h4>
+								<ul>
+                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
+									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
+                           <li><a href="..//../../index.html">Elvis Blog</a></li>
+									<li><a href="#">three linkylinks</a></li>
+{% if site.beian %}
+             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
+{% endif %}
+{% if site.cnzz %}
+             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
+{% endif %}
+								</ul>
+					</aside><!-- end of #third footer segment -->
+					<aside class="footer-segment">
+							<h4>Friends</h4>
+								<ul>
+									<li><a href="#">one linkylink</a></li>
+									<li><a href="#">two linkylinks</a></li>
+									<li><a href="#">three linkylinks</a></li>
+								</ul>
+					</aside><!-- end of #first footer segment -->
+					
+			</section><!-- end of footer-outer-block -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		</section><!-- end of footer-area -->
+	</footer>
 
 
-
-
-
-<h1 id="toc_2">博大</h1>
-<p>
-  语文 - 能够出口成文
-  数学 <a href="Mathematics.html">Mathematics</a> - 能够严密的逻辑推理
-  英文 (Master English Wiki)- 具有国际视野
-  物理 (Physic Wiki) - 能够改造家居生活环境
-  历史 (history) /政治(Politics Wiki)/地理 - 知道前因后果，我们从哪里来，到哪里去
-  生物/化学 - 知道如何身体健康
-  Biology 生物学
-  TheoryList
-  ComputerTechnology
-  NetworkTechnology
-  CommunicationTechnology - Competent in Network and Computer Communications and Protocols
-  <a href="营销学.html">营销学</a>
-  <a href="Psychology.html">Psychology</a> 进化心理学
-  <a href="Philosophy.html">Philosophy</a> 哲学
-  <a href="Economics.html">Economics</a> 经济学
-  <a href="佛学.html">佛学</a> 
-  人类学
-  考古学
-  国际关系学
-  窳败
- refer  <a href="谈资.html">谈资</a> 
-</p>
- 
-<p>
-knowledge shortcoming: share objects
-真正重要的只是一件事：用英文用编程学好业务
-   可敬的思维深度
-   极好的艺术修养 - 艺术修养 - 设计 错觉
-   精湛的文学水平
-</p>
-<h1 id="toc_3">方向</h1>
-<p>
-   体系就是通信工程师/系统工程师/嵌入式工程师的体系
-   我们的精力是有限的，我们只能选择一项我们最喜欢的门深入的研究，并在此基础上扩展我们的知识面。
-</p>
-
-
-
-
-
-
-
-<hr />
-<p>
-网友 理想的计算机科学知识体系：
-</p>
-
-<h1 id="toc_4">理论</h1>
-<h2 id="toc_4.1">数学理论（书籍：《具体数学》《离散数学》《数理逻辑》）</h2>
-<p>
-基础数学
-高等数学（极限理论）
-数论(Number Theory)
-离散数学（集合论、图论）
-数理逻辑
-</p>
-<h2 id="toc_4.2">形式语言与自动机（Automata，书籍：《形式语言与自动机》）</h2>
-<h2 id="toc_4.3">几何理论（Geometry）</h2>
-<h1 id="toc_5">硬件（书籍：《Computer Architecture: A Quantitative Approach》）</h1>
-<h2 id="toc_5.1">计算机组成原理：计算机组成部件、CPU时间片、存储体系、IO接口、总线技术</h2>
-<h2 id="toc_5.2">计算机体系结构：多处理机、流水技术、指令调度</h2>
-<h2 id="toc_5.3">计算机微机原理：一种处理机的具体结构、引脚作用</h2>
-<h2 id="toc_5.4">数字电路：逻辑门电路、触发器、组合电路设计</h2>
-<h1 id="toc_6">机器语言编程</h1>
-<h2 id="toc_6.1">汇编程序设计（Assembly）</h2>
-<h2 id="toc_6.2">可执行文件格式</h2>
-<h2 id="toc_6.3">链接(Linking)与加载(Loading)</h2>
-
-<h1 id="toc_7">操作系统（书籍：《现代操作系统》《操作系统实现》）</h1>
-<h2 id="toc_7.1">进程与线程理论</h2>
-<h2 id="toc_7.2">段页式内存管理</h2>
-<h2 id="toc_7.3">文件系统</h2>
-<h2 id="toc_7.4">IO管理</h2>
-<h2 id="toc_7.5">内核与驱动</h2>
-<h1 id="toc_8">程序设计基础（书籍：《The Art of Computer Programming》）</h1>
-<h2 id="toc_8.1">数据结构（书籍：《数据结构与算法分析》）</h2>
-<h2 id="toc_8.2">算法</h2>
-<p>
-算法分析（书籍：《算法分析》）
-算法设计（书籍：《算法导论》）
-</p>
-<h1 id="toc_9">程序设计语言</h1>
-<h2 id="toc_9.1">编译原理（《编译原理》龙书）</h2>
-<h2 id="toc_9.2">C一定要会</h2>
-<h2 id="toc_9.3">C++/Java建议要会（《C++ Primer》《Effective C++》《Thinking in Java》）</h2>
-<h2 id="toc_9.4">C#/F#等新语言了解</h2>
-<h2 id="toc_9.5">Python/Perl/Shell等脚本语言掌握其一</h2>
-<h1 id="toc_10">编程框架和库</h1>
-<h2 id="toc_10.1">平台程序开发</h2>
-<p>
-Windows程序设计（书籍：《Programming Windows》）
-Linux/Unix系统编程（书籍：《Advanced Programming in the UNIX Environment》）
-跨平台程序设计
-</p>
-<h2 id="toc_10.2">程序库</h2>
-<p>
-C++：STL/Boost/MFC/
-跨平台：GTK/wxWidgets/Qt
-Perl：CPAN
-</p>
-
-<h1 id="toc_11">程序设计与软件工程</h1>
-<h2 id="toc_11.1">面向对象的程序设计方法，必须掌握（书籍：《深入浅出设计模式》《Thinking in UML》《The Unified Modeling Language User Guide》）</h2>
-<h2 id="toc_11.2">敏捷（Agile）、统一过程（RUP）、迭代方法（Iterative）建议掌握一些</h2>
-<h2 id="toc_11.3">调试和测试方法必须掌握一些</h2>
-
-<h1 id="toc_12">应用</h1>
-<h2 id="toc_12.1">计算机网络（书籍：《计算机网络》）</h2>
-<h2 id="toc_12.2">数据库（书籍：《数据库系统概念》《数据库系统实现》）</h2>
-<h2 id="toc_12.3">WEB应用</h2>
-<h2 id="toc_12.4">并行开发（Concurrent Programming）</h2>
-<h2 id="toc_12.5">分布式系统（Distributed System）</h2>
-
-        </article>
-      </div>
-
-    <footer>
-        <p><small>
-	      <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 <a href="../../../about/">About_Elvis</a>
-       | <a href="../../html/index.html">Wiki_home</a>
-       | <a href="../../../index.html">Blog_home</a>
-       | <a href="#top">TOP</a>
-         </small></p>
-    </footer>
 
     </div>
   </body>
+
 </html>

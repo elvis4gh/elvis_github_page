@@ -107,13 +107,10 @@ padding: 17px 0 0 20px;
 list-style: none;
 line-height: normal;
 }
-
 nav .menu li {
 display: block;
 float: left;
-position:relative;
 }
-
 nav .menu a {
 display: block;
 float: left;
@@ -125,20 +122,6 @@ color: #ddd;
 nav .menu a:hover {
 text-decoration: underline;
 }
-
-nav .menu ul ul {
-visibility:hidden;
-position:relative;
-} 
-
-nav .menu table {position:absolute; top:0; left:0;} 
-
-nav .menu ul li:hover ul, 
-nav .menu ul a:hover ul{
-visibility:visible;
-} 
-nav .menu ul ul li a{display:block;width:100px;height:15px;margin:0;border:0;border-bottom:1px solid #858585;} 
-nav .menu ul ul li a:hover{border:0;background:#fafafa;border-bottom:1px solid #fff;} 
 
 /** HEADER */
 header h1, header h2 {

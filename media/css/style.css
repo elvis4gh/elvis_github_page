@@ -35,7 +35,7 @@ header {
 width: 940px;
 height: 200px;
 margin: 0 auto;
-background: #fff url(images/headerimg.jpg) no-repeat left top;
+background: #fff url(../../images/headerimg.jpg) no-repeat left top;
 }
 #main {
 width: 940px;

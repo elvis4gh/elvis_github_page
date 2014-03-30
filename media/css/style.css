@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Galdeano);
+@import url(http://fonts.googleapis.com/css?family=Electrolize);
+@import url(http://fonts.googleapis.com/css?family=Cuprum);
 /* Created by http://freehtml5templates.com */
 /* reset */
 * {
@@ -59,6 +62,7 @@ width: 940px;
 margin: 0 auto;
 clear: both;
 }
+
 /* basics */
 h1,h2,h3,h4,h5,h6 {
 font-weight: bold;
@@ -70,6 +74,7 @@ color:#004C9A;
 }
 a:hover, a:active {
 color: #333;
+text-decoration:underline;
 }
 p {
 margin-bottom: 18px;
@@ -103,6 +108,7 @@ color: #ddd;
 nav .menu a:hover {
 text-decoration: underline;
 }
+
 /** HEADER */
 header h1, header h2 {
 margin: 0;
@@ -126,6 +132,8 @@ font-style: italic;
 font-size: 14px;
 color: #333;
 }
+
+
 /** ARTICLES **/
 article img {
 border: none;
@@ -159,6 +167,7 @@ display: block;
 margin-left: auto;
 margin-right: auto;
 }
+
 /* sidebar and footer widget blocks */
 aside h3 {
 font-size: 18px;

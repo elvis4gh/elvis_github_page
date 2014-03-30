@@ -1,5 +1,6 @@
 ---
 layout: post
+baseurl: "http://elvis4gh.github.com/elvis_github_page"  
 title: "改了一下模板"
 categories:
 - 

@@ -35,7 +35,82 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<p>
+做一件事的过程，真正解决问题是一个过程，要用合适的程序和方法流畅干净利落的处理完
+</p>
+
+<h1 id="toc_1">ABCDE2原则 - 做工作任务前要思考的问题</h1>
+<p>
+   A - Achievable, 可行性，可实现的。你收到一个任务首先要评估它可以做。你定一个目标敢想敢做的同时也要可以实现。不然你会发现，没有说服力的task，会很容易被质疑。
+</p>
+<blockquote>
+Allocate Resource 资源具备 - e.g head count, labshift, test tips, ...
+</blockquote>
+       
+<p>
+   B - before, 之前有人做过不? 不要重新发明轮子。要站在巨人的肩膀上。benefit，做此事有什么益处，得到什么效益，大概评估一下
+</p>
+   
+<p>
+   C - Communicate - 有效沟通比抓紧时间做事更重要 - 
+</p>
+<blockquote>
+当你真正明白了要做什么，怎么去做的时候，再去行动，这样返工的几率就低的多了，自然效率也就高了。
+还不知道真正的需求，还不清楚实际使用场景 - 沟通去吧
+做到draft的阶段 - 沟通去吧
+做到prototype的阶段 - 沟通去吧
+</blockquote>
+         
+<p>
+   D - Delegate - DelegateSkill 有没有人是比你胜任或是具有“更应该由他来完成的”理由的，我会尽量将一些事情委托给他人完成。 
+</p>
+   
+<p>
+   E - Emergency - 确保是重要紧急的事，要是做完才继续重要不紧急的事（习惯 - 每天到公司先做最重要的事，下午再处理零碎的杂事）
+</p>
+<blockquote>
+Effort - Evaluate the effort - 花太多effort会处于被动的状态，没有时间思考处境及时调整或使用更好的方案
+</blockquote>
+   
+<h1 id="toc_2">AMD 方法</h1>
+<p>
+   从CrProcess 想到的- 
+</p>
+<blockquote>
+orginate 提出问题之所在
+investigate 找到问题的原因  确认问题分析原因find root cause
+</blockquote>
+      
+<ul>
+<li>
+work in progress 寻找可能的方案，实施并评估 - AMD方法
+        ( 评估 - 资源具备不？labshift environment? verifier? effort? )
+         Allocate Resource 资源具备 - 
+            head count, labshift, test tips, ...
+         Maintain/Makesure Resource 确认环境及影响因素，确保有效的客观环境 - 
+            double check the labshift env is available, 
+            use sanity load, 
+            test step is exactly right, 
+            ...
+         Derisk 分析变化趋势确认应变方向- 
+            workaround, Option B
+         找到答案 find the solution
+
+</ul>
+<p>
+----&gt;   <strong>collect ALL the related log</strong>
+</p>
+<blockquote>
+verify 实施并取得效果，反复应用都有效果
+closed 成为Clarify的总结经验 - 能避免以后出现同样的问题
+</blockquote>
+      
+<h1 id="toc_3">Example2: HealthCheck's modify evaluation</h1>
+<blockquote>
+要尽量依靠相关人员组成一个团队或小组来解决问题=
+</blockquote>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +156,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

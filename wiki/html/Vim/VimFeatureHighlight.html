@@ -35,7 +35,81 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<h2 id="toc_0.1">¿¿¿ colorcolumn  7.3 ¿¿</h2>
+<p>
+<a href="http://www.verydemo.com/demo_c116_i9498.html">http://www.verydemo.com/demo_c116_i9498.html</a>
+</p>
+
+<h2 id="toc_0.2">å¦‚ä½•è®©vim è‡ªåŠ¨é«˜äº®current word under cursorï¼Ÿ</h2>
+<p>
+   autohighlight.vim
+   z/  - toggle auto highlight
+   <a href="http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle">http://vim.wikia.com/wiki/Auto_highlight_current_word_when_idle</a>
+</p>
+   
+<h2 id="toc_0.3" class="justcenter">To change the search highlighting color</h2>
+<p>
+   hi Search guibg=LightBlue ctermbg=LightBlue
+   (also try LightGreen)
+   NOTE: "hi Search guibg=LightBlue" is only for the GUI version of Vim. If you're using Vim in-console, try "hi Search ctermbg=LightBlue" 
+</p>
+
+<p>
+   For my error message highlighting I use:
+   highlight ErrorMsg guibg=White guifg=Red
+</p>
+   
+<hr />
+<p>
+pending list:
+</p>
+
+<p>
+   Mark.vim é«˜äº®å¯¹åº”çš„record key word  
+</p>
+
+<h2 id="toc_0.4" class="justcenter">å¦‚ä½•è®©vim è‡ªåŠ¨é«˜äº®/color ç‰¹æ®Šæ ¼å¼çš„è¡Œï¼Ÿ</h2>
+   
+   
+<h2 id="toc_0.5">customize highlight</h2>
+<p>
+¿VIM¿¿¿¿¿¿¿¿¿¿¿¿(matching)¿
+¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+</p>
+
+<p>
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+</p>
+
+<p>
+:match Group /pattern/
+</p>
+
+<p>
+¿¿¿¿¿¿¿¿¿
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿(color group)¿¿¿
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+</p>
+
+<p>
+¿¿¿¿¿¿¿¿¿¿¿(^¿¿)¿¿¿¿¿Error¿¿¿¿¿¿¿¿¿¿¿¿¿ErrorMsg¿¿¿¿¿¿(¿¿¿¿¿¿¿)¿
+</p>
+
+
+
+<p>
+¿: ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿VIM¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+</p>
+
+<p>
+¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+</p>
+
+<p>
+:so $VIMRUNTIME/syntax/hitest.vim
+</p>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +155,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="è®¸å¯åè®®">Â©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

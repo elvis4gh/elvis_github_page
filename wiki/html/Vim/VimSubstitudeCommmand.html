@@ -35,7 +35,65 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<p>
+:%s/@@.*$//g
+</p>
+
+<h2 id="toc_0.1">gvim替换换行符</h2>
+<p>
+:%s/,/,<sup><small>M/g 注意那个</small></sup>M在Gvim中是先按ctrl+q在按回车打出来
+　
+</p>
+<h2 id="toc_0.2">将“(1), ...., (2), ....,(100)”替换成“(2), ...., (3), ...., (101)”。</h2>
+<p>
+在文本中一处处找到并修改是很累的，在VIM下一条命令就可以搞定：
+</p>
+
+<p>
+:%s/(\(\d+\))/\="(".(submatch(1)+1).")"/g
+</p>
+
+
+<p>
+　　命令解释如下：
+</p>
+
+<p>
+%       全文（“%”是“1，$”范围的缩写）
+s       替换
+/       搜索字符串开始
+(       左括号
+\)      开始记录匹配
+\d+     一个或多个数字
+\)      结束记录匹配
+)       右括号
+/       搜索字符串结束
+\=      把后面的表达式计算出来作为替换字符串
+"("     左括号
+.       字符串连接运算符
+(submatch(1) + 1)       把第一个匹配的结果加一作为一个整体返回
+.")"    添上右括号
+/g      替换字符串结束，g表示替换每一行的所有匹配结果。
+</p>
+
+<h2 id="toc_0.3">给个文档如下  现在我想把冒号之后,点号之前的数字加500,怎么做? 或许在vim里ctrl+A可以,不过我想用脚本</h2>
+<p>
+[00:07.18]哟……大山的子孙 哟.....
+[00:17.76]爱太阳喽，太阳那个爱着哟，山里的人哟……
+[00:41.21]这里的山路十八弯，这里水路九连环
+[00:47.99]这里的山歌排对排，这里的山歌串对串
+</p>
+
+<p>
+所有数字加上125的:
+:%s/\([0-9]\+\)/\=submatch(1)+125/g
+</p>
+
+<p>
+:%s/\(^.<strong>:\)\([0-9]\+\)\(\..</strong>$\)/\=submatch(1).string(submatch(2)+125).submatch(3)/g
+</p>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +139,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

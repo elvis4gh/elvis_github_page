@@ -35,7 +35,7 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          %content%
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +81,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="%root_path%/about/">{{ site.author }}</a> </li>
 									<li><a href="%root_path%/wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="%root_path%/../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

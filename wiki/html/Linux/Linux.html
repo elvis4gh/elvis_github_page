@@ -35,7 +35,58 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+
+<p>
+<a href="LinuxSoftware.html">LinuxSoftware</a>
+</p>
+<h2 id="toc_0.1">Service</h2>
+<p>
+LinuxService
+</p>
+
+<h2 id="toc_0.2">Shell and Kernel</h2>
+<p>
+<a href="Shell.html">Shell</a> - 
+</p>
+
+<p>
+Kernel - LinuxKernel 
+</p>
+
+<h2 id="toc_0.3">File System</h2>
+
+<p>
+SAS(Serial Attached SCSI)即串行连接SCSI，和现在流行的Serial ATA(SATA)硬盘相同，都是采用串行技术以获得更高的传输速度，并通过缩短连结线改善内部空间等。
+SAS是并行SCSI接口之后开发出的全新接口。此接口的设计是为了改善存储系统的效能、可用性和扩充性，并且提供与SATA硬盘的兼容性。
+</p>
+
+<h2 id="toc_0.4">serial port command</h2>
+<p>
+windows 连串口： <a href="http://www.vanemery.com/Linux/Serial/serial-console.html">http://www.vanemery.com/Linux/Serial/serial-console.html</a>
+linux 连串口： <a href="http://www.osedu.net/article/linux/2011-05-15/214.html">http://www.osedu.net/article/linux/2011-05-15/214.html</a>
+dmesg | grep tty                        已经使用的串口信息
+cat /proc/tty/driver/serial             所有的串口信息
+stty -F /dev/ttyS0 -a                    串口的speed等信息
+stty ispeed 115200 ospeed 115200 -F /dev/ttyUSB0    
+</p>
+
+<p>
+dmidecode | grep Port               所有端口信息
+setserial    /dev/ttyUSB0           查看串口设备ttyUSB0是否连接
+udevinfo   -a  -p  /sys/class/tty/ttyS0       串口ttyS0的信息
+find  /dev/ttyS*   | wc -l           查找/dev/目录下文件中有“ttyS”的个数
+</p>
+
+
+<h2 id="toc_0.5">Distribution</h2>
+<p>
+RedHat - <a href="CentOS.html">CentOS</a>
+Debian
+Ubuntu
+Android
+</p>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +132,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

@@ -35,7 +35,42 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<p>
+Help for help
+</p>
+
+<p>
+:h visual&lt;C-D&gt;&lt;Tab&gt; : obtain list of all visual help topics
+</p>
+<blockquote>
+: Then use tab to step through them
+</blockquote>
+<p>
+:h ctrl&lt;C-D&gt; : list help of all control keys
+:h regexp&lt;C-D&gt;      : 按下 control-D 键即可得到包含有 regexp 的帮助主题的列表
+</p>
+<blockquote>
+: (使用TAB可以实现帮助的自动补齐)
+</blockquote>
+<p>
+:h :r        : help for :ex command
+:h CTRL-R    : normal mode
+:h \r        : what's \r in a regexp
+:h i_CTRL-R  : help for say &lt;C-R&gt; in insert mode
+:h c_CTRL-R  : help for say &lt;C-R&gt; in command mode
+:h v_CTRL-V  : visual mode
+:h 'ai       : help on setting option 'autoindent'
+</p>
+
+
+<ol>
+<li>
+信息来源　VimResource
+
+</ol>
+<hr />
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +116,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

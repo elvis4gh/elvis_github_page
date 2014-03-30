@@ -35,7 +35,68 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<p>
+You want something like
+</p>
+
+<p>
+:mksession ~/mysession.vim
+</p>
+
+<p>
+Then later you can source that vim file and you'll have your old session back:
+</p>
+
+<p>
+:source ~/mysession.vim
+or open vim with the -S option:
+</p>
+
+<p>
+$ vim -S ~/mysession.vim
+</p>
+
+<p>
+vim的高级用法:退出vim时自动保存当前vim窗口的状态,重新打开后恢复原来状态,就和没退出是一样.
+</p>
+
+<p>
+用vim编辑文档时,我们经常会在同一个vim中同时打开几个文档在不同的窗口中并且会定义一些marks和在registers里面存储一些内容. 当我们退出vim后,这些信息大部分丢失了,特别是当我们重新打开文件后,原来打开的多窗口不会恢复,我们只打开了一个当前文件窗口. 由于vim强大的功能,我们想能不能在打开文件时,完全恢复原来退出时的状态, 就象我们没退出过一样.包括marks和registers都没被改变.答案是 可以.下面就列出来我是怎么修改vim的配置达到目的的 : 
+</p>
+
+<p>
+在你的 /etc/vim/gvimrc或/etc/vim/gvimrc.local中加入一下两行: 
+</p>
+
+<p>
+au VimLeave * mksession! ~/.vim/session/%:t.session 
+au VimLeave * wviminfo! ~/.vim/session/%:t.viminfo 
+</p>
+
+<p>
+并保证 目录~/.vim/session存在. 
+</p>
+
+<p>
+然后写一个脚本程序gvims: 
+#!/bin/sh 
+if [ -r ~/.vim/session/$1.session ]; then 
+gvim "+source ~/.vim/session/\(1.session" "+rviminfo ~/.vim/session/\)1.viminfo" 
+else 
+gvim $1 
+fi 
+</p>
+
+<p>
+当用gvim编辑完后,退出是,文件是以当前子窗口的名字保存窗口信息的,所以下次打开时,要用那个窗口名字作为gvims的参数. 
+</p>
+
+<p>
+这样的话, 对于一个项目的编辑非常有用. 例如: 我们现在做一个项目,名字是storm. 我们切换到项目storm所在的目录,运行 gvims storm. 这样就会打开一个gvim窗口,然后我们用 命令 :new storm.c 回车, 然后有输入命令 :vert new storm.h. 然后调整窗口大小,编辑,保存. 现在我们这个gvim窗口里有三个子窗口,一个显示storm, 一个显示storm.c,一个显示storm.h. 这时,我们切换到storm的编辑窗口,然后我们输入命令 :qa 退出gvim. 过了几天,我们可能要重新编辑项目storm,这是 你在任一个目录下(不一定是 项目storm的目录), 输入shell命令 
+gvims storm (如果你还记得你的项目名字是storm的话 (= ). 当gvim运行后,你会发现你的gvim显示的状态就象你几天前没退出一样. enjoy!
+</p>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +142,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

@@ -35,7 +35,42 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<p>
+Vim 7 has built in spellchecking.  Misspelled words will then be underlined in red in Gvim Or highlighted in using Vim in the terminal:
+</p>
+
+<p>
+There are two easy ways to turn on spellchecking. 
+</p>
+<h1 id="toc_1">GUI (gVim)</h1>
+<p>
+If you are using gVim, you can use Tools &gt; Spelling &gt; Spellcheck On:
+</p>
+
+<h1 id="toc_2">Terminal</h1>
+<p>
+If you are using Vim in the terminal, or prefer to type, you can turn on spellchecking in Vim with the command :set spell and turn off spellchecking with :set nospell.
+</p>
+
+
+<h1 id="toc_3">the commands you need to know:</h1>
+<blockquote>
+]s — move to the next mispelled word
+[s — move to the previous mispelled word
+zg — add a word to the dictionary
+zug — undo the addition of a word to the dictionary
+z= — view spelling suggestions for a mispelled word
+</blockquote>
+
+<p>
+Here is the Vim spellchecker offering suggestions for the word Nihon:
+</p>
+
+<p>
+That is Vim spell checking in a nutshell. For more commands and documentation, just type :help spell into Vim or read the Vim spell docs online. 
+</p>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +116,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

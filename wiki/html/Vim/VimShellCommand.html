@@ -35,7 +35,48 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<h1 id="toc_1">Get output from shell commands</h1>
+<p>
+These use external programs – ls, grep, date, sort, … (see :help :sort to learn how to use Vim's built-in sort).
+</p>
+
+<p>
+:r!ls                : reads in output of ls (use dir on Windows)
+:r !grep "^ebay" file.txt  : read output of grep
+:20,25 !rot13        : rot13 lines 20 to 25
+:r!date              : insert date (use  date /T on Windows)
+:.!sh                : execute contents of current line in buffer and capture the output
+</p>
+
+<p>
+ Sorting with external sort
+:%!sort -u           : contents of the current file is sorted and only unique lines are kept
+:'v,'w!sort          : sort from line marked v thru lines marked w
+:g/^\(/;,/^\)/-1!sort  : sort each block (note the crucial ;)
+</p>
+
+<p>
+!1} sort             : sorts paragraph; this is issued from normal mode!)
+</p>
+
+<p>
+ Entering !! in normal mode is translated to  :.!
+ Appending a command sends the current line to the command replacing it with command's result
+!!date              : Replace current line with date
+!!which command     : Replace current line with the absolute path to command
+!!tr -d AEIO        : translate current line deleting As, Es, Is, and Os from the current line
+</p>
+
+<p>
+ You can also use ! on a visual selection. Select an area with one of the visualmode
+ commands, and then type !command to pipe the whole selection through command.
+This is equivalent to :'&lt;,'&gt;!command.
+For example, after selecting multiple lines with visualmode:
+!sort              : sort selected lines
+!grep word         : keep only lines containing 'word' in the selected range.
+</p>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +122,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

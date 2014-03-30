@@ -35,7 +35,36 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<h1 id="toc_1">Vim 的列模式/纵向编辑模式</h1>
+<p>
+纵向编辑在批量修改代码的应用演示
+</p>
+
+<p>
+将数列：
+10.1.5.214
+10.1.5.212
+10.1.5.210
+</p>
+
+<p>
+编辑成序列：
+ping -c 4 10.5.5.214 &gt;&gt; result0
+ping -c 4 10.5.5.212 &gt;&gt; result0
+ping -c 4 10.5.5.210 &gt;&gt; result0
+</p>
+
+<h2 id="toc_1.1">列高亮 colorcolumn  7.3 特性</h2>
+<p>
+<a href="http://www.verydemo.com/demo_c116_i9498.html">http://www.verydemo.com/demo_c116_i9498.html</a>
+</p>
+
+<h2 id="toc_1.2">到第N列</h2>
+<p>
+78|
+</p>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +110,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

@@ -35,7 +35,241 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<h2 id="toc_0.1">导入文件列表</h2>
+<p>
+:Project \n
+</p>
+
+<p>
+输入
+\C(递归读取子目录) \c(读取当前文件)
+</p>
+
+<p>
+按照提示填写：
+Enter the name of the Entry:&lt;Description&gt;
+Enter the Absolute Directory to Load: {projpath}
+Enter the CD parameter:[{options}] 之一
+   “CD=.”则表示打开该项目中的文件时，当前目录会更改到项目所在的目录。
+Enter the File Filter:[{options}] 之一
+</p>
+
+<p>
+e.g \C 
+   Enter the name of the Entry:PIP  
+   Enter the Absolute Directory to Load: /vobs/gen_rnc_app/cpp/src/callp/pipcall
+   Enter the CD parameter: /vobs/gen_rnc_app/cpp/src/callp/pipcall
+   Enter the File Filter: *.c
+</p>
+
+<p>
+导入文件列表时忽略{、}、空行、#。
+</p>
+
+<h2 id="toc_0.2">常用命令</h2>
+<p>
+\l(列出所有当前层文件)\L(递归),按任何键停止
+\w(关闭当前层文件)\W(递归)
+\g(在项目当前层文件搜索)\G(递归)
+&lt;space&gt;空格扩大project窗口的宽度，恢复宽度
+</p>
+
+<p>
+\r关闭子文件夹并刷新当前文件夹下文件，\R递归打开文件夹并刷新所有文件
+s关闭文件夹并创建，S递归打开文件夹并创建
+\s将文件在水平打开多个窗口显示，打开或关闭文件夹列表
+\o将文件在一个窗口打开，打开或关闭文件夹列表
+\v在右窗口显示指针停留在project窗口的文件内容
+\i显示文件或文件夹的设置参数，如filter="*"
+\I显示文件或文件夹的决对路径和参数
+\1 - \9，\f1-\f9，\F1-\F9执行指定命令，\0查询1-9命令，\f0查询f1-f9，F1-F9命令
+</p>
+
+<h2 id="toc_0.3">vimrc配置</h2>
+<p>
+在.vimrc中加入以下设置:
+514         // 切换打开和关闭project窗口
+515         nmap &lt;silent&gt; &lt;Leader&gt;P &lt;Plug&gt;ToggleProject
+516         //插件项目窗口宽度.    默认值: 24
+517         let g:proj_window_width=20 //当按空格键 &lt;space&gt; 或者单击鼠标左键/
+518                                 &lt;LeftMouse &gt;时项目窗口宽度增加量,默认值:100
+519         let g:proj_window_increment=90
+520         let g:proj_flags='i'    //当选择打开一个文件时会在命令行显示文件名和当
+521                                 前工作路径.
+522         let g:proj_flags='m'    //在常规模式下开启 |CTRL-W_o| 和
+523                                 |CTRL-W_CTRL_O| 映射, 使得当前缓冲区成为唯一可
+524                                 见的缓冲区, 但是项目窗口仍然可见.
+525         let g:proj_flags='s'    //开启语法高亮.
+526         let g:proj_flags='t'    //用按 &lt;space&gt; 进行窗口加宽.
+527         let g:proj_flags='c'    //设置后, 在项目窗口中打开文件后会自动关闭项目
+528                                 窗口.
+529         //let g:proj_flags='F'   //显示浮动项目窗口. 关闭窗口的自动调整大小和窗
+530                                 口替换.
+531         let g:proj_flags='L'    //自动根据CD设置切换目录.
+532         //let g:proj_flags='n'    //显示行号.
+533         let g:proj_flags='S'    //启用排序.
+534         let g:proj_flags='T'    //子项目的折叠在更新时会紧跟在当前折叠下方显示(
+535                                 而不是其底部).
+536         let g:proj_flags='v'    //设置后将, 按 /G 搜索时用 :vimgrep 取代 :grep.
+537         //let g:proj_run1='!p4 edit %f'    //g:proj_run1 ...  g:proj_run9 用法.
+538         let g:proj_run3='silent !gvim %f'
+539 
+</p>
+
+<p>
+project.vim 组织管理工程, 方便于浏览, 打开, 查找文件等.
+(1). 帮助手册查看
+:help project.txt
+</p>
+
+<p>
+(5). 使用例子
+1. 在源码目录下建立一个工程文件: exampleProject
+542         $ gvim exampleProject
+543 
+</p>
+
+<p>
+2. 在exampleProject文件中定入:
+545        MyProject="E:/desktop_item/tmp/0virtual/nehe2/LVHM/test" CD=. flag=r
+546        filter="<strong>akefile</strong>" {
+547         Header file=. CD=. flag=r filter="*.h" {
+548         }
+549         Source file=. CD=. flag=r filter="*.cpp" {
+550         }
+551        }
+552 
+</p>
+
+<p>
+3. 在光标定位到第一行, 敲入:
+554         /R
+555        exampleProject文件改变, 如下:
+556              MyProject="E:/desktop_item/tmp/0virtual/nehe2/LVHM/test" CD=./
+557                              flag=r filter="<strong>akefile</strong>" {
+558               makefile
+559               Header file=. CD=. flag=r filter="*.h" {
+560                MainFrm.h
+561                Resource.h
+562                StdAfx.h
+563                test.h
+564                testDoc.h
+565                testView.h
+566               }
+567               Source file=. CD=. flag=r filter="*.cpp" {
+568                MainFrm.cpp
+569                StdAfx.cpp
+570                test.cpp
+571                testDoc.cpp
+572                testView.cpp
+573               }
+574              }
+575 
+576     4. 小测一下:
+577         把光标某个文件名上, 敲下 Enter 可以看到, 对应的文件在左边的窗口显示出
+578         来.
+579 
+580     5. 更多用法参考.vimrc的相关设置的说明或 help project.txt 查找帮助.
+</p>
+
+<hr />
+<p>
+1 打开vim后敲入命令 :Project，可以看到project的列表，不过因为没有初始化暂时是空的
+2 输入\C (shift+c)，会出现下面这些信息
+</p>
+
+<p>
+Enter the Name of the Entry: ProjectSrouce （项目名称）
+Enter the Absolute Directory to Load: /home/Project/src （项目根目录）
+Enter the CD parameter: . （“.”为当前目录）或者和项目根目录一致
+Enter the File Filter:  (符合条件的源文件)
+</p>
+
+
+<p>
+3、列表显示格式
+</p>
+
+<p>
+ &lt;Description&gt;={projpath} [{options}] {
+ [ filename ]
+ [ project_entry ]
+ }
+</p>
+
+<p>
+&lt;Description&gt;描述
+</p>
+
+<p>
+{options}配置参数项
+</p>
+<blockquote>
+CD={path}
+in={filename}
+out={filename}
+filter="{pat}" 文件类型
+flags={flag}
+</blockquote>
+
+<p>
+例：多项目
+</p>
+
+<p>
+CvsMenu="~/.vim" CD=. {
+plugin/cvsmenu.vim
+doc/cvsmenu.txt
+}
+Nvwa="~/nvwa_local" CD=. {
+doc=doc {
+ChangeLog
+README
+webupdate.sh
+}
+nvwa=nvwa {
+bool_array.cpp
+debug_new.cpp
+mem_pool_base.cpp
+static_mem_pool.cpp
+bool_array.h
+class_level_lock.h
+cont_ptr_utils.h
+debug_new.h
+fast_mutex.h
+fixed_mem_pool.h
+mem_pool_base.h
+object_level_lock.h
+pctimer.h
+set_assign.h
+static_assert.h
+static_mem_pool.h
+}
+} 
+</p>
+
+<p>
+在这个项目文件中存在两个项目：CvsMenu 和 Nvwa。引号中的内容表示路径，
+项目下面可以再分子项目，如 Nvwa 项目下有 doc 和 nvwa 两个子项目，没有“CD=.”表示打开子项目里的文件时不再更改当前目录。
+</p>
+
+<p>
+4、打开列表文件
+</p>
+
+<p>
+:Project 默认列表文件
+</p>
+
+<p>
+:Project {file}
+</p>
+
+<p>
+列表文件默认存储地址：~/.vimprojects
+</p>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +315,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

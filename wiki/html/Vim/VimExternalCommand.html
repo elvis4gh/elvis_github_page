@@ -35,7 +35,286 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<h2 id="toc_0.1">调用外部linux命令   :!cmd</h2>
+<p>
+:!cmd
+不退出vim 执行命令 cmd
+</p>
+
+<p>
+:r !cmd
+不退出vim执行命令cmd,并将cmd的输出内容插入当前文本中。
+</p>
+
+<p>
+:shell
+切换到shell里（此时并没有退出vim，可以理解成vim转入后台），你可以在shell中做任何操作，退出shell（比如用exit）后，会切换回原来的vim中
+refer VimShellCommand
+</p>
+
+<h2 id="toc_0.2">在VIM中添加一键编译和一键运行</h2>
+
+<p>
+这样就定义两个函数
+这样就定义两个函数，分别编译C和C++，其含义应该是比较明显的了。注意，这里用到的两个变量compilecmd和compileflag都是局部变量。
+</p>
+
+<p>
+search函数用来搜索字符串，我根据源码的头文件来判断编译所需要的库。连接两个字符串的运行符是一个句点。
+</p>
+
+<p>
+%为内部变量，表示文件名，而%&lt;表示没有后缀的文件名。
+func! CompileGcc()
+</p>
+<blockquote>
+exec "w"
+let compilecmd="!gcc "
+let compileflag="-o %&lt; "
+if search("mpi\.h") != 0
+let compilecmd = "!mpicc "
+endif
+if search("glut\.h") != 0
+let compileflag .= " -lglut -lGLU -lGL "
+endif
+if search("cv\.h") != 0
+let compileflag .= " -lcv -lhighgui -lcvaux "
+endif
+if search("omp\.h") != 0
+let compileflag .= " -fopenmp "
+endif
+if search("math\.h") != 0
+let compileflag .= " -lm "
+endif
+exec compilecmd." % ".compileflag
+</blockquote>
+<p>
+endfunc
+</p>
+
+<p>
+func! CompileGpp()
+</p>
+<blockquote>
+exec "w"
+let compilecmd="!g++ "
+let compileflag="-o %&lt; "
+if search("mpi\.h") != 0
+let compilecmd = "!mpic++ "
+endif
+if search("glut\.h") != 0
+let compileflag .= " -lglut -lGLU -lGL "
+endif
+if search("cv\.h") != 0
+let compileflag .= " -lcv -lhighgui -lcvaux "
+endif
+if search("omp\.h") != 0
+let compileflag .= " -fopenmp "
+endif
+if search("math\.h") != 0
+let compileflag .= " -lm "
+endif
+exec compilecmd." % ".compileflag
+</blockquote>
+<p>
+ endfunc
+</p>
+ 
+<p>
+第二步，组合成一个函数
+</p>
+
+<p>
+func! CompileCode()
+</p>
+<blockquote>
+exec "w"
+if &amp;filetype == "cpp"
+exec "call CompileGpp()"
+elseif &amp;filetype == "c"
+exec "call CompileGcc()"
+endif
+</blockquote>
+<p>
+endfunc
+</p>
+ 
+
+
+
+
+<p>
+该函数根据文件类别来选定不同的编译函数。
+</p>
+
+<p>
+filetype不光是cpp和c，还可以是python,java等等。
+</p>
+ 
+ 
+<p>
+第三步，键绑定
+</p>
+
+<p>
+map &lt;F5&gt; :call CompileCode()&lt;CR&gt;
+ imap &lt;F5&gt; &lt;ESC&gt;:call CompileCode()&lt;CR&gt;
+ vmap &lt;F5&gt; &lt;ESC&gt;:call CompileCode()&lt;CR&gt;
+</p>
+ 
+
+
+<p>
+这里绑定了三次，分别对应普通模式，插入模式和可视模式。显然&lt;ESC&gt;起到的作用是从这些模式中退出来，而&lt;CR&gt;表示carriage return，即敲命令时的回车。
+</p>
+
+
+
+
+<p>
+现在，大功告成了，你只需要按F5键，源码就会自动保存，然后进行编译。运行可执行文件做法也是一样的。
+</p>
+
+<p>
+下面贴出我的完整的解决方案，除了C/C++，还涉及到java和python。并且按F6就能执行编译生成的可执行文件。
+</p>
+
+
+<p>
+func! CompileGcc()
+</p>
+<blockquote>
+exec "w"
+let compilecmd="!gcc "
+let compileflag="-o %&lt; "
+if search("mpi\.h") != 0
+let compilecmd = "!mpicc "
+endif
+if search("glut\.h") != 0
+let compileflag .= " -lglut -lGLU -lGL "
+endif
+if search("cv\.h") != 0
+let compileflag .= " -lcv -lhighgui -lcvaux "
+endif
+if search("omp\.h") != 0
+let compileflag .= " -fopenmp "
+endif
+if search("math\.h") != 0
+let compileflag .= " -lm "
+endif
+exec compilecmd." % ".compileflag
+</blockquote>
+<p>
+ endfunc
+func! CompileGpp()
+</p>
+<blockquote>
+exec "w"
+let compilecmd="!g++ "
+let compileflag="-o %&lt; "
+if search("mpi\.h") != 0
+let compilecmd = "!mpic++ "
+endif
+if search("glut\.h") != 0
+let compileflag .= " -lglut -lGLU -lGL "
+endif
+if search("cv\.h") != 0
+let compileflag .= " -lcv -lhighgui -lcvaux "
+endif
+if search("omp\.h") != 0
+let compileflag .= " -fopenmp "
+endif
+if search("math\.h") != 0
+let compileflag .= " -lm "
+endif
+exec compilecmd." % ".compileflag
+</blockquote>
+<p>
+ endfunc
+</p>
+ 
+<p>
+func! RunPython()
+</p>
+<blockquote>
+exec "!python %"
+</blockquote>
+<p>
+ endfunc
+func! CompileJava()
+</p>
+<blockquote>
+exec "!javac %"
+</blockquote>
+<p>
+ endfunc
+</p>
+ 
+
+<p>
+func! CompileCode()
+</p>
+<blockquote>
+exec "w"
+if &amp;filetype == "cpp"
+exec "call CompileGpp()"
+elseif &amp;filetype == "c"
+exec "call CompileGcc()"
+elseif &amp;filetype == "python"
+exec "call RunPython()"
+elseif &amp;filetype == "java"
+exec "call CompileJava()"
+endif
+</blockquote>
+<p>
+ endfunc
+</p>
+ 
+<p>
+func! RunResult()
+</p>
+<blockquote>
+exec "w"
+if search("mpi\.h") != 0
+exec "!mpirun -np 4 ./%&lt;"
+elseif &amp;filetype == "cpp"
+exec "! ./%&lt;"
+elseif &amp;filetype == "c"
+exec "! ./%&lt;"
+elseif &amp;filetype == "python"
+exec "call RunPython"
+elseif &amp;filetype == "java"
+exec "!java %&lt;"
+endif
+</blockquote>
+<p>
+ endfunc
+</p>
+ 
+<p>
+map &lt;F5&gt; :call CompileCode()&lt;CR&gt;
+ imap &lt;F5&gt; &lt;ESC&gt;:call CompileCode()&lt;CR&gt;
+ vmap &lt;F5&gt; &lt;ESC&gt;:call CompileCode()&lt;CR&gt;
+</p>
+ 
+<p>
+map &lt;F6&gt; :call RunResult()&lt;CR&gt;
+</p>
+ 
+ 
+
+<p>
+func! pip()
+   exec "w"
+   exec "/vobs/gen_rnc_app/cpp/src/callp/pipcall/mk"
+endfunc 
+</p>
+
+<p>
+map &lt;F10&gt; :call pip()&lt;CR&gt;
+</p>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +360,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

@@ -35,7 +35,25 @@
 
       <section id="main">
         <section id="content" role="content">
-          {{ content }}
+          
+<h2 id="toc_0.1">vim的参数列表</h2>
+<p>
+args
+</p>
+
+
+<h2 id="toc_0.2">%为内部变量，表示文件名</h2>
+<h2 id="toc_0.3">%&lt;表示没有后缀的文件名。</h2>
+<h3 id="toc_0.3.1" class="justcenter">check out current file:</h3>
+<p>
+   :!neu co %
+</p>
+<h2 id="toc_0.4">&amp;filetype是一个内部变量，前缀&amp;起标识内部变量的作用。</h2>
+<h2 id="toc_0.5">内部寄存器</h2>
+<p>
+VimRegister
+</p>
+
         </section>
         <aside id="sidebar">
             <h3>Elvis WIKI</h3>
@@ -81,16 +99,9 @@
 					<aside class="footer-segment">
 							<h4>Coolness</h4>
 								<ul>
-                           <li> <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/cn/" target="_blank" title="许可协议">©</a> 2014 - {{site.time | date:"%Y"}} <a href="..//about/">{{ site.author }}</a> </li>
 									<li><a href="..//wiki/html/index.html">Elvis Wiki</a></li>
                            <li><a href="..//../../index.html">Elvis Blog</a></li>
 									<li><a href="#">three linkylinks</a></li>
-{% if site.beian %}
-             | <a href="http://www.miibeian.gov.cn" target="_blank">{{ site.beian }}</a>
-{% endif %}
-{% if site.cnzz %}
-             | <script src="http://s85.cnzz.com/stat.php?id={{ site.cnzz }}"></script>
-{% endif %}
 								</ul>
 					</aside><!-- end of #third footer segment -->
 					<aside class="footer-segment">

@@ -57,7 +57,7 @@ task :post do
     abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
   begin
-    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d %h:%M:%s+00:00')
+    date = (ENV['date'] ? Time.parse(ENV['date']) : Time.now).strftime('%Y-%m-%d %k:%M:%S+00:00')
     puts date
   rescue Exception => e
     puts "Error - date format must be YYYY-MM-DD, please check you typed it correctly!"
@@ -67,7 +67,7 @@ task :post do
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     post.puts "---"
-    post.puts "date: "
+    post.puts "date: #{date}"
     post.puts "layout: post"
     post.puts "baseurl: \"http://elvis4gh.github.com/elvis_github_page\" "
     post.puts "title: \"#{title.gsub(/-/,' ')}\""

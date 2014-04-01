@@ -21,6 +21,7 @@ comments: no
 {% if site.qq %}
 QQ：[{{ site.qq }}](tencent://message/?uin={{ site.qq }})
 {% endif %}
-[wiki]({{ site.wikiurl }})
-[{{ site.email }}](mailto:{{ site.email }})
+More: [wiki]({{ site.wikiurl }})
+
+Mail: [{{ site.email }}](mailto:{{ site.email }})
 

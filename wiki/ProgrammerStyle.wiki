@@ -23,6 +23,7 @@ Elvis's life style: <br />
       - [[http://ethanschoonover.com/solarized|程序员喜欢的vim colorscheme]]
       - [[http://www.cnblogs.com/shinings/archive/2009/05/29/1491834.html|程序员喜欢的css色版]]
          [[http://www.divcss5.com/uploads/allimg/100531/1_100531133740_1.gif|程序员喜欢的css色版2]]
+      - 程序员喜欢的图形美学 [[http://blog.163.com/ll_lizzie@126/blog/static/1322761732010117101436477/|gnuplot]]
       - 程序员喜欢的标记语言
          markdown
          textile

@@ -68,8 +68,8 @@ task :post do
   open(filename, 'w') do |post|
     post.puts "---"
     post.puts "date: #{date}"
-    post.puts "layout: post"
     post.puts "baseurl: \"http://elvis4gh.github.com/elvis_github_page\" "
+    post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/-/,' ')}\""
     post.puts "categories:"
     post.puts "tags:"

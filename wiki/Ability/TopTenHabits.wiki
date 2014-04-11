@@ -40,9 +40,11 @@
 
 习惯04（思考）：
    战略思考 - 关于战略思考的好书，理解战略思考的基础知识
+   
 
 习惯05（解困）：Derisk。 [[QuestioningSkill|提问]]
-      - 风险管理
+   - 应对困境 ProblemSolvingAbility
+   - 风险管理 DeriskAbility
 
 习惯06（沟通）：
    用故事来与他们沟通

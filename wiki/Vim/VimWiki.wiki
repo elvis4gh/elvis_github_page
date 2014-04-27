@@ -47,3 +47,49 @@ http://code.google.com/p/vimwiki/
 
 
 [[Wiki]]
+
+--------
+
+==编写一个语法模式==
+现在我们尝试写一个我们自己的语法文件，它针对于 AmiFormat 文本格式。
+语法高亮最基本的就是循环执行两个步骤－其一就是定义我们搜索的文本模式；其二就是定义如何显示。
+比如我们要找到所有 <b>any word</b> 这种模式，并将其作为黑体加粗显示。 首先我们需要在文本中比配这个模式，然后将这个模式和显示模式绑定，以便我们之后显示：
+:syntax match ourBold /&lt;b&gt;.*&lt;/b&gt;/ 
+:highlight default ourBold term=bold cterm=bold gui=bold
+第一行是要基于某个匹配模式新建一个语法，我们将其命名为ourBold,正则表达式生命如上。
+第二行我们要高亮显示上边的ourBold语法。我们生命的模式是一种默认的模式，也就是说用户或是其他显示模式可以覆盖掉他。我们可以声明三种不同的方式来表示ourBold，并且以这三种模式在vim中显示－黑白终端，彩色终端和GUI。
+有些时候，我们想在文本中写入一些任务列表作为我们的todo列表，为了更加醒目，通常要将TODO大写，但是我们相让他更加醒目的要如何呢？
+:syntax keyword ourTodo TODO FIXME XXX :hi def link ourTodo Todo
+首先我们定义’ourTodo’关键字，这是需要高亮显示的简单的文本，我们将这个模式绑定到已经在vim中存在的Todo组。 在vim中有好多已经提前定义好的颜色模式。将我们的语法风格绑定到已经存在的语法风格上是再好不过的了。 输入 :help group-name 来查看更多可用的组。
+接下来，我们在闭合的
+
+									1
+								
+
+										 ..  
+									
+中声明代码块，那我们该如何高亮显示呢？
+:syn region amiCode excludenl start=/[code]/ end=/[/code]/ :hi def link amiCode Identifier
+首先我们定义一个以开始模式和结束模式包围的文本区域（在我们的例子中很简单），然后绑定到已经存在的模式（Identifier）上。
+相同道理，我们将文本其他部分的定义添加到以定义的AmiFormat reference, 最后的脚本差不多是这个样子：
+" Vim syntax file for AmiFormat " Language: AmiFormat " Version: 1 " Last Change: 2006-12-28 Thu " Maintainer: www.swaroopch.com/contact/ " License: www.opensource.org/licenses/bsd-license.php " Reference: http://orangoo.com/labs/AmiNation/AmiFormat/  """""""""" Initial Checks """"""""""""""""""""""""""""""""""""""""""""  " To be compatible with Vim 5.8. See `:help 44.12` if version < 600 syntax clear elseif exists("b:current_syntax")  " Quit when a (custom) syntax file was already loaded finish endif  """""""""" Patterns """"""""""""""""""""""""""""""""""""""""""""""""""  " Emphasis syn match amiItalic /&lt;i&gt;.{-}</i>/ syn match amiBold /&lt;b&gt;.{-}</b>/  " Todo syn keyword amiTodo TODO FIXME XXX  " Headings syn match amiHeading /^h[1-6].s+.{-}$/  " Lists syn match amiList /^s**s+/ syn match amiList /^s*d+.s+/  " Classes syn match amiClass /^s*%(w+).*%/ syn match amiClass /^s*%{.*}.*%/  " Code syn region amiCode excludenl start=/[code]/ end=/[/code]/  " HTML syn region amiEscape excludenl start=/[escape]/ end=/[/escape]/  " Link syn match amiLink /".{-}":(.{-})/  " Image syn match amiImage /!.{-}(.{-})!/  """""""""" Highlighting """""""""""""""""""""""""""""""""""""""""""""" hi def amiItalic term=italic cterm=italic gui=italic
+hi def amiBold term=bold cterm=bold gui=bold
+
+hi def link amiHeading Title
+hi def link amiTodo Todo
+hi def link amiList PreProc
+hi def link amiClass Statement
+hi def link amiCode Identifier
+hi def link amiEscape Comment
+hi def link amiLink String
+hi def link amiImage String  """""""""" Finish """"""""""""""""""""""""""""""""""""""""""""""""""""  " Set syntax name let b:current_syntax = "amifmt"
+现在这个脚本可以很好的工作了，而且我已经将他上传到了 Vim scripts section 因为这个是我写的:）现在全世界所有的人都可以使用我写的语法高亮的脚本了。
+想要了解更多关于语法高亮的内容，参考：
+:help syntax
+:help usr_44.txt
+:help group-name
+:help pattern-overview
+:help mysyntaxfile
+:help new-filetype
+注意 以防万一某个语法文件将显示弄乱，你可以按 CTRL-L 来刷新屏幕回到之前的显示。 注意 你可能已经猜到了，当我们之前设置文件类型 filetype 的时候， vim自动使用相同文件名的 syntax 文件。
+

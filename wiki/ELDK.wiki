@@ -1,2 +1,4 @@
 Embedded Linux Development Kits
 [[http://www.denx.de/wiki/view/ELDK-5/WebHome |ELDK手册]]
+
+搭建 http://loosky.net/465.html

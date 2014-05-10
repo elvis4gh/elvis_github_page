@@ -2,6 +2,8 @@
 
 
 Linux<br>
+   开机启动配置器ntsysv 和 chkconfig
+   
 Apache - [[ApacheConfig]]<br>
 Mysql  [[MySqlConfig]]<br>
 PHP - <br>

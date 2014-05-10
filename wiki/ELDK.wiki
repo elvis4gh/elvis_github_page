@@ -2,3 +2,478 @@ Embedded Linux Development Kits
 [[http://www.denx.de/wiki/view/ELDK-5/WebHome |ELDK手册]]
 
 搭建 http://loosky.net/465.html
+
+
+ELDK开发手册
+
+1. 概要
+    这是嵌入式PowerPC, ARM和MIPS系统中使用DENX U-Boot和Linux的指导手册。文档中描述了如何在嵌入式PowerPC, ARM和MIPS系统上配置、编译、使用Das U-Boot（常常缩写为“U-Boot”）和Linux操作系统。文档中涵盖了所有你可能需要的用于配置、编译、运行U-Boot和Linux的工具。
+
+2. 绪论
+     首先，我们介绍如何安装交叉编译开发工具Embedded Linux Development Kit(ELDK)，这个开发套件你很有可能会用到——至少当你在标准的x86 PC上使用Linux或者Sun Solaris系统作为开发环境的时候，你会需要它的。
+     然后，我们会阐述通过串口与你的目标板连接：你需要配置一个终端控制程序，如cu或者kermit。
+     你常常需要通过网线把映像文件下载到你的目标板上。为了实现这个目的，你需要TFTP和DHCP/BOOTP服务器。文档中提供了简要的相关配置说明。
+     接下来则是描述如何配置和编译U-Boot使之适用于某个特定的平台，以及如何安装和在该硬件平台上运行。
+     下一步的工作是配置、建立和安装Linux。我们使用SELF(Simple Embedded Linux Framework)来展示如何建立一个开发环境（包括通过NFS挂载的根文件系统）和一个嵌入式目标板配置（从基于busybox的ramdisk映像文件中运行）。
+     本文档不会给出如何把U-Boot或者Linux移植到一个新的硬件平台，而是默认你的开发板已经被U-Boot和Linux所支持。
+    本手册各种文档格式的最新版本可以从以下网址获取：
+       · HTML http://www.denx.de/wiki/publish/DULG/DULG-canyonlands.html
+       · plain ASCII text http://www.denx.de/wiki/publish/DULG/DULG-canyonlands.txt
+       · PostScript European A4 format http://www.denx.de/wiki/publish/DULG/DULG-canyonlands.ps
+       · PDF European A4 format http://www.denx.de/wiki/publish/DULG/DULG-canyonlands.pdf
+
+3. 嵌入式Linux开发工具套件
+      嵌入式Linux开发工具套件(ELDK)包括GNU交叉开发工具，如编译器、binutils、gdb等工具，和一些已经编译好的目标工具以及负责提供在目标平台上函数调用的库文件。还免费提供了所有的源代码，包括全部补丁、扩展文件、以及用于编译开发工具使用的程序和脚本。安装包都是基于RPM包管理器。
+3.1 获取ELDK
+    可以通过以下方式获得ELDK。
+    ·DENX计算机系统光盘
+    ·从以下服务器中下载
+        FTP方式 
+           ftp://mirror.switch.ch/mirror/eldk/eldk/             
+ftp://sunsite.utk.edu/pub/linux/eldk/  
+ftp://ftp.sunet.se/pub/Linux/distributions/eldk/  
+           ftp://ftp.leo.org/pub/eldk/ 
+        HTTP方式  
+           http://mirror.switch.ch/ftp/mirror/eldk/eldk/
+           http://ftp.sunet.se/pub/Linux/distributions/eldk/
+           http://archiv.leo.org/pub/comp/os/unix/linux/eldk/
+3.2 初始安装
+    初始安装可以使用放在ELDK目录树根目录下的安装工具。安装工具使用语法如下；
+$ ./install [-d <dir>] [<cpu_family1>] [<cpu_family2>] ...
+-d <dir> 确定ELDK安装在哪个目录。如果省略ELDK会安装在当前目录。
+<cpu_family> 确定目标平台的CPU。如果此项设置了一项以上的参数，则会将这些CPU的支持都安装。如果省略将会安装所有CPU的支持。你也可以把ELDK安装到任何空目录下，这么做的唯一条件是你有那个目录的写和执行权限。安装过程并不需要超级用户的特权。由安装时的参数决定安装几个目标组件集合。ELDT包是肯定会安装的。
+$ export CROSS_COMPILE=ppc_4xx-          //加入环境变量
+$ PATH=$PATH:/opt/eldk/usr/bin:/opt/eldk/bin     //加入PATH
+这样加入的话，每次重启系统后必须重新加入，一劳永逸的办法是编辑/root/.bashrc
+加上
+export CROSS_COMPILE=ppc_4xx-          
+export PATH=$PATH:/opt/eldk/usr/bin:/opt/eldk/bin 
+重启系统后即可使用ELDK。
+
+4. 系统设置
+      在目标平台上安装和配置U-Boot和Linux需要一些工具。特别是在开发过程中，你需要和目标平台保持联系。这一节将告诉你如何配置你的主机以达到上述目的。
+4.1 设置串口
+      为了更好地使用U-Boot和Linux，你需要通过串口将目标板和你的主机连接。U-Boot和Linux可以配置成自动执行而不需要任何用户的干涉。
+      通过串口有很多种方法来控制你的目标板，比如说使用终端服务器。不过最常见的做法是使用你本机的串口，这时，你主机需要安装一个终端程序，如cu或者kermit。
+4.2 配置“kermit”
+kermit这个名字就代表了它是连接串口和网络的通信软件。事实上在很多计算机和操作系统上使用它，能够很好地满足我们的目的。
+kermit在执行其它命令之前，会执行你的用户目录下的初始文件.kermrc，所以可以非常简单的通过初始化命令来定制kermit。下面是使用U-Boot和Linux时推荐配置：
+~/.kermrc: 
+set line /dev/ttyS0
+set speed 115200
+set carrier-watch off
+set handshake none
+set flow-control none
+robust
+set file type bin
+set file name lit
+set rec pack 1000
+set send pack 1000
+set window 5
+这个设置假定你使用的是主机第一个串口（/dev/ttyS0），以115200这个波特率与目标板的串口连接。
+然后你可以连接目标板了：
+$ kermit -c
+Connecting to /dev/ttyS0, speed 115200.
+The escape character is Ctrl-\ (ASCII 28, FS)
+Type the escape character followed by C to get back,
+or followed by ? to see other options.
+----------------------------------------------------
+下载kermit这个软件时，你会发现有两个kermit包。你只需要安装ckermit。其中gkermit仅仅是实现kermit传输协议的一个命令行工具。如果你主机上的Linux系统没有安装kermit，你可以到kerimt的官方网站 http://www.columbia.edu/kermit/ 下载。
+4.3 使用minicom
+      minicom是另外一种非常流行的串口通信终端。很遗憾的是，很多用户发现在使用U-Boot和Linux时，minicom有很多问题，尤其是试图使用它来下载image的时候。因此，不推荐大家使用minicom。
+4.4 配置TFTP服务器
+    使用U-Boot下载Linux内核或者应用程序的最快捷的方法是通过网络传输。为了这一目的，U-Boot实现了TFTP协议（参见U-Boot中的tftpboot命令）。为了使主机支持TFTP，你必须确保TFTP后台程序/usr/sbin/in.tftpd已经安装。在RedHat系统中，你可以运行下面的命令来确认：
+$ rpm -q tftp-server
+如果没有安装，请从你的Linux安装盘或者其它媒介安装。
+大多数的Linux发行版都默认关闭TFTP服务。以RedHat系统为例，如果要使能TFTP服务，编辑文件/etc/xinetd.d/tftp，移除这一行：
+disable = yes
+或者注释掉它,或者修改disable = no
+此外，确保/tftpboot目录存在，而且有访问权限（至少应该"dr-xr-xr-x"）。
+
+5. Das U-Boot
+5.1 当前版本
+Das U-Boot（或者简称“U-Boot”）是针对嵌入式PowerPC, ARM, MIPS和x86处理器的开放源代码软件。U-Boot项目已经在Sourceforge设立，你可以访问这个官方网站：http://www.denx.de/wiki/UBoot
+U-Boot最新版的源代码可以在Sourcefoge通过匿名CVS得到。当要求输入匿名用户anonymous的密码时只需要直接按下回车键。
+$ cvs -d:pserver:anonymous@www.denx.de:/cvsroot login
+$ cvs -z6 -d:pserver:anonymous@www.denx.de:/cvsroot co -P u-boot
+官方发布的U-Boot也可以通过FTP方式获取。你可以到ftp://ftp.denx.de/pub/u-boot/下载tar形式的压缩包。
+或者通过git的方式获取：
+git clone git://www.denx.de/git/u-boot.git u-boot/
+git clone http://www.denx.de/git/u-boot.git u-boot/
+git clone rsync://www.denx.de/git/u-boot.git u-boot/
+5.2 源代码包的解压
+如果你是通过CVS得到的U-Boot源代码，你可以跳过这一步，因为你得到的已经是解压后的目录树了。如果你是从FTP服务器上下载的tar压缩包，那么你需要按照以下步骤解压：
+$ cd /opt/eldk/usr/src
+$ wget ftp://ftp.denx.de/pub/u-boot/u-boot-1.3.2.tar.bz2
+$ rm -f u-boot
+$ bunzip2 < u-boot-0.4.5.tar.bz2 | tar xf -
+$ ln -s u-boot-0.4.5 u-boot
+$ cd u-boot
+5.3 配置
+$ export BUILD_DIR=/opt/eldk/build  //指定编译的输出目录
+    进入U-Boot源代码根目录后，可以先使用如下命令确保已经清除以前编译的结果：
+$ make distclean
+    下一步是为Makalu板配置U-Boot：
+$ make makalu_config
+（译者注：应该根据你自己的具体开发板配置，如$ make <yourboard>_config，如果没有相应的开发板，应该自己照着建立相应的目录和配置文件。）
+    最后我们可以开始编译U-Boot了：
+ $ make all
+5.4 安装
+5.4.1 动手之前
+5.4.1.1 安装所需
+    以下的章节假定你的开发板使用flash作为存储设备。如果不是，则以下的指令不会工作。如果你想使用U-Boot，需要换掉存储设备。
+5.4.1.2 开发板识别数据
+所有的Makalu开发板使用一个序列号加以识别。而且开发板需要分配一个以太网MAC地址。如果这些数据丢失，你可能会失去授权。在安装U-Boot或者改变开发板的配置之前，你需要搜集足够的信息。
+5.4.2 使用BDM/JTAG调试器安装U-Boot.bin
+    把数据烧入flash中的一个简单而又快速的办法是通过BDM或者JTAG接口的调试器或者flash烧写器。当flash中没有任何数据（比如说一块新的开发板），这种方法是唯一的选择。
+    我们（强烈推荐）使用Abatron公司的BDI2000（见http://www.abatron.ch/BDI/bdiGDB.html )。
+    其它的BDM/JTAG调试器也可以使用，但是如何操作它们不是本文档要讨论的范围。如果你想使用别的工具请参照它们的说明文档。（我没有使用BDI2000，故略去操作BDI2000的方法。我烧写u-boot.bin就是简单地通过JTAG口。）
+5.4.3 使用U-Boot安装U-Boot.bin
+    如果U-Boot已经在你的板子上安装运行，你可以使用这些命令来下载新的U-Boot映像来代替当前的。
+    警告：在你安装新的映像之前，你必须擦除当前的u-boot.bin。如果出现什么差错，你的开发板将不能运行。因此强烈建议：
+    做一个能工作的U-Boot映像文件的备份；
+    你清楚如何在一个新的开发板上安装u-boot.bin。
+    过程如下：
+=> tftp 100000 /tftpboot/uboot.bin
+ARP broadcast 1
+TFTP from server 10.0.0.2; our IP address is 10.0.0.100
+Filename ''''/tftpboot/uboot.bin''''.
+Load address: 0x100000
+Loading: ###############################
+done
+Bytes transferred = 155376 (25ef0 hex)
+=> protect off 40000000 4003FFFF
+Un-Protected 5 sectors
+=> era 40000000 4003FFFF
+Erase Flash from 0x40000000 to 0x4003ffff
+......... done
+Erased 5 sectors
+=> cp.b 100000 40000000 $(filesize)
+Copy to Flash... done
+=> setenv filesize
+=> saveenv
+Saving Enviroment to Flash...
+Un-Protected 1 sectors
+Erasing Flash...
+.. done
+Erased 1 sectors
+Writing to Flash... done
+Protected 1 sectors
+=> reset
+5.5 工具的安装
+    U-Boot加载Linux内核、Ramdisk或者其它映像时使用一种特殊的映像格式。这种格式包含了一些信息，如创建时间、操作系统、压缩格式、映像类型、映像名和CRC32校验和。
+    mkimage用来创建这种格式的映像文件或者显示它包含的信息。如果使用ELDK，那么mkimage这个命令已经包含在ELDK中。
+    如果你不想使用ELDK，你应该把mkimage安装在某个能够直接执行的目录里，比如：
+$ cp tools/mkimage /usr/local/bin/
+5.6 初始化
+    初始化你的Makalu板上的U-Boot，你需要通过终端连接板子的串口。
+    Makalu板的串口默认配置是波特率为115200/8N1(115200bps，每个字符8bit，无奇偶校验，1bit停止位，无握手)。
+    如果你的主机是Linux操作系统，我们建议你用kermit或者cu作为终端控制程序。确定硬件和软件控制流都已经关闭。
+5.7 开始的步骤
+    在默认配置中，U-Boot运行在一种互动模式，它通过串口“UART1”提供命令行形式的用户接口。
+    这意味着U-Boot显示一个提示符(默认是：=>)，等待着接受用户的输入。然后你输入一个命令，按下回车键。U-Boot将运行这个命令，然后又出现提示符等待下一条命令。
+    你可以使用help（或者简单地一个?）来查看所有的U-Boot命令。它将会列出在你当前配置下所有支持的命令。[请注意到尽管U-Boot提供了很多配置选项，并不是所有选项都支持各种处理器和开发板，有些选项可能在你的配置中并没有被选上。]
+=> help
+? - alias for 'help'
+askenv - get environment variables from stdin
+autoscr - run script from memory
+base - print or set address offset
+bdinfo - print Board Info structure
+boot - boot default, i.e., run 'bootcmd'
+bootd - boot default, i.e., run 'bootcmd'
+bootelf - Boot from an ELF image in memory
+bootm - boot application image from memory
+bootp - boot image via network using BootP/TFTP protocol
+bootstrap - program the I2C bootstrap EEPROM
+bootvx - Boot vxWorks from an ELF image
+cmp - memory compare
+coninfo - print console devices and information
+cp - memory copy
+crc32 - checksum calculation
+date - get/set/reset date & time
+dhcp - invoke DHCP client to obtain IP/boot params
+dtt - Digital Thermometer and Thermostat
+echo - echo args to console
+eeprom - EEPROM sub-system
+erase - erase FLASH memory
+exit - exit script
+ext2load- load binary file from a Ext2 filesystem
+ext2ls - list files in a directory (default /)
+fatinfo - print information about filesystem
+fatload - load binary file from a dos filesystem
+fatls - list files in a directory (default /)
+fdt - flattened device tree utility commands
+flinfo - print FLASH memory information
+getdcr - Get an AMCC PPC 4xx DCR's value
+getidcr - Get a register value via indirect DCR addressing
+go - start application at address 'addr'
+help - print online help
+icrc32 - checksum calculation
+iloop - infinite loop on address range
+imd - i2c memory display
+iminfo - print header information for application image
+imls - list all images found in flash
+imm - i2c memory modify (auto-incrementing)
+imw - memory write (fill)
+imxtract- extract a part of a multi-image
+inm - memory modify (constant address)
+iprobe - probe to discover valid I2C chip addresses
+irqinfo - print information about IRQs
+isdram - print SDRAM configuration information
+itest - return true/false on integer compare
+loadb - load binary file over serial line (kermit mode)
+loads - load S-Record file over serial line
+loady - load binary file over serial line (ymodem mode)
+loop - infinite loop on address range
+loopw - infinite write loop on address range
+md - memory display
+mdc - memory display cyclic
+mii - MII utility commands
+mm - memory modify (auto-incrementing)
+mtest - simple RAM test
+mw - memory write (fill)
+mwc - memory write cyclic
+nand - NAND sub-system
+nboot - boot from NAND device
+nfs - boot image via network using NFS protocol
+nm - memory modify (constant address)
+pci - list and access PCI Configuration Space
+ping - send ICMP ECHO_REQUEST to network host
+printenv- print environment variables
+protect - enable or disable FLASH write protection
+rarpboot- boot image via network using RARP/TFTP protocol
+reginfo - print register information
+reset - Perform RESET of the CPU
+run - run commands in an environment variable
+saveenv - save environment variables to persistent storage
+setdcr - Set an AMCC PPC 4xx DCR's value
+setenv - set environment variables
+setidcr - Set a register value via indirect DCR addressing
+sleep - delay execution for some time
+test - minimal test like /bin/sh
+tftpboot- boot image via network using TFTP protocol
+usb - USB sub-system
+usbboot - boot from USB device
+version - print monitor version
+=>使用help <command>你可以得到更多的命令信息：
+=> help tftpboot
+tftpboot [loadAddress] [[hostIPaddr:]bootfilename]
+=>
+=> help setenv printenv
+setenv name value ...
+- set environment variable 'name' to 'value ...'
+setenv name
+- delete environment variable 'name'
+printenv
+- print values of all environment variables
+printenv name ...
+- print value of environment variable 'name'
+=>
+大多数命令可以缩写，只要字符串的内容仍然可以被确定：
+=> help fli tftp
+flinfo
+- print information for all FLASH memory banks
+flinfo N
+- print information for FLASH memory bank # N
+tftpboot [loadAddress] [[hostIPaddr:]bootfilename]
+=>
+5.8 首次上电
+把主机指定的串口和在Makalu板上标有UART1的端口连接，运行终端程序，给Makalu板接上电源。你可以看到如下信息：
+=> reset
+U-Boot 1.3.3-rc2-01466-g4f27098 (May 1 2008 - 13:57:57)
+CPU: AMCC PowerPC 460EX Rev. A at 600 MHz (PLB=200, OPB=100, EBC=100 MHz)
+Security/Kasumi support
+Bootstrap Option H - Boot ROM Location I2C (Addr 0x52)
+Internal PCI arbiter disabled
+32 kB I-Cache 32 kB D-Cache
+Board: Canyonlands - AMCC PPC460EX Evaluation Board, 2*PCIe, Rev. 13
+I2C: ready
+DTT: 1 is 48 C
+DRAM: 256 MB (ECC not enabled, 400 MHz, CL3)
+FLASH: 64 MB
+NAND: 32 MiB
+PCI: Bus Dev VenId DevId Class Int
+PCIE0: link is not up.
+PCIE0: initialization as root-complex failed
+PCIE1: link is not up.
+PCIE1: initialization as root-complex failed
+Net: ppc_4xx_eth0, ppc_4xx_eth1
+Type run flash_nfs to mount root filesystem over NFS
+Hit any key to stop autoboot: 0
+=>
+=>
+你可以按下任意键来中止倒计数。如果你不那么做，你可能会看到一些（无关紧要的）错误，因为系统没有初始化。
+有时你可能会看到一种信息：
+*** Warning - bad CRC, using default environment
+    这条信息没有害处，只要你初始化和保存环境变量之后，它就不会出现了。
+    首先，你必须输入你的开发板的序列号和网卡地址。需要特别注意的是，这些参数是写保护的，一旦保存了就无法改变（通常制造商已经设置好了）。使用U-Boot的setenv命令可以输入数据，命令后面跟上变量名和值，参数之间用空格（或者Tab符）隔开。例如，使用变量名serial#设置开发板的ID或者说序列号，变量名ethaddr用于设置以太网地址：
+=> => setenv ethaddr !!!!!!FILL_THIS!!!!!!
+=> setenv serial# CF56-216F-400A
+    使用printenv确认你已经输入正确的值：
+=> printenv serial# ethaddr
+## Error: "serial#" not defined
+ethaddr=5e:ed:18:38:81:85
+=>
+    请仔细核查显示值是否正确！等保存之后你将不能更正任何错误。如果发现错误，请重新启动开发板。如果检查无误，你可以使用saveenv命令永久保存这些参数。
+=> saveenv
+Saving Environment to Flash...
+Un-Protected 1 sectors
+Un-Protected 1 sectors
+Erasing Flash...
+. done
+Erased 1 sectors
+Writing to Flash... done
+Protected 1 sectors
+Protected 1 sectors
+=>
+5.9 U-Boot命令介绍
+    这一节将介绍U-Boot中最重要的指令。U-Boot可配置性非常强，所以并不是所有的命令都已经在你的硬件平台上安装，此外可能也有这儿没提到的命令。你可以使用help命令来显示根据你的配置所有可用的命令列表。
+    对于大多数命令，你不必打全这些命令，只需输入一些字符足以。比如，help可以简写为h。
+    一些命令的执行依赖于U-Boot的配置以及U-Boot中一些环境变量的定义。
+    所有的U-Boot命令都把输入的数字当作十六进制的格式。
+    不要使用除了退格键之外的其它编辑键，因为在诸如环境变量中隐藏的字符是很难被发现的。
+具体命令略
+
+6. Linux内核的编译
+6.1 下载Linux内核
+可以通过git下载到最新的内核，命令如下：
+$ cd /opt/eldk/usr/src
+$ git clone git://www.denx.de/git/linux-2.6-denx.git linux-2.6-denx
+$ cd linux-2.6-denx
+6.2 内核的配置及编译
+下面的步骤需要powerpc的交叉开发工具，所以您必须确认您的PATH变量中有ELDK的编译工具的地址。
+首先使用下面的命令清除以前的编译信息：
+$ make mrproper
+使用下面的命令导入适合Makalu开发板的默认配置，这些配置是经过官方多次测试的：
+$ make ARCH=powerpc CROSS_COMPILE=ppc_4xx- makalu_defconfig     //导入默认配置
+注：这些默认的配置文件位于arch/powerpc/configs/XXX_defconfig ，根据您的开发板的型号选择。如果找不到相应的配置文件，可以去arch/ppc/configs/中寻找相应的配置文件，那里还有一些。makalu_defconfig这个就是位于arch/ppc/configs/下面，而arch/powerpc/configs/中没有。
+当然您还可以自己去修改内核的配置，使用如下命令：
+$ make ARCH=powerpc CROSS_COMPILE=ppc_4xx- config           //手动改动配置
+或者
+$ make ARCH=powerpc CROSS_COMPILE=ppc_4xx- menuconfig           //手动改动配置
+注：因为一些问题（尤其是老版本的内核），"make xconfig"这个命令不被推荐
+使用下面的命令编译内核：
+$ make ARCH=powerpc CROSS_COMPILE=ppc_4xx- uImage               //编译 
+编译生成的目标文件uImage是通过mkimage（位于U-Boot包中） 创建的，位于/opt/eldk/usr/src/linux-2.6-denx/arch/powerpc/boot/uImage，它可以通过U-Boot来下载和引导
+配置和安装模块使用如下命令：
+$ make ARCH=powerpc CROSS_COMPILE=ppc_4xx- modules
+$ make ARCH=powerpc CROSS_COMPILE=ppc_4xx- INSTALL_MOD_PATH=/opt/eldk/ppc_4xx modules_install
+6.3 安装
+将文件复制到tftpboot目录下面，然后通过tftp烧写：
+$ cp arch/powerpc/boot/uImage /tftpboot/uImage
+
+7. 根文件系统的设计与编译
+7.1 根文件系统的设计
+嵌入式开发中根文件系统的设计并不是很容易的事，主要的问题是：
+（1）里面要包括哪些内容
+（2）使用哪种文件系统类型
+（3）怎样存储和引导
+现在假设根文件系统中的内容我们已经知道，那么我们主要关注后面两点。
+我们使用ELDK安装时生成的镜像 SELF (Simple Embedded Linux Framework)，它位于 /opt/eldk/<architecture>/images/ 文件夹下，ramdisk_image.gz这个文件便是。
+（1）解压ramdisk：
+$ gzip -d -c -v /opt/eldk/ppc_4xx/images/ramdisk_image.gz >/tmp/ramdisk_image    //解压
+（2）挂载ramdisk
+$ mount -o loop /tmp/ramdisk_image /mnt/tmp                                      //挂载
+（3）创建压缩文件，为了避免下面步骤需要root权限，不包括设备文件
+$ cd /mnt/tmp
+$ tar -zc --exclude='dev/*' -f /tmp/rootfs.tar.gz *                            //创建tarball，为了避免下面步骤需要root权限，不包括设备文件
+（4）将设备文件创建成单独的压缩文件（使用cramfs）
+$ tar -zcf /tmp/devices.tar.gz dev/                //将设备文件创建成单独的tarball
+$ cd /tmp
+（5）取消挂载
+$ umount /mnt/tmp               //取消挂载
+7.2 根文件系统的编译
+我们使用ramdisk的形式来生成根文件系统的镜像文件，一般情况下，它使用ext2文件系统。
+（1）创建目录，解压压缩文件
+$ cd /opt/eldk/
+$ mkdir rootfs
+$ cd rootfs
+$ tar zxf /tmp/rootfs.tar.gz
+（2）我们使用genext2fs来创建ramdisk镜像文件，因为它使用一个简单的文本文件来描述设备，因而不需要root权限。使用设备表rootfs_devices.tab：
+#<name> <type> <mode> <uid> <gid> <major> <minor> <start> <inc> <count>
+/dev d 755 0 0 - - - - -
+/dev/console c 640 0 0 5 1 - - -
+/dev/fb0 c 640 0 0 29 0 - - -
+/dev/full c 640 0 0 1 7 - - -
+/dev/hda b 640 0 0 3 0 - - -
+/dev/hda b 640 0 0 3 1 1 1 16
+/dev/kmem c 640 0 0 1 2 - - -
+/dev/mem c 640 0 0 1 1 - - -
+/dev/mtd c 640 0 0 90 0 0 2 16
+/dev/mtdblock b 640 0 0 31 0 0 1 16
+/dev/mtdr c 640 0 0 90 1 0 2 16
+/dev/nftla b 640 0 0 93 0 - - -
+/dev/nftla b 640 0 0 93 1 1 1 8
+/dev/nftlb b 640 0 0 93 16 - - -
+/dev/nftlb b 640 0 0 93 17 1 1 8
+/dev/null c 640 0 0 1 3 - - -
+/dev/ptyp c 640 0 0 2 0 0 1 10
+/dev/ptypa c 640 0 0 2 10 - - -
+/dev/ptypb c 640 0 0 2 11 - - -
+/dev/ptypc c 640 0 0 2 12 - - -
+/dev/ptypd c 640 0 0 2 13 - - -
+/dev/ptype c 640 0 0 2 14 - - -
+/dev/ptypf c 640 0 0 2 15 - - -
+/dev/ram b 640 0 0 1 0 0 1 2
+/dev/ram b 640 0 0 1 1 - - -
+/dev/rtc c 640 0 0 10 135 - - -
+/dev/tty c 640 0 0 4 0 0 1 4
+/dev/tty c 640 0 0 5 0 - - -
+/dev/ttyS c 640 0 0 4 64 0 1 8
+/dev/ttyp c 640 0 0 3 0 0 1 10
+/dev/ttypa c 640 0 0 3 10 - - -
+/dev/ttypb c 640 0 0 3 11 - - -
+/dev/ttypc c 640 0 0 3 12 - - -
+/dev/ttypd c 640 0 0 3 13 - - -
+/dev/ttype c 640 0 0 3 14 - - -
+/dev/ttypf c 640 0 0 3 15 - - -
+/dev/zero c 640 0 0 1 5 - - -
+具体的格式描述请参见genext2fs的帮助文档。
+（3）使用genext2fs来创建一个ext2文件系统的镜像：
+$ ROOTFS_DIR=/opt/eldk/rootfs # 路径
+$ ROOTFS_SIZE=8192 # 文件系统镜像的大小，如果此值太小，当生成的文件超过此值时，会报错
+$ ROOTFS_FREE=100 # free space wanted
+$ ROOTFS_INODES=380 # number of inodes
+$ ROOTFS_DEVICES=rootfs_devices.tab # device description file
+$ ROOTFS_IMAGE=ramdisk.img # generated file system image
+$ genext2fs -U \
+-d ${ROOTFS_DIR} \
+-D ${ROOTFS_DEVICES} \
+-b ${ROOTFS_SIZE} \
+-r ${ROOTFS_FREE} \
+-i ${ROOTFS_INODES} \
+${ROOTFS_IMAGE}
+（4）压缩文件
+$ gzip -v9 ramdisk.img
+（5）创建适合U-Boot的images：
+$ mkimage -T ramdisk -C gzip -n 'Test Ramdisk Image' \> 
+  -d ramdisk.img.gz uRamdisk
+
+至此，ELDK的开发环境便基本搭建完成。
+
+转载请注明：自由的风 ? ELDK开发手册
+
+继续浏览有关 ELDKLinuxU-Boot 的文章
+上一篇 Linux文件体系介绍可以牵手时不要放手 下一篇
+与本文相关的文章
+Linux下多路径使用及大容量硬盘挂载
+Linux下多路径使用及大容量硬盘挂载
+长微博生成（html to image）原理
+长微博生成（html to image）原理
+Web网站性能/压力测试工具WebBench使用详解
+Web网站性能/压力测试工具WebBench使用详解
+Nagios监控配置
+Nagios监控配置
+Nagios安装和配置
+Nagios安装和配置
+基于LNMP+uWSGI部署Django应用
+基于LNMP+uWSGI部署Django应用
+Linux（CentOS）挂载硬盘
+Linux（CentOS）挂载硬盘
+Linux索引节点(Inode)用满导致的一次故障
+Linux索引节点(Inode)用满导致的一次故障
+发表我的评论
+
+ 提交评论有人回复时邮件通知我 表情
+? 2005-2014 自由的风　Powered by WordPress & Theme D8. 备案号. Archiver.
+

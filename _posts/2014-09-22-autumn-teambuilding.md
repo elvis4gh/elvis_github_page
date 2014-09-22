@@ -8,7 +8,22 @@ tags:
 ---
 
 野花的图片
+
 ![alt text](images/2014_Sep_TB/IMAG0507.jpg "flower")
+
+![alt text](/images/2014_Sep_TB/IMAG0507.jpg "flower")
+
+![alt text](elvis_github_page/images/2014_Sep_TB/IMAG0507.jpg "flower")
+
+![alt text](/elvis_github_page/images/2014_Sep_TB/IMAG0507.jpg "flower")
+
+
+![alt text]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg "flower")
+
+![alt text]({{site.baseurl}}images/2014_Sep_TB/IMAG0507.jpg "flower")
+
+![alt text](http://elvis4gh.github.com/elvis_github_page/images/2014_Sep_TB/IMAG0507.jpg "flower")
+
 
 
 

@@ -8,7 +8,7 @@ tags:
 ---
 
 野花的图片
-![alt text](/images/2014_Sep_TB/IMAG0507.jpg "flower")
+![alt text](images/2014_Sep_TB/IMAG0507.jpg "flower")
 
 
 

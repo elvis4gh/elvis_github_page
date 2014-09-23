@@ -15,6 +15,11 @@ tags:
 
 ![flower]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =400x300 "f1")
 
+![flower]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =800x600 "f1")
+
+![floadsfwer]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =800x600 "f1")
+
+![flower]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =600x800 "f1")
 
 
 

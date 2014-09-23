@@ -196,6 +196,8 @@ article img {
 border: none;
 -webkit-box-shadow: 3px 3px 7px #777;
 -moz-box-shadow: 3px 3px 7px #777;
+height:150px;
+width: 200px;
 }
 #content p, ul, ol, hr {
 margin-bottom: 24px;
@@ -259,3 +261,4 @@ color: #ddd;
 footer p {
 margin-top: -15px;
 } 
+

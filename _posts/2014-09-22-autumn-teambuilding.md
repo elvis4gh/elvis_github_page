@@ -10,11 +10,11 @@ tags:
 野花的图片
 
 
-![alt text](/elvis_github_page/images/2014_Sep_TB/IMAG0507.jpg "flower")
+![flower](/elvis_github_page/images/2014_Sep_TB/IMAG0507.jpg "fl")
 
-![alt text]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg "flower")
+![flower]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg "fl")
 
-![alt text](http://elvis4gh.github.com/elvis_github_page/images/2014_Sep_TB/IMAG0507.jpg "flower")
+![flower](http://elvis4gh.github.com/elvis_github_page/images/2014_Sep_TB/IMAG0507.jpg "fl")
 
 
 

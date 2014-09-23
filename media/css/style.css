@@ -260,3 +260,5 @@ footer p {
 margin-top: -15px;
 } 
 
+/*Elvis add for image - ...*/
+img[alt=flower] { width: 200px; }

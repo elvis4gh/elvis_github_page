@@ -7,19 +7,22 @@ categories:
 tags:
 ---
 
-野花的图片
+火龙果山
+![dragon_fruit]({{site.baseurl}}/images/2014_Sep_TB/IMAG0482.jpg =600x450 "f1")
 
-![flower]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =100x20 "fl")
+水库鱼
+![fish_]({{site.baseurl}}/images/2014_Sep_TB/IMAG0488.jpg =600x450 "f1")
 
-![flower]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =400x300)
+翠绿流溪河
+![liuxi_river]({{site.baseurl}}/images/2014_Sep_TB/IMAG0492.jpg =600x450 "f1")
 
-![flower]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =400x300 "f1")
+溪头石巷
+![village]({{site.baseurl}}/images/2014_Sep_TB/IMAG0510.jpg =600x450 "f1")
 
-![flower]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =800x600 "f1")
+清澈见底的沙溪
+![stream]({{site.baseurl}}/images/2014_Sep_TB/IMAG0499.jpg =600x450 "f1")
 
-![floadsfwer]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =800x600 "f1")
-
-![flower]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =600x800 "f1")
-
+野花朵朵
+![flower]({{site.baseurl}}/images/2014_Sep_TB/IMAG0507.jpg =600x450 "f1")
 
 
